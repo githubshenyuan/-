@@ -1,0 +1,31 @@
+用作私有仓库的服务器设置(假设ip为：192.168.1.1)
+	拉取仓库镜像（docker启动）
+		docker pull registry
+	启动容器
+		docker run -d -p 5000:5000 -v /opt/data/registry:/var/lib/registry  registry
+用作开发的服务器设置(假设ip为：192.168.1.2)
+	这里拉取一个centos7的一个镜像作为例子
+		docker pull centos
+	修改一下该centos镜像的tag
+		docker tag busybox 192.168.1.1:5000/centos-demo
+	镜像上传的私有仓库	
+		docker push 192.168.1.1:5000/centos-demo
+
+问题记录：
+1.初次上传镜像的时候报错
+	信息：
+		The push refers to repository [192.168.1.9:5000/centos-demo]
+		Get https://192.168.1.1:5000/v2/: http: server gave HTTP response to HTTPS client
+		大体意思是  http 和 https的问题
+	解决：
+		打开配置文件
+			vi /usr/lib/systemd/system/docker.service
+		添加配置 
+			在ExecStart=/usr/bin/dockerd后 添加 --insecure-registry 192.168.1.1:5000
+		重启dockers
+			systemctl daemon-reload
+			systemctl restart docker
+2、镜像拉取缓慢
+	解决：（未确认）
+		--registry-mirror=https://1234abcd.mirror.aliyuncs.com
+		

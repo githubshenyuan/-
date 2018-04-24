@@ -1,0 +1,19 @@
+1、docker启动Jenkins镜像
+	docker run --name jenkins -u 0 -d -p 8080:8080 -p 50000:50000 -v /home/jenkins_home:/var/jenkins_home jenkins
+		其中：/home/jenkins_home 是你要将Jenkins挂载到本地的目录
+
+
+		
+
+
+
+{  
+    "server":"0.0.0.0",  
+    "server_port":8383,  
+    "local_address": "127.0.0.1",  
+    "local_port":1080,  
+    "password":"beipiao2018",  
+    "timeout":300,  
+    "method":"aes-256-cfb",  
+    "fast_open": false  
+}  

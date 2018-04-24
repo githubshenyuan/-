@@ -1,0 +1,7 @@
+1、初始化docker master
+	docker swarm init --advertise-addr 192.168.1.121
+2、获取主机token
+	docker swarm join-token worker
+3、从机加入主机
+	docker swarm join --token SWMTKN-1-49ueborzkg0v6l3xu2g1d5zfgsjn1xobqvctwozq14m07n1ak0-2llwi551ii09zeyus5r3zi3un 192.168.71.131:2377
+

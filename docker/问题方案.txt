@@ -1,0 +1,8 @@
+1、docker开机重启问题
+	解决方案：systemctl enable docker
+2、docker拉取镜像缓慢
+	解决方案：使用国内镜像仓库
+		打开配置：vi /etc/docker/daemon.json （没有可以新建）
+		添加配置：{"registry-mirrors": ["https://6l3e41tc.mirror.aliyuncs.com"]}
+		重启守护进程：systemctl daemon-reload
+		重启docker服务： systemctl restart docker

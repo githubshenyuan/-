@@ -1,0 +1,28 @@
+1、安装docker-machine
+	linux：
+		执行一下命令：
+		curl -L https://github.com/docker/machine/releases/download/v0.12.1/docker-machine-`uname -s`-`uname -m` >/tmp/docker-machine &&
+		chmod +x /tmp/docker-machine &&
+		sudo cp /tmp/docker-machine /usr/local/bin/docker-machine
+2、免密登陆linux机器
+	生成密钥：
+		ssh-keygen -t rsa
+	将公钥拷贝到远端机器中（-i 参数指定公钥，可以忽略后缀名）：
+		ssh-copy-id -i id_rsa root@192.168.1.121（@后面的IP是远程机器的ip，回车后会要求填写密码）
+	测试无密码登陆远程机器：
+		ssh root@192.168.1.121 （@后面的IP是远程机器的ip）
+3、通过Docker Machine 在远程机器安装并控制docker
+	使用命令在远程机器上安装docker：
+		docker-machine create --driver generic --generic-ip-address=192.168.1.121 name (--driver 后跟着驱动类型，192.168.1.121是远程机器的ip， name是给远程机器起个名字)
+
+
+
+
+遇到的那问题：
+	1、在远程机器上安装docker是失败：
+		提示：
+			Error creating machine: Error checking the host: Error checking and/or regenerating the certs: There was an error validating certificates for host "192.168.1.121:2376": dial 	tcp 192.168.1.121:2376: getsockopt: no route to host
+			You can attempt to regenerate them using 'docker-machine regenerate-certs [name]'.
+		解决方案：
+			执行命令：
+				docker-machine regenerate-certs name （name是 名称）
