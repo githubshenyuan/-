@@ -1,0 +1,4 @@
+1、获取用户的信息后，通过懒加载无法级联获取其下多对多的对象
+	报错：Unable to evaluate the expression Method threw 'org.hibernate.LazyInitializationException' exception.
+	原因：session被关闭
+	解决方案：在其执行的获取权限的层加失误注解（@Transactional）

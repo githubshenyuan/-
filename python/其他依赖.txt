@@ -1,0 +1,4 @@
+1、定时任务依赖
+	pip install APScheduler
+2、添加页面解析依赖
+	pip install BeautifulSoup
