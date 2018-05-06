@@ -1,0 +1,11 @@
+1、安装pywin32模块
+	下载地址：
+		https://jaist.dl.sourceforge.net/project/pywin32/pywin32/Build%20221/pywin32-221.win-amd64-py2.7.exe
+	实例：
+		这里以下载到的 setuptools-39.1.0.zip 为例，解压后到其目录下，执行命令 python setup.py install
+2、安装pyinstaller打包模块
+	命令：(管理员)
+		pip install pyinstaller
+3、将python脚本打包成win32程序：
+	命令：（路径不能有中文）
+		pyinstaller -F PythonService.py
