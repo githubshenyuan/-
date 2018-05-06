@@ -3,7 +3,7 @@
 		其中：/home/jenkins_home 是你要将Jenkins挂载到本地的目录
 
 
-		
+docker run --name jenkins -u 0 -d -p 8080:8080 -p 50000:50000 -v /home/jenkins_home:/usr/share/jenkins jenkins	
 
 
 
