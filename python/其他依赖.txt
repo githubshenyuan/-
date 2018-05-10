@@ -2,3 +2,5 @@
 	pip install APScheduler
 2、添加页面解析依赖
 	pip install BeautifulSoup4
+3、添加时间校准的依赖
+	pip install ntplib
