@@ -1,6 +1,0 @@
-1、chmod 改变文件或文件夹的权限(change mode)	
-	
-2、chown 改变文件的归属着者（change owner）
-	--带添加--
-3、chgrp 改变所属组（change group）
-	--带添加--
