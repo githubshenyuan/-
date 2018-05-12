@@ -1,0 +1,56 @@
+1、安装kubernetes应先卸载机器上现有的docker，否则会发生冲突
+	命令：
+		sudo yum remove docker \
+                  docker-common \
+                  docker-selinux \
+                  docker-engine
+2、安装 etcd kubernetes  docker flannel
+	命令：
+		yum -y install etcd docker kubernetes flannel
+3、配置 etcd
+	编辑配置文件：
+		vi /etc/etcd/etcd.conf
+	参考配置文件：
+		ETCD_NAME=default
+		ETCD_DATA_DIR="/var/lib/etcd/default.etcd"
+		ETCD_LISTEN_CLIENT_URLS="http://0.0.0.0:2379"
+		ETCD_ADVERTISE_CLIENT_URLS="http://localhost:2379"
+4、配置 kubernetes
+	编辑配置文件：
+		vi /etc/kubernetes/config
+	参考配置文件：
+		KUBE_LOGTOSTDERR="--logtostderr=true"
+		KUBE_LOG_LEVEL="--v=0"
+		KUBE_ALLOW_PRIV="--allow-privileged=false"
+		KUBE_MASTER="--master=http://192.168.1.121:8080"
+5、配置 apiserver
+	编辑配置文件：
+		vi /etc/kubernetes/apiserver
+	参考配置文件：
+		KUBE_API_ADDRESS="--address=0.0.0.0"
+		KUBE_API_PORT="--port=8080"
+		KUBELET_PORT="--kubelet-port=10250"
+		KUBE_ETCD_SERVERS="--etcd-servers=http://127.0.0.1:2379"
+		KUBE_SERVICE_ADDRESSES="--service-cluster-ip-range=10.254.0.0/16"
+		KUBE_ADMISSION_CONTROL="--admission-control=NamespaceLifecycle,NamespaceExists,LimitRanger,SecurityContextDeny,ResourceQuota"
+		KUBE_API_ARGS=""
+6、配置 flannel
+	编辑配置文件：
+		vi /etc/sysconfig/flanneld
+	参考配置文件：
+		FLANNEL_ETCD="http://192.168.20.145:2379"
+		FLANNEL_ETCD_KEY="/atomic.io/network"
+7、启动服务
+	命令：
+		systemctl restart etcd
+		systemctl restart docker
+		systemctl restart kube-apiserver
+		systemctl restart kube-controller-manager
+		systemctl restart kube-scheduler
+		systemctl restart flanneld
+		systemctl enable etcd
+		systemctl enable docker
+		systemctl enable kube-apiserver
+		systemctl enable kube-controller-manager
+		systemctl enable kube-scheduler
+		systemctl enable flanneld

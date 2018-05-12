@@ -1,0 +1,48 @@
+1、下载downloadonly插件,用于只下载不安装
+	yum install yum-plugin-downloadonly
+2、下载Docker安装包
+	yum install --downloadonly --downloaddir=/usr/local/docker docker
+3、拷贝安装包到其他机器
+	
+4、安装docker
+	rpm -ivh *.rpm
+	优先：
+	yum install -y *.rpm
+5、启动docker
+	systemctl start docker 
+6、设置开机启动
+	systemctl enable docker
+
+
+问题：
+	1、无法启动docker
+		报错信息：
+			Job for docker.service failed because the control process exited with error code. See "systemctl status docker.service" and "journalctl -xe" for details.
+		详细信息：（使用命令：journalctl -xe）
+			5月 03 15:03:03 localhost dockerd-current[18078]: Error starting daemon: SELinux is not supported with the overlay2
+		解决方案：
+			命令：
+				vi /etc/sysconfig/docker
+				修改参照：
+					--selinux-enabled
+					改为：
+					--selinux-enabled=false
+	2、执行docker search centos 时，提示没有权限
+		关闭防火墙：
+			systemctl stop firewalld
+		关闭当前selinux防火墙的安全策略
+			查询selinux安全策略：
+				/usr/sbin/sestatus
+				getenforce
+			临时关闭selinux安全策略：
+				setenforce 1
+			永久关闭selinux安全策略：
+				命令：
+					vi /etc/selinux/config
+					参考：
+						SELINUX=enforcing
+						改为：
+						SELINUX=disabled
+
+
+

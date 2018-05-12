@@ -1,0 +1,4 @@
+打开配置文件
+	vi /usr/lib/systemd/system/docker.service
+添加配置 
+	在ExecStart=/usr/bin/dockerd后 添加 -H tcp://0.0.0.0:2375 -H unix:///var/run/docker.sock

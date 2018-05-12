@@ -1,0 +1,18 @@
+1、配置yum 源
+	wget -O /etc/yum.repos.d/jenkins.repo http://jenkins-ci.org/RedHat/jenkins.repo
+2、导入公钥
+	rpm --import http://pkg.jenkins-ci.org/redhat/jenkins-ci.org.key
+3、安装
+	yum install -y jenkins
+4、启动服务
+	systemctl start jenkins
+
+jenkins配置文件路径：
+	/etc/sysconfig/jenkins
+jenkins启动配置路径
+	/etc/rc.d/init.d/jenkins
+安装遇到的问题
+	1、无法启动Jenkins
+		提示：Job for jenkins.service failed because the control process exited with error code. See "systemctl status jenkins.service" and "journalctl -xe" for details.
+		解决方案：修改 jenkins 启动脚本 vi /etc/rc.d/init.d/jenkins  添加jdk的路径
+		例子：在  /user/bin/java  后面添加 /usr/local/java/jdk1.8.0_152/bin/（这个是jdk安装路径）

@@ -1,0 +1,90 @@
+1、Kubernetes集群组件:
+	- etcd 一个高可用的K/V键值对存储和服务发现系统
+	- flannel 实现夸主机的容器网络的通信
+	- kube-apiserver 提供kubernetes集群的API调用
+	- kube-controller-manager 确保集群服务
+	- kube-scheduler 调度容器，分配到Node
+	- kubelet 在Node节点上按照配置文件中定义的容器规格启动容器
+	- kube-proxy 提供网络代理服务
+2、开发环境：
+	虚拟机分配：
+		master：
+			ip：192.168.1.131
+			服务：
+				etcd 
+				kube-apiserver
+				kube-scheduler
+				kube-controller-manager 
+		node：
+			ip：192.168.1.132
+			服务：
+				flannel
+				kube-proxy
+				kubelet
+				docker
+	虚拟机环境设置：
+		安装epel源：
+			 yum -y install epel-release
+		关闭防火墙：
+			systemctl stop firewalld
+			systemctl disable firewalld
+3、master机器
+	安装etcd和kubernetes-master
+		命令：
+			yum -y install etcd kubernetes-master
+	编辑配置：
+		vi /etc/etcd/etcd.conf
+		参考配置:
+			ETCD_NAME=default
+			ETCD_DATA_DIR="/var/lib/etcd/default.etcd"
+			ETCD_LISTEN_CLIENT_URLS="http://0.0.0.0:2379"
+			ETCD_ADVERTISE_CLIENT_URLS="http://localhost:2379"
+
+		vi /etc/kubernetes/apiserve
+		参考配置：
+			KUBE_API_ADDRESS="--insecure-bind-address=0.0.0.0"
+			KUBE_API_PORT="--port=8080"
+			KUBELET_PORT="--kubelet-port=10250"
+			KUBE_ETCD_SERVERS="--etcd-servers=http://127.0.0.1:2379"
+			KUBE_SERVICE_ADDRESSES="--service-cluster-ip-range=10.254.0.0/16"
+			KUBE_ADMISSION_CONTROL="--admission-control=NamespaceLifecycle,NamespaceExists,LimitRanger,SecurityContextDeny,ResourceQuota"
+			KUBE_API_ARGS=""
+
+	启动服务：
+		命令：
+			for SERVICES in etcd kube-apiserver kube-controller-manager kube-scheduler; do systemctl restart $SERVICES;systemctl enable $SERVICES;systemctl status $SERVICES ; done
+	在etcd中定义flannel网络：
+		命令：
+			etcdctl mk /atomic.io/network/config '{"Network":"172.17.0.0/16"}'
+4、node机器：
+	安装flannel和kubernetes-node：
+		命令：
+			yum -y install flannel kubernetes-node
+	编辑配置文件：
+		命令：
+			vi /etc/sysconfig/flanneld
+		参考配置：
+			FLANNEL_ETCD="http://192.168.1.131:2379" （这里的ip是master机器的ip）
+			FLANNEL_ETCD_KEY="/atomic.io/network"
+		命令：
+			vi /etc/kubernetes/config
+		参考配置:
+			KUBE_LOGTOSTDERR="--logtostderr=true"
+			KUBE_LOG_LEVEL="--v=0"
+			KUBE_ALLOW_PRIV="--allow-privileged=false"
+			KUBE_MASTER="--master=http://192.168.1.131:8080" (这里的ip是master机器的ip)
+		命令：
+			vi /etc/kubernetes/kubelet
+		参考配置：
+			KUBELET_ADDRESS="--address=0.0.0.0"
+			KUBELET_PORT="--port=10250"
+			KUBELET_HOSTNAME="--hostname-override=192.168.1.132" （这里的ip是本机的ip）
+			KUBELET_API_SERVER="--api-servers=http://192.168.1.131：:8080"(这里的ip是master机器的ip)
+			KUBELET_POD_INFRA_CONTAINER="--pod-infra-container-image=registry.access.redhat.com/rhel7/pod-infrastructure:latest"
+			KUBELET_ARGS=""
+	启动kube-proxy,kubelet,docker,flanneld等服务
+		命令：
+			for SERVICES in kube-proxy kubelet docker flanneld;do systemctl restart $SERVICES;systemctl enable $SERVICES;systemctl status $SERVICES; done
+5、验证集群是否安装成功
+	master机器执行命令；
+		kubectl get node

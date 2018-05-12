@@ -1,0 +1,4 @@
+1、@EnableEurekaClient和@EnableDiscoveryClient的区别
+	用法基本一致
+	区别在于 @EnableEurekaClient 只适用于 EurekaSever
+			 @EnableDiscoveryClient不仅适用于 EurekaServer 还适用于 consul、zookeeper 等

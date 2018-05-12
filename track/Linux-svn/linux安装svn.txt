@@ -1,0 +1,29 @@
+1、安装svn服务：
+	命令：
+		yum install -y subversion
+2、创建版本库：
+	命令：
+		mkdir  /usr/svn/svndir
+		svnadmin create  /usr/svn/svndir
+3、添加用户：
+	命令：
+		vi /usr/svn/svndir/conf/passwd
+		添加账号：
+			admin=admin
+4、给用户分配权限；	
+	命令：
+		vi /usr/svn/svndir/conf/authz
+		添加权限：
+			[/]
+			admin=rw
+5、配置svn：
+	命令：
+
+		添加参数：
+			anon-access=read
+			auth-access=write
+			password-db=passwd
+			authz-db=authz
+6、启动svn
+	命令：
+		 svnserve -d -r /usr/svn/svndir

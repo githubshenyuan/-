@@ -1,0 +1,8 @@
+1、无法安装pip
+	错误信息：
+		ImportError: No module named setuptools
+	分析：
+		无法找到setuptools模块，需要安装 setuptools 模块
+	解决方案：(管理员)
+		https://pypi.python.org/pypi/setuptools#windows-simplified
+		python setup.py install

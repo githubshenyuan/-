@@ -1,0 +1,10 @@
+1、下载pip
+	地址：https://pypi.org/project/pip/#downloads
+2、解压下载的pip
+	这里以下载的 pip-10.0.1.tar.gz 文件为例
+	进入目录执行，cmd中执行python setup.py install 命令
+3.配置环境变量
+	C:\Python27\Scripts
+4、安装itchat
+	pip install itchat
+5.以上操作务必以管理员身份运行

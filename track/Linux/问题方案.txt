@@ -1,0 +1,4 @@
+1、无法链接网络
+	错误提示：Cannot find a valid baseurl for repo : base/7/x86_64
+	解决方案：先 vi /etc/sysconfig/network-scripts/ifcfg-eth0（不同机器有所不同，我的是ifcfg-enp0s3），
+		然后修改配置 ONBOOT=yes 最后重启网络 service network restart
