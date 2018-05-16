@@ -1,0 +1,27 @@
+1、编写镜像文件dockerfile
+	视力：
+		# 依赖的基础镜像（镜像后面最好加上版本号，否则每次都是拉取最新版）
+		FROM centos
+		# 工作目录
+		WORKDIR /usr/svn/svndir
+		# 需要执行的命令（多条命令需要在一个RUN下面执行，尽量减少RUN的个数来优化镜像层次。）
+		# \ （不执行换行） && 前一条语句执行成功后才执行后一条语句
+		RUN set -x \
+		    && yum install -y subversion \
+		    && mkdir -p /usr/svn/svndir \
+		    && svnadmin create  /usr/svn/svndir
+		    && echo admin=admin >> /usr/svn/svndir/conf/passwd \
+		    && echo [\\]  >> /usr/svn/svndir/conf/authz \
+		    && echo admin=rw >> /usr/svn/svndir/conf/authz \
+		    && sed -i "s/# anon-access = read/anon-access = read/g"  /usr/svn/svndir/conf/svnserve.conf \
+		    && sed -i "s/# auth-access = write/auth-access = write/g"  /usr/svn/svndir/conf/svnserve.conf \
+		    && sed -i "s/# password-db = passwd/password-db = passwd/g"  /usr/svn/svndir/conf/svnserve.conf \
+		    && sed -i "s/# authz-db = authz/authz-db = authz/g"  /usr/svn/svndir/conf/svnserve.conf
+		# 暴露给外部的端口
+		EXPOSE 3690
+		# 停止的信号（没有了解其中的深意，后续补齐）
+		STOPSIGNAL SIGTERM
+		# 启动时需要执行的明林
+		CMD ["/usr/bin/svnserve", "-dr", "/usr/svn/svndir"]
+2、对当前目录下的 dokerfile 文件制作镜像
+	docker build -t centos:v1 

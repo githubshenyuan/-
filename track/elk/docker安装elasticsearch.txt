@@ -1,0 +1,18 @@
+一、安装elasticsearch
+	1、拉取elasticsearch镜像
+		docker pull elasticsearch
+	2、启动elasticsearch镜像
+		docker run --name elasticsearch -d -p 9200:9200 elasticsearch
+
+
+二、安装logstash
+	1、拉取logstash
+		docker pull logstash
+	2、启动logstash
+		docker run --name logstash -d -p 4560:4560 --rm logstash -e 'input { tcp { port => 4560 codec => json_lines } } output { elasticsearch { action => "index"  hosts =>  ["192.168.1.111:9200"] index  => "abcd" } stdout { codec => rubydebug  } }'
+
+三、安装kibana
+	1、拉取kibana镜像
+		docker pull kibana
+	2、启动kibana
+		docker run --name kibana -d -p 5601:5601 -e ELASTICSEARCH_URL=http://192.168.1.111:9200  kibana

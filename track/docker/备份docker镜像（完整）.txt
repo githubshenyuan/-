@@ -1,0 +1,7 @@
+1、备份和载入镜像
+	说明:
+		备份一完整库到标准输出流， 包含所有父层,和所有标签+版本
+	备份命令：
+		docker save busybox > busybox.tar.gz
+	载入命令：
+		docker load < busybox.tar.gz
