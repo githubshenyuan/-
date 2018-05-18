@@ -1,0 +1,7 @@
+1、首先安装 Package Control
+
+2、打开 Preferences” -> “Package Control”
+
+3、选择 Package Control：Install Package
+
+4、然后输入 ChineseLocalization
