@@ -1,2 +1,17 @@
 1、直接关闭防火墙
 	systemctl stop firewalld.service
+2、Centos7 使用 iptables 防火墙策略
+	检测是否开启 firewalld 防火墙
+		systemctl status firewalld.service
+	关闭 firewalld 防火墙
+		systemctl stop firewalld.service
+	关闭开机启动 firewalld 防火墙
+		sytsemctl disable firewalld.service
+	安装 iptables 防火墙策略
+		yum install iptables-services
+	启动 iptables 防火墙策略
+		systemctl start iptables
+	开机启动 iptables 防火墙策略
+3、使用 iptables 防火墙策略
+	
+4、使用 firewalld 
