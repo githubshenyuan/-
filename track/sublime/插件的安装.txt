@@ -4,4 +4,6 @@
 
 3、选择 Package Control：Install Package
 
-4、然后输入 ChineseLocalization
+4、安装汉化插件：		ChineseLocalization
+5、安装GBK支持：		ConvertToUTF8
+					GBK Encoding Support
