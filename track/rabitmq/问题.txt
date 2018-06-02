@@ -2,5 +2,12 @@
 	错误：
 		Job for rabbitmq-server.service failed because the control process exited with error code. See "systemctl status rabbitmq-server.service" and "journalctl -xe" for details.
 	解决方案：
-		命令：vim /etc/rabbitmq/rabbitmq-env.conf
-2、
+		命令：
+			vi /etc/rabbitmq/rabbitmq-env.conf
+		添加如下参数：
+			NODENAME=rabbit@localhost
+2、无法安装 erlang 
+	错误：
+	解决方法：
+		yum install -y epel-release
+
