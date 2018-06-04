@@ -1,0 +1,13 @@
+1、到官网下载nexus
+2、解压后，到bin目录下
+3、执行 ./nexus start
+
+
+问题：
+	1、root用户无法启动nexus
+		错误信息：
+			If you insist running as root, then set the environment variable RUN_AS_USER=root before running this script.
+		解释：
+			如果坚持以root身份运行，那么在运行此脚本之前设置环境变量RuniasasUs=root
+		解决方案：
+			添加 RUN_AS_USER=root 为环境变量，

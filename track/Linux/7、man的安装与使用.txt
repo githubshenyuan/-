@@ -1,0 +1,6 @@
+1、man手册的安装
+	命令：
+		yum install -y man
+2、安装man中文安装包
+	命令：
+		yum install manpages-zh
