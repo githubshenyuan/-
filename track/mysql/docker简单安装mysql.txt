@@ -1,0 +1,6 @@
+1、拉取mysql docker镜像
+	命令：
+		docker pull mysql
+2、启动 mysql 镜像
+	命令：
+		docker run --name mysql -d -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root mysql
