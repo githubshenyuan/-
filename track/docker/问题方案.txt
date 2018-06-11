@@ -6,3 +6,33 @@
 		添加配置：{"registry-mirrors": ["https://6l3e41tc.mirror.aliyuncs.com"]}
 		重启守护进程：systemctl daemon-reload
 		重启docker服务： systemctl restart docker
+
+3、无法启动docker：
+	1、无法启动docker
+		报错信息：
+			Job for docker.service failed because the control process exited with error code. See "systemctl status docker.service" and "journalctl -xe" for details.
+		详细信息：（使用命令：journalctl -xe）
+			5月 03 15:03:03 localhost dockerd-current[18078]: Error starting daemon: SELinux is not supported with the overlay2
+		解决方案：
+			命令：
+				vi /etc/sysconfig/docker
+				修改参照：
+					--selinux-enabled
+					改为：
+					--selinux-enabled=false
+	2、执行docker search centos 时，提示没有权限
+		关闭防火墙：
+			systemctl stop firewalld
+		关闭当前selinux防火墙的安全策略
+			查询selinux安全策略：
+				/usr/sbin/sestatus
+				getenforce
+			临时关闭selinux安全策略：
+				setenforce 1
+			永久关闭selinux安全策略：
+				命令：
+					vi /etc/selinux/config
+					参考：
+						SELINUX=enforcing
+						改为：
+						SELINUX=disabled

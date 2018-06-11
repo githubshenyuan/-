@@ -1,0 +1,23 @@
+1、内核版本为 514 的请关闭安全策略
+	永久关闭selinux安全策略：
+		命令：
+			vi /etc/selinux/config
+			参考：
+				SELINUX=enforcing
+				改为：
+				SELINUX=disabled
+2、安装docker
+	命令：
+		yum install -y docker
+3、关闭防火墙：
+	命令：
+		systemctl stop firewalld
+4、关闭开机启动防火墙：
+	命令：
+		systemctl disable firewalld
+5、开启开机启动docker
+	命令：
+		systemctl enable docker
+6、启动docker
+	命令：
+		systemctl restart docker
