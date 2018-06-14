@@ -1,0 +1,3 @@
+1、到tomcat解压目录下conf\tomcat-users.xml
+	位置：在 tomcat-users 节点内添加如下内容
+	参考：<user username="admin" password="admin" roles="manager-gui"/>
