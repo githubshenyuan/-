@@ -1,0 +1,21 @@
+1、 java 自带 keytool 工具生成证书
+	命令：
+		keytool -genkeypair -alias "tomcat" -keyalg "RSA" -keystore "D:\Devlop\key\tomcatKey\tomcat.keystore"
+2、应用证书到 Tomcat 
+	设置添加 Tomcat 路径下 conf\server.xml 中两个属性 keystoreFile，keystorePass。
+	参考：
+		<Connector port="8443" protocol="org.apache.coyote.http11.Http11NioProtocol"
+	               maxThreads="150" SSLEnabled="true" clientAuth="false" sslProtocol="TLS" keystoreFile="D:\Devlop\key\tomcatKey\tomcat.keystore" keystorePass="123456">
+	        <SSLHostConfig>
+	            <Certificate certificateKeystoreFile="conf/localhost-rsa.jks"
+	                         type="RSA" />
+	        </SSLHostConfig>
+	    </Connector>
+3、
+4、
+5、
+6、
+7、
+8、
+9、
+10、

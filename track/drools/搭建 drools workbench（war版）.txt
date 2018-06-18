@@ -1,0 +1,27 @@
+1、环境准备：
+	下载：
+		 kie-drools-wb-7.7.0.Final-tomcat8.war
+	地址：
+		https://download.jboss.org/drools/release/7.7.0.Final/kie-drools-wb-7.7.0.Final-tomcat8.war
+	
+	注意：tomcat，jdk 等自行下载，需要8版本
+2、tomcat解压路径下。/bin 下新建setenv.bat (linux系统 setenv.sh)
+	内容：
+		填写必要配置，参看参考部分
+	参考：
+		set CATALINA_OPTS= "-Xms2048M -Xmx2048M 
+		-Djava.security.auth.login.config=%CATALINA_HOME%/webapps/kie-drools-wb/WEB-INF/classes/login.config
+		-Dorg.jboss.logging.provider=jdk"
+3、进入 tomcat  /conf 目录 修改 tomcat-users.xml 文件，
+	新增内容：
+		<role rolename="admin"/>
+		<role rolename="PM"/>
+		<role rolename="HR"/>
+		<role rolename="analyst"/>
+		<role rolename="user"/>
+		<role rolename="kie-server"/>
+		<user username="admin" password="admin" roles="admin,analyst,PM,HR,kie-server"/>
+		<user username="kieserver" password="kieserver1!" roles="admin,kie-server
+4、
+5、
+6、
