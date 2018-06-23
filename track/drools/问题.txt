@@ -5,3 +5,31 @@
 		/^[1-9][1-9]{3}$/
 	解决方案：
 		drools 不支持 \d
+
+
+2、缺少jar包
+	kie-workbench:
+		<dependency>
+    		<groupId>javax.security.jacc</groupId>
+    		<artifactId>javax.security.jacc-api</artifactId>
+    		<version>1.5</version>
+		</dependency>		
+		<dependency>
+    		<groupId>org.kie</groupId>
+    		<artifactId>kie-tomcat-integration</artifactId>
+    		<version>7.7.0.Final</version>
+		</dependency>
+		<dependency>
+    		<groupId>org.slf4j</groupId>
+    		<artifactId>slf4j-api</artifactId>
+   			<version>1.7.25</version>
+		</dependency>
+		<dependency>
+    		<groupId>org.slf4j</groupId>
+    		<artifactId>slf4j-jdk14</artifactId>
+    		<version>1.7.25</version>
+    		<scope>test</scope>
+		</dependency>
+
+
+	kie-server:
