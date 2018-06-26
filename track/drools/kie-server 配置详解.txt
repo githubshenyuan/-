@@ -1,0 +1,36 @@
+// 禁用jbpm 业务流程功能
+-Dorg.jbpm.server.ext.disabled=true
+// 禁用BPM UI支持
+-Dorg.jbpm.ui.server.ext.disabled=true
+// 禁用BPM作业执行程序支持
+-Dorg.kie.executor.disabled=true
+// 要分配给此服务器的任意ID
+-Dorg.kie.server.id=kie-server
+// 控制器REST端点的URL列表
+-Dorg.kie.server.controller=
+// server 的用户名 （默认是“kieserver”）
+-Dorg.kie.server.user=
+// server 的密码 （默认为“kieserver1！”）
+-Dorg.kie.server.pwd=
+// 用于控制规则服务的控制器的账号 （默认是“kieserver”）
+-Dorg.kie.server.controller.user=
+// 用于控制规则服务的控制器的密码 （默认为“kieserver1！”）
+-Dorg.kie.server.controller.pwd=
+// kie服务器实例的URL
+-Dorg.kie.server.location=
+// 本地 maven setting 的路径
+-Dkie.maven.settings.custom=
+//
+//
+//
+//
+
+//
+
+//
+
+//
+//
+//
+//
+//
