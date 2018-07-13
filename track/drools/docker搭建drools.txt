@@ -1,0 +1,10 @@
+1、拉取 drools 控制台和服务器 镜像
+	docker pull jboss/drools-workbench-showcase
+	docker pull jboss/kie-server-showcase
+2、启动镜像
+	先启动 控制台镜像
+		docker run -p 8080:8080 -m 1G -p 8001:8001 -d --name drools-workbench jboss/drools-workbench-showcase:latest
+	启动 规则服务器 镜像
+		docker run -p 8180:8080 -d --name kie-server --link drools-workbench:kie-wb jboss/kie-server-showcase:latest
+3、访问地址：
+	http://localhost:8080/drools-wb

@@ -7,3 +7,17 @@
 4、安装汉化插件：		ChineseLocalization
 5、安装GBK支持：		ConvertToUTF8
 					GBK Encoding Support
+
+
+关联单号 
+关联单号名称 
+关联单号类型 
+工时 
+20180467081
+中石化外派人员保险系统优化
+需求
+8
+日报内容:	
+整理携程安联定时任务；
+
+整理携程安联送核心异常点；
