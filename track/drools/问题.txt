@@ -44,3 +44,8 @@
 
 
 	kie-server:
+3、服务器执行规则时无法正确的执行规则组
+	描述：当通过newAgendaGroupSetFocus（“”）复制多个规则组时，无法按照约定执行规则
+	分析：可能由于success 时特殊字符或时占用字符（未查证）
+	解决：不能定义一下规则组
+		agenda-group "success"

@@ -1,0 +1,4 @@
+1、拉取 nexus 的 docker 镜像
+	docker pull sonatype/nexus
+2、启动nexus镜像
+	docker run -d -p 8081:8081 --name nexus sonatype/nexus
