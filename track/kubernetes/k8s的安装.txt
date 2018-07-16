@@ -1,0 +1,60 @@
+1、环境
+	master:192.168.1.120
+	minion:192.168.1.121
+2、master配置：
+	安装：
+		yum -y install etcd kubernetesyum -y install etcd kubernetes
+	配置：
+		vim /etc/etcd/etcd.conf
+		参考：
+			ETCD_NAME=default
+			ETCD_DATA_DIR="/var/lib/etcd/default.etcd"
+			ETCD_LISTEN_CLIENT_URLS="http://0.0.0.0:2379"
+			ETCD_ADVERTISE_CLIENT_URLS="http://localhost:2379"
+		vim /etc/kubernetes/apiserver
+  		参考：
+			KUBE_API_ADDRESS="--address=0.0.0.0"KUBE_API_PORT="--port=8080"
+			KUBELET_PORT="--kubelet_port=10250"
+			KUBE_ETCD_SERVERS="--etcd_servers=http://127.0.0.1:2379"
+			KUBE_SERVICE_ADDRESSES="--service-cluster-ip-range=10.254.0.0/16"
+			KUBE_ADMISSION_CONTROL="--admission_control=NamespaceLifecycle,NamespaceExists,LimitRanger,SecurityContextDeny,ResourceQuota"
+			KUBE_API_ARGS=""
+		启动、开机启动、查询状态：
+			systemctl restart etcd kube-apiserver kube-controller-manager kube-scheduler
+			systemctl enable etcd kube-apiserver kube-controller-manager kube-scheduler
+			systemctl status etcd kube-apiserver kube-controller-manager kube-scheduler
+		设置etcd网络：
+			etcdctl -C //192.168.1.120:2379 set /atomic.io/network/config '{"Network":"172.17.0.1/16"}'
+	测试：
+		kubectl get nodes
+		http://192.168.1.120:8080
+
+3、minion配置：
+	安装：
+		yum -y install flannel kubernetes
+
+	配置：
+		vim /etc/kubernetes/kubelet
+		参考：
+			KUBELET_ADDRESS="--address=0.0.0.0"
+			KUBELET_PORT="--port=10250"
+			# change the hostname to this host’s IP address 
+			KUBELET_HOSTNAME="--hostname_override=192.168.1.121"
+			KUBELET_API_SERVER="--api_servers=http://192.168.1.120:8080"
+			KUBELET_ARGS=""
+
+		删除docker网络：
+			sudo ip link delete docker0
+
+		vim /etc/sysconfig/flanneld
+		参考：
+			FLANNEL_ETCD_ENDPOINTS="http://192.168.1.120:2379"
+			FLANNEL_ETCD_PREFIX="/atomic.io/network"　
+
+		开启、开机启动、查看状态：
+			systemctl restart flanneld kube-proxy kubelet docker
+			systemctl enable flanneld kube-proxy kubelet docker
+			systemctl status flanneld kube-proxy kubelet docker
+4、测试：
+	master主机执行：
+		kubectl get nodes
