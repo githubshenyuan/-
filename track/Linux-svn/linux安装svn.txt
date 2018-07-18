@@ -3,7 +3,7 @@
 		yum install -y subversion
 2、创建版本库：
 	命令：
-		mkdir  /usr/svn/svndir
+		mkdir  -p /usr/svn/svndir
 		svnadmin create  /usr/svn/svndir
 3、添加用户：
 	命令：
@@ -18,7 +18,7 @@
 			admin=rw
 5、配置svn：
 	命令：
-
+		vi /usr/svn/svndir/conf/svnserve.conf
 		添加参数：
 			anon-access=read
 			auth-access=write
@@ -27,3 +27,5 @@
 6、启动svn
 	命令：
 		 svnserve -d -r /usr/svn/svndir
+7、访问
+	svn://192.168.1.111:3690/svndir
