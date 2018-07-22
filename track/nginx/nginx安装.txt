@@ -1,5 +1,5 @@
 1、安装编译器（编译源码）
-	yum install gcc-c++
+	yum install -y gcc-c++
 2、安装pcre和pcre-devel （包括 perl 兼容的正则表达式库，pcre-devel 是使用 pcre 开发的一个二次开发库）
 	yum install -y pcre pcre-devel
 3、安装zlib（zlib提供了很多压缩和解方式，nginx需要zlib对http进行gzip）
