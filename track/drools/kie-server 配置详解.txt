@@ -30,10 +30,12 @@
 	-Dorg.kie.server.bypass.auth.user
 // 在存储kie服务器状态文件的本地文件系统上的位置 （（默认为 "."））
 	-Dorg.kie.server.repo
-//
-
-//
-//
+// 数据源JNDI名称  (是，当启用BPM支持时)
+	-Dorg.kie.server.persistence.ds
+// 事务管理器平台为Hibernate属性设置 (是，当启用BPM支持时)
+	-Dorg.kie.server.persistence.tm
+// Hibernate方言被使用 (是，当启用BPM支持时)
+	-Dorg.kie.server.persistence.dialect
 //
 //
 //
