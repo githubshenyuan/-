@@ -1,32 +1,35 @@
-// 禁用jbpm 业务流程功能
--Dorg.jbpm.server.ext.disabled=true
-// 禁用BPM UI支持
--Dorg.jbpm.ui.server.ext.disabled=true
-// 禁用BPM作业执行程序支持
--Dorg.kie.executor.disabled=true
+// 是否禁用jbpm 业务流程功能 (默认：false)（true ：禁用）
+	-Dorg.jbpm.server.ext.disabled=true
+// 是否禁用BPM UI支持 (默认：false)（true ：禁用）
+	-Dorg.jbpm.ui.server.ext.disabled=true
+// 禁用jbpm作业执行程序支持 (默认：false)（true ：禁用）
+	-Dorg.kie.executor.disabled=true
 // 要分配给此服务器的任意ID
--Dorg.kie.server.id=kie-server
+	-Dorg.kie.server.id=kie-server
 // 控制器REST端点的URL列表
--Dorg.kie.server.controller=
+	-Dorg.kie.server.controller=
 // server 的用户名 （默认是“kieserver”）
--Dorg.kie.server.user=
+	-Dorg.kie.server.user=
 // server 的密码 （默认为“kieserver1！”）
--Dorg.kie.server.pwd=
+	-Dorg.kie.server.pwd=
 // 用于控制规则服务的控制器的账号 （默认是“kieserver”）
--Dorg.kie.server.controller.user=
+	-Dorg.kie.server.controller.user=
 // 用于控制规则服务的控制器的密码 （默认为“kieserver1！”）
--Dorg.kie.server.controller.pwd=
+	-Dorg.kie.server.controller.pwd=
 // kie服务器实例的URL
--Dorg.kie.server.location=
+	-Dorg.kie.server.location=
 // 本地 maven setting 的路径
--Dkie.maven.settings.custom=
-//
-//
+	-Dkie.maven.settings.custom=
+// JAAS LoginContext域，用于在使用JMS时对用户进行身份验证 (默认：无)
+	-Dorg.kie.server.domain=
 //
 //
 
-//
 
+// 允许绕过经过认证的用户进行与任务相关的操作，例如查询 (默认：false)
+	-Dorg.kie.server.bypass.auth.user
+// 在存储kie服务器状态文件的本地文件系统上的位置 （（默认为 "."））
+	-Dorg.kie.server.repo
 //
 
 //

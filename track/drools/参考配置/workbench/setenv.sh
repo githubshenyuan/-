@@ -1,0 +1,1 @@
+export CATALINA_OPTS="$CATALINA_OPTS -Xms512M -Xmx2816M -Djava.security.auth.login.config=%CATALINA_HOME%/webapps/kie-drools-wb/WEB-INF/classes/login.config -Dorg.jboss.logging.provider=jdk"
