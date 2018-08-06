@@ -1,0 +1,5 @@
+1、执行cmd命令，创建无线wifi
+	netsh wlan set hostednetwork mode=allow ssid=mytest key=12345678
+2、共享一个本地网络到wifi
+3、启动
+	netsh wlan start hostednetwork
