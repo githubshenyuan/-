@@ -3,3 +3,6 @@
 	(2)、在JAVA_HOME\jre\lib\security路径下，执行第3步命令
 	(3)、执行以下命令：
 		keytool -import -trustcacerts -alias 域名 -file 域名.cer -keystore cacerts -storepass changeit 
+
+	拓展：删除证书请执行：
+		keytool -delete -alias al -keystore cacerts -storepass changeit

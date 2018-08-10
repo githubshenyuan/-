@@ -1,0 +1,15 @@
+一、请在电脑安装了 Oracle 客户端的前提下做一下操作
+	1、判断电脑是是否安装了 Oracle客户端
+		运行：C:\Windows\SysWOW64\odbcad32.exe
+		选择"用户DSN"或"系统DSN"，并点击添加，看看是否有可用的 Oracle 驱动
+		系统自带的Oracle驱动一般不可用会报“未发现Oracle(tm)客户端和网络组件”错误
+
+二、安装 Oracle 驱动（如果电脑未安装）
+	1、下载 官方驱动客户端 instantclient_12_1.rar
+	2、解压并将 network\ADMIN 目录配置到环境变量中 变量名：TNS_ADMIN
+	3、运行 odbc_install.exe 成功后黑窗口闪过
+三、
+四、
+5、
+6、
+7、
