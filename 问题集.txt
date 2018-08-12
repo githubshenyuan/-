@@ -1,0 +1,5 @@
+1、webservice https调用
+	(1)、将证书放到JAVA_HOME\jre\lib\security
+	(2)、在JAVA_HOME\jre\lib\security路径下，执行第3步命令
+	(3)、执行以下命令：
+		keytool -import -trustcacerts -alias 域名 -file 域名.cer -keystore cacerts -storepass changeit 
