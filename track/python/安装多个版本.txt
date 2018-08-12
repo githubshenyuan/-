@@ -1,0 +1,5 @@
+1、下载并安装
+2、分别更改 python.exe 为 （python2.exe python3.exe）环境变量分别设置
+3、安装pip
+	python3 -m pip install --upgrade pip --force-reinstall
+	python2 -m pip install --upgrade pip --force-reinstall

@@ -1,0 +1,9 @@
+1、window上安装 python keras
+	环境：python3.7.0
+	命令：
+		# GPU 版本
+		pip install --upgrade tensorflow-gpu
+		# CPU 版本
+		pip install --upgrade tensorflow
+		# Keras 安装
+		pip install keras -U --pre
