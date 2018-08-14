@@ -1,0 +1,6 @@
+1、python 安装 opencv 环境
+	环境：python3.6.6
+	执行命令：
+		pip3 install --upgrade setuptools
+		pip3 install numpy Matplotlib
+		pip3 install opencv-python
