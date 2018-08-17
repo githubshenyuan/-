@@ -1,0 +1,52 @@
+1、安装编译环境
+	命令：
+		yum install git gcc gcc-c++ make automake autoconf libtool pcre pcre-devel zlib zlib-devel openssl-devel vim -y
+2、创建 目录
+	命令：
+		mkdir -p /fastdfs/tracker  #创建跟踪服务器数据目录
+		mkdir -p /fastdfs/storage  #创建存储服务器数据目录
+		#切换到安装目录准备下载安装包
+		cd /usr/local/src 
+3、安装 libfatscommon
+	下载：
+		git clone https://github.com/happyfish100/libfastcommon.git --depth 1
+	安装：
+		cd libfastcommon
+		./make.sh && ./make.sh install
+4、安装FastDFS
+	下载：
+		git clone https://github.com/happyfish100/fastdfs.git --depth 1
+	安装:
+		cd fastdfs
+		./make.sh && ./make.sh install
+	准备配置文件：
+		cp /etc/fdfs/tracker.conf.sample /etc/fdfs/tracker.conf
+		cp /etc/fdfs/storage.conf.sample /etc/fdfs/storage.conf
+		cp /etc/fdfs/client.conf.sample /etc/fdfs/client.conf #客户端文件，测试用
+		cp /usr/local/src/fastdfs/conf/http.conf /etc/fdfs/ #供nginx访问使用
+		cp /usr/local/src/fastdfs/conf/mime.types /etc/fdfs/ #供nginx访问使用
+5、安装fastdfs-nginx-module
+	下载：
+		git clone https://github.com/happyfish100/fastdfs-nginx-module.git --depth 1
+	复制配置文件：
+		cp /usr/local/src/fastdfs-nginx-module/src/mod_fastdfs.conf /etc/fdfs
+6、安装nginx
+	下载：
+		wget http://nginx.org/download/nginx-1.12.2.tar.gz
+	解压和安装：
+		tar -zxvf nginx-1.12.2.tar.gz
+		cd nginx-1.12.2/
+		# 添加fastdfs-nginx-module模块
+		./configure --add-module=/usr/local/src/fastdfs-nginx-module/src/
+		make && make install
+7、单机部署
+	tracker配置:
+		vim /etc/fdfs/tracker.conf
+		#需要修改的内容如下
+		port=22122  # tracker服务器端口（默认22122,一般不修改）
+		base_path=/fastdfs/tracker  # 存储日志和数据的根目录
+		#保存后启动
+		/etc/init.d/fdfs_trackerd start #启动tracker服务
+		chkconfig fdfs_trackerd on #自启动tracker服务
+8、
+9、
