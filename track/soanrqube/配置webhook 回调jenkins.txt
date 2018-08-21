@@ -1,0 +1,4 @@
+1、在 sonarqube 设置Jenkins回调地址
+	 sonar版本：7.3
+	 操作：
+	 	配置 → 配置 → 网络调用 创建回调地址 名称：{自定义} URL: http://{jenkins IP}:{Jenkins 端口}/sonarqube-webhook 
