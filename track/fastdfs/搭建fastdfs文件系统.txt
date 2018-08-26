@@ -70,7 +70,10 @@ Java客户端：https://github.com/happyfish100/fastdfs-client-java
 		/etc/init.d/fdfs_storaged start #启动storage服务
 		chkconfig fdfs_storaged on #自启动storage服务
 
-8、
+8、检测启动
+	查看：
+		ps -ef | grep fdfs_trackerd
+		ps -ef | grep fdfs_storaged
 9、
 
 
