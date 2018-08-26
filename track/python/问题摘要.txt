@@ -6,3 +6,9 @@
 	解决方案：(管理员)
 		https://pypi.python.org/pypi/setuptools#windows-simplified
 		python setup.py install
+2、python3 下找不到 urllib2 的问题
+	原因：
+		Python 3.* 用urllib.request来代替原来的urllib2，因此调用的时候改为：
+		>>> import urllib.request
+		>>> urllib.request.urlopen('http://www.baidu.com')
+

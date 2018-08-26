@@ -1,0 +1,47 @@
+1、下载及安装
+	下载：
+		redis-3.2.12.tar.gz 复制到 /root 目录下
+	安装：
+		cd /root
+		tar -zxvf redis-3.2.12.tar.gz
+		cd redis-3.2.12
+		yum install -y gcc-c++
+		mkdir -p /usr/local/redis-cluster
+		make MALLOC=libc install PREFIX=/usr/local/redis-cluster
+
+2、创建集群节点
+	mkdir -p /usr/local/redis-cluster/7001
+	mkdir -p /usr/local/redis-cluster/7002
+	mkdir -p /usr/local/redis-cluster/7003
+
+3、复制配置文件
+	cp /root/redis-3.2.12/redis.conf  /usr/local/redis-cluster/7001/   
+ 	cp /root/redis-3.2.12/redis.conf  /usr/local/redis-cluster/7002/   
+	cp /root/redis-3.2.12/redis.conf  /usr/local/redis-cluster/7003/  
+
+4、分别更改配置文件 
+	daemonize    yes                          // redis后台运行
+	pidfile  /var/run/redis_7000.pid          // pidfile文件对应7000,7002,7003
+	port  7000                                // 端口7000,7002,7003
+	cluster-enabled  yes                      // 开启集群  把注释#去掉
+	cluster-config-file  nodes_7000.conf      // 集群的配置  配置文件首次启动自动生成 7000,7001,7002
+	cluster-node-timeout  5000                // 请求超时  设置5秒够了
+	appendonly  yes                           // aof日志开启  有需要就开启，它会每次写操作都记录一条日志
+   
+5、安装 ruby 脚本
+	命令：
+		yum install -y ruby 
+		yum install -y rubygems 
+		gem install redis -v 3.2.2		
+6
+	./redis-server ../7001/redis-7001.conf
+	./redis-server ../7002/redis-7002.conf
+	./redis-server ../7003/redis-7003.conf
+7、创建集群
+	./redis-trib.rb create --replicas 1 127.0.0.1:7001 127.0.0.1:7002 127.0.0.1:7003 127.0.0.1:7004 127.0.0.1:7005 127.0.0.1:7006
+
+./redis-trib.rb create --replicas 2 192.168.1.130:7001 192.168.1.131:7001 192.168.1.132:7001 192.168.1.130:7002 192.168.1.130:7003 192.168.1.131:7002 192.168.1.131:7003 192.168.1.132:7002 192.168.1.132:7003
+
+./redis-cli -p 7001 shutdown
+./redis-cli -p 7002 shutdown
+./redis-cli -p 7003 shutdown
