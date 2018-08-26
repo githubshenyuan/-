@@ -1,0 +1,10 @@
+1、执行   报错
+	错误信息：
+		Failed to upload report - 500: An error has occurred. Please contact your administrator
+	原因：
+		数据库允许写入数据设置过小
+	解决方案：
+		设置数据库允许接收的最大包为 20M （原始为 4M）
+	操作步骤：
+		show VARIABLES like '%max_allowed_packet%';
+		set global max_allowed_packet = 2*1024*1024*10

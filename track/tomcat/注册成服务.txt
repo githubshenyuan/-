@@ -1,0 +1,8 @@
+1、切换到 {TOMCAT_HOME}\bin 目录下
+	执行命令：
+		service.bat install {服务名}
+2、更改服务 jdk 版本（不需要更改不要执行这一步）
+	修改{TOMCAT_HOME}\bin\service.bat 文件
+	文件首行添加：
+		set JAVA_HOME={JAVA_HOME}
+		set JRE_HOME={JAVA_HOME}\jre

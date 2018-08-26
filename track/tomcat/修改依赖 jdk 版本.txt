@@ -1,0 +1,8 @@
+1、修改{TOMCAT_HOME}\bin\setclasspath.bat 文件
+	文件首行添加：
+		set JAVA_HOME={JAVA_HOME}
+		set JRE_HOME={JAVA_HOME}\jre
+2、修改服务 jdk 依赖，修改{TOMCAT_HOME}\bin\service.bat 文件
+	文件首行添加：
+		set JAVA_HOME={JAVA_HOME}
+		set JRE_HOME={JAVA_HOME}\jre

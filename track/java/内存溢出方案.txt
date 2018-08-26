@@ -1,0 +1,2 @@
+1、查看进程堆栈信息
+	jmap -dump:format=b,file=文件名.hprof 进程ID
