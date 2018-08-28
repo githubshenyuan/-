@@ -1,8 +1,8 @@
 1、下载及安装
 	下载：
-		redis-3.2.12.tar.gz 复制到 /root 目录下
+		redis-3.2.12.tar.gz 复制到 /usr/local/redis 目录下
 	安装：
-		cd /root
+		cd /usr/local/redis
 		tar -zxvf redis-3.2.12.tar.gz
 		cd redis-3.2.12
 		yum install -y gcc-c++
@@ -76,3 +76,9 @@
 	   replicates 4ceeeb808f9e75d8d9e2e72a843383f4a8e45d17
 	S: 78935c2e2b770e59af3eb239a4f1c5b579a9cff0 192.168.1.132:7003
 	   replicates 77e1be17a1f9dae485b0f1de9d218c7b466c2748
+
+
+./redis-cli -h 192.168.137.98 -p 9003 shutdown
+./redis-cli -h 192.168.137.98 -p 9004 shutdown
+./redis-cli -h 192.168.137.98 -p 9005 shutdown
+./redis-cli -h 192.168.137.98 -p 9006 shutdown
