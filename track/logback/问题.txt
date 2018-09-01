@@ -1,0 +1,6 @@
+1、无法打印 服务名
+	添加：
+		<springProperty scope="context" name="springAppName" source="spring.application.name"/>
+
+2、zipkin 打印服务名 总是 bootstrap
+	将 spring.application.name  配置到 bootstrap.properties
