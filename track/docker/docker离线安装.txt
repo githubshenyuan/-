@@ -5,9 +5,11 @@
 3、拷贝安装包到其他机器
 	
 4、安装docker
-	rpm -ivh *.rpm
 	优先：
-	yum install -y *.rpm
+		yum install -y *.rpm
+	或者
+		rpm -ivh *.rpm
+	
 5、启动docker
 	systemctl start docker 
 6、设置开机启动

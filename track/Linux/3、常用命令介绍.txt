@@ -4,3 +4,7 @@
 	--带添加--
 3、chgrp 改变所属组（change group）
 	--带添加--
+4、rpm 安装
+	rpm -ivh your-package.rpm
+5、查询安装的 rpm
+	rpm -qa |grep nfs
