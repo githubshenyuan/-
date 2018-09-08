@@ -61,6 +61,12 @@
 
     2、启动：
         nohup ./bin/logstash -f config/test.conf &> ./logs/run.log &
+        自动加载配置文件(3秒)
+            --config.reload.automatic
+        设置自动加载间隔时长 second ： 秒
+            --config.reload.interval <second>
+    3、测试：
+        
 五、配置启动 kibana-6.4.0-linux-x86_64.tar.gz
     1、配置：
         vi ./config/kibana.yml
@@ -68,4 +74,6 @@
         elasticsearch.url: "http://192.168.1.112:9200"  
     2、启动：
         nohup ./bin/kibana -H 0.0.0.0 &> logs/run.log &
+    3、测试：
+        访问：http://192.168.1.112:5601
 六、
