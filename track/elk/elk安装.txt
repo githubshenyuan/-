@@ -61,6 +61,9 @@
 
     2、启动：
         nohup ./bin/logstash -f config/test.conf &> ./logs/run.log &
+        参数：
+            --config.reload.automatic   // 自动加载配置文件 默认3秒
+            --config.reload.interval <second>   // 设置自动加载配置文件的时间间隔  second：秒
 五、配置启动 kibana-6.4.0-linux-x86_64.tar.gz
     1、配置：
         vi ./config/kibana.yml
