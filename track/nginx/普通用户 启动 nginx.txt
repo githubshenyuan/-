@@ -1,0 +1,14 @@
+1、log地址配置：
+    error_log  /home/appadmin/nginx/logs/log/error.log debug;
+    http 节点下：
+            log_format  main  '$remote_addr - $remote_user $upstream_addr [$time_local] "$request" '
+                      '$status $body_bytes_sent "$http_referer" '
+                      '"$http_user_agent" "$http_x_forwarded_for"';
+            access_log  /home/appadmin/nginx/logs/log/access.log  main;
+            error_log  /home/appadmin/nginx/logs/log/error.log debug;
+
+                client_body_temp_path /home/appadmin/nginx/client_body;
+                fastcgi_temp_path /home/appadmin/nginx/fastcgi_temp;
+                proxy_temp_path /home/appadmin/nginx/proxy_temp;
+                scgi_temp_path /home/appadmin/nginx/scgi_temp;
+                uwsgi_temp_path /home/appadmin/nginx/uwsgi_temp;

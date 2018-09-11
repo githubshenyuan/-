@@ -68,4 +68,6 @@
         elasticsearch.url: "http://192.168.1.112:9200"  
     2、启动：
         nohup ./bin/kibana -H 0.0.0.0 &> logs/run.log &
+    3、测试：
+    	访问：  http://192.168.1.112:5601/
 六、
