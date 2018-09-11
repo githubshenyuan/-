@@ -1,0 +1,2 @@
+1、日志过多删除
+    curl -X DELETE http://xx.xx.com:9200/logstash-*-`date +%Y-%m-%d -d "-$n days"`

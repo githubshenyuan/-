@@ -1,0 +1,4 @@
+1、自带日志打印地址设置：
+	logging.path=${user.home}/spring/log
+2、设置 tomcat  上传临时路径 
+	server.tomcat.basedir=${user.home}/deployer/tomcat
