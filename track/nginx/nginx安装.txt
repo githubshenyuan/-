@@ -7,6 +7,6 @@
 4、安装openssl（openssl是一个安全套接字层密码库，nginx要支持https，需要使用openss）
 	yum install -y openssl openssl-devel
 5、安装
-	./configure（默认安装）
+	./configure --prefix=/usr/local/nginx（默认安装）
 	make
 	make install
