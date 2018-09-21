@@ -10,9 +10,9 @@
         logstash-6.4.0.tar.gz
         kibana-6.4.0-linux-x86_64.tar.gz
     解压：
-        tar -zxvf elasticsearch-6.4.0.tar.gz
-        tar -zxvf logstash-6.4.0.tar.gz
-        tar -zxvf kibana-6.4.0-linux-x86_64.tar.gz
+        tar -zxvf elasticsearch-6.2.4.tar.gz
+        tar -zxvf logstash-6.2.4.tar.gz
+        tar -zxvf kibana-6.2.4-linux-x86_64.tar.gz
 三、配置启动 elasticsearch-6.4.0.tar.gz
     1、修改系统配置（需要root权限修改）
         vi /etc/security/limits.conf
@@ -72,7 +72,7 @@
     1、配置：
         vi ./config/kibana.yml
         server.host: "0.0.0.0"
-        elasticsearch.url: "http://192.168.1.112:9200"  
+        elasticsearch.url: "http://127.0.0.1:9200"
     2、启动：
         nohup ./bin/kibana -H 0.0.0.0 &> logs/run.log &
     3、测试：

@@ -1,0 +1,5 @@
+1、sentinl 简介
+2、下载及安装
+    下载地址：https://github.com/sirensolutions/sentinl/releases
+    安装：
+        ./bin/kibana-plugin install file:../../
