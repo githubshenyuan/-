@@ -7,8 +7,10 @@
     }
     hello ：索引
     doc ：类型
-    _search ： kibana中dsl 中必须带的 （原因未知）
-2、
+    _search ： 操作类型 （_search , _count , ）
+2、match_phrase 与 match
+    match_phrase : 将查询内容看作一个整体
+    match ： 将查询内容看作多个整体（包含即可，不要求顺寻和连贯性）
 3、
 4、
 5、
