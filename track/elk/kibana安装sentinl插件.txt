@@ -1,0 +1,14 @@
+1、sentinl 介绍
+    sentinl通过警报和报告功能扩展Kibi和Kibana，使用标准查询，可编程验证器和各种可配置操作来监控，通知和报告数据系列更改 - 将其视为免费的独立“观察者”和“报告”替代方案，通过独特的Kibi功能进一步扩展和扩展
+2、安装 sentinl 
+    下载地址：https://github.com/sirensolutions/sentinl/releases
+    提醒：请下载 kibana 相应的版本
+    安装：
+        ./kibana-plugin install file:../../sentinl-v6.2.4.zip 
+    查看：
+        ./kibana-plugin list
+    删除：
+        ./kibana-plugin remove
+3、
+4、
+5、
