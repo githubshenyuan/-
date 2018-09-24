@@ -1,3 +1,4 @@
+@@ -1,79 +0,0 @@
 一、环境
     系统：  centos7-514  64位
     elk版本：  elk 6.4.0
@@ -86,7 +87,7 @@
     1、配置：
         vi ./config/kibana.yml
         server.host: "0.0.0.0"
-        elasticsearch.url: "http://192.168.1.112:9200"  
+        elasticsearch.url: "http://127.0.0.1:9200"
     2、启动：
         nohup ./bin/kibana -H 0.0.0.0 &> logs/run.log &
     3、测试：
