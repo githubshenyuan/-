@@ -9,9 +9,9 @@
         logstash-6.4.0.tar.gz
         kibana-6.4.0-linux-x86_64.tar.gz
     解压：
-        tar -zxvf elasticsearch-6.4.0.tar.gz
-        tar -zxvf logstash-6.4.0.tar.gz
-        tar -zxvf kibana-6.4.0-linux-x86_64.tar.gz
+        tar -zxvf elasticsearch-6.2.4.tar.gz
+        tar -zxvf logstash-6.2.4.tar.gz
+        tar -zxvf kibana-6.2.4-linux-x86_64.tar.gz
 三、配置启动 elasticsearch-6.4.0.tar.gz
     1、修改系统配置（需要root权限修改）
         vi /etc/security/limits.conf
@@ -42,6 +42,7 @@
     2、配置：
         配置文件： 
             config/elasticsearch.yml
+            mkdir data
         配置参考：
             path.data: /you_path/elasticsearch-6.3.0/data
             path.logs: /you_path/elasticsearch-6.3.0/logs
@@ -58,7 +59,21 @@
     1、配置：
         根据需求写配置（例：./conf）
         参考：
-
+        	input { 
+                tcp { 
+                    port => 4560 
+                    codec => 
+                    json_lines 
+                } 
+            } 
+            output { 
+                elasticsearch { 
+                    action => "index"  
+                    hosts =>  ["192.168.1.109:9200"] 
+                    index  => "%{[springAppName]}" 
+                    } 
+                stdout { codec => rubydebug  } 
+            }
     2、启动：
         nohup ./bin/logstash -f config/test.conf &> ./logs/run.log &
         自动加载配置文件(3秒)
