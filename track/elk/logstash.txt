@@ -1,5 +1,8 @@
 一、输入输出配置
 	input { 
+		beats {
+			port => 5044
+		}
 		tcp { 
 			port => 4560 
 			codec => 
@@ -9,7 +12,7 @@
 	output { 
 		elasticsearch { 
 			action => "index"  
-			hosts =>  ["192.168.1.109:9200"] 
+			hosts =>  ["127.0.0.1:9200"] 
 			index  => "%{[springAppName]}" 
 			} 
 		stdout { codec => rubydebug  } 

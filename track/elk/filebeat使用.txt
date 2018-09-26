@@ -1,0 +1,15 @@
+1、下载 
+    地址：
+2、配置
+    vi filebeat.yml
+    参考配置：
+        filebeat.prospectors:
+        - input_type: log
+        paths:
+            - /home/appadmin/service/*.log
+        output.logstash:
+        hosts: ["localhost:5044"]
+3、
+4、
+5、
+6、
