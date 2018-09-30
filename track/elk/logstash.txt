@@ -17,3 +17,14 @@
 			} 
 		stdout { codec => rubydebug  } 
 	}
+二、字段控制相关配置
+	filter {
+		mutate {
+			# 过滤掉不需要的字段
+			remove_field => "@version"
+			remove_field => "host"
+			remove_field => "beat"
+			remove_field => "tags[]"
+		
+		}
+}

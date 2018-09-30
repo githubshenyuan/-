@@ -75,18 +75,24 @@ filebeat.prospectors:
   # 【详解】
   # 【默认】
   json.message_key: true
+
+
   # 【简介】
   # 【详解】默认情况下，解码的JSON位于输出文档中的“json”键下。如果启用此设置，则会在输出文档中将键复制到顶层。默认值为false。
   # 【默认】false
   json.keys_under_root: true 
+
+
   # 【简介】
   # 【详解】如果keys_under_root启用此设置，则解码的JSON对象中的值将覆盖Filebeat通常添加的字段（类型，源，偏移等），以防发生冲突。
   # 【默认】
-  json.add_error_key: true
+  json.overwrite_keys: true
+
+
   # 【简介】
   # 【详解】如果启用此设置，则Filebeat会在JSON解组错误或在配置中定义文本键但无法使用时添加“json_error”键。
   # 【默认】
-  add_error_key: true
+  json.add_error_key: true
   #================================ json 相关配置 =====================================
 
   #================================ close_* 相关配置解释 =====================================

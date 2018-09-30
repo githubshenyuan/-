@@ -5,10 +5,13 @@
     参考配置：
         filebeat.prospectors:
         - input_type: log
-        paths:
-            - /home/appadmin/service/*.log
+            paths:
+                - /home/appadmin/service/*.log
+            json.keys_under_root: true 
+            json.overwrite_keys: true
+            json.add_error_key: true
         output.logstash:
-        hosts: ["localhost:5044"]
+            hosts: ["localhost:5044"]
 3、
 4、
 5、

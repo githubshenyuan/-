@@ -2,3 +2,5 @@
 	logging.path=${user.home}/spring/log
 2、设置 tomcat  上传临时路径 
 	server.tomcat.basedir=${user.home}/deployer/tomcat
+2、设置读取本地配置的路径
+	spring.config.location=${user.dir}/config
