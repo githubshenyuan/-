@@ -1,0 +1,7 @@
+一、下载地址：
+    http://download.microsoft.com/download/F/1/7/F178BCE4-FA19-428F-BB60-F3DEE1130BFA/DXSDK_Feb10.exe
+二、运行安装即可
+三、配置到 vs 
+    1、点击VC++目录，在包含目录选择编辑导入包含目录，我的路径是（C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include） 
+    2、然后选择库目录点击编辑导入目录我的目录是（C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Lib\x86） 
+    3、然后在选择“连接器”“输入”中的“附加依赖项”编辑，输入d3d9.lib d3dx9.lib winmm.lib 
