@@ -1,0 +1,177 @@
+###################### Filebeat Configuration Example #########################
+# 注意： 以下是全部配置的解释，很多都不需要配置，请选择需要的配置，切不可全部复制
+#=========================== Filebeat prospectors =============================
+
+filebeat.prospectors:
+# 输入类型 以下输入类型之一： log（按行读取） stdin 
+- input_type: log
+
+  # 需要爬取数据的路径，这也是一个全局的路径
+  paths:
+    #- /home/appadmin/service/*.log
+    - /home/appadmin/service/*/*
+
+  # 正则表达式列表，用于匹配您希望Filebeat排除的行。Filebeat会删除与列表中的正则表达式匹配的所有行。默认情况下，不会删除任何行。
+  exclude_lines: ["^DBG"]
+
+  # 正则表达式列表，用于匹配您希望Filebeat包含的行。Filebeat仅导出与列表中的正则表达式匹配的行。默认情况下，将导出所有行。
+  include_lines: ["^ERR", "^WARN"]
+
+  #正则表达式列表，用于匹配您希望Filebeat忽略的文件。默认情况下不会排除任何文件。
+  exclude_files: [".gz$"]
+
+  # 可以指定的可选字段，用于向输出添加其他信息。
+  #fields:
+  level: debug
+  #  review: 1
+  # 如果此选项设置为true，则自定义字段将存储为输出文档中的顶级字段，而不是在fields子字典下分组.
+  # 如果自定义字段名称与Filebeat添加的其他字段名称冲突，则自定义字段将覆盖其他字段。
+  fields_under_root: true
+  
+  #================================ close_* 相关配置解释 =====================================
+  # ##################### 出现数据丢失，请看此处配置   #########################
+  # close_ *  配置选项用于之后的某一标准或时间以关闭收割机。关闭收割机意味着关闭文件处理程序。如果在收割机关闭后更新文件，则文件将在scan_frequency经过后再次拾取。但是，如果在收割机关闭时移动或删除文件，Filebeat将无法再次拾取文件，并且收割机未读取的任何数据都将丢失。
+  
+  # 【简介】 一定时间没有收集 ，关闭收集器
+  # 【详解】启用此选项后，如果文件尚未在指定的持续时间内新增数据，则Filebeat将关闭文件句柄。定义期间的计数器从收割机读取最后一个日志行开始。它不是基于文件的修改时间。如果关闭的文件再次更改，则会启动新的收集器，并在scan_frequency经过之后拾取最新的更改。
+  close_inactive: 
+
+
+  # 【简介】 文件改名即停止收集
+  # 【详解】启用此选项后，Filebeat会在重命名文件时关闭文件处理程序。例如，在旋转文件时会发生这种情况。默认情况下，收集器保持打开状态并继续读取文件，因为文件处理程序不依赖于文件名。
+  close_renamed: true   
+
+
+  # 【简介】 文件删除，即关闭收集器
+  # 【详解】 启用此选项后，Filebeat会在删除文件时关闭收集器。通常情况下，只有文件在指定的持续时间内处于非活动状态后才能被删除close_inactive。但是，如果提前删除文件而您未启用close_removed，则Filebeat会保持文件打开以确保收集器已完成。如果此设置导致文件由于过早从磁盘中删除而未完全读取，请禁用此选项。
+  # 【默认】 启用
+  close_removed: true 
+  
+  
+  # 【简介】
+  # 【详解】启用此选项后，Filebeat会在文件结束时立即关闭文件。当您的文件只写入一次而不是不时更新时，这非常有用。例如，当您将每个单个日志事件写入新文件时会发生这种情况。默认情况下禁用此选项。
+  # 【默认】禁用
+  close_eof: true
+
+
+  # 【简介】
+  # 【详解】
+
+  # 【简介】
+  # 【详解】
+  # 【默认】
+  #
+
+  #================================ close_* 相关配置解释 =====================================
+
+
+  #================================ json 相关配置 =====================================
+  # ##################### 处理json 数据，请看此处配置   #########################
+  # 【简介】解析 json 数据
+  # 【详解】这些选项使Filebeat可以解码构造为JSON消息的日志。Filebeat逐行处理日志，因此只有每行有一个JSON对象时，JSON解码才有效。
+  # 解码在线路滤波和多线之前发生。如果设置message_key选项，则可以将JSON解码与过滤和多行组合。这在应用程序日志包装在JSON对象中的情况下会很有用，例如在Docker中会发生这种情况。
+  
+  # 【简介】
+  # 【详解】
+  # 【默认】
+  json.message_key: true
+
+
+  # 【简介】
+  # 【详解】默认情况下，解码的JSON位于输出文档中的“json”键下。如果启用此设置，则会在输出文档中将键复制到顶层。默认值为false。
+  # 【默认】false
+  json.keys_under_root: true 
+
+
+  # 【简介】
+  # 【详解】如果keys_under_root启用此设置，则解码的JSON对象中的值将覆盖Filebeat通常添加的字段（类型，源，偏移等），以防发生冲突。
+  # 【默认】
+  json.overwrite_keys: true
+
+
+  # 【简介】
+  # 【详解】如果启用此设置，则Filebeat会在JSON解组错误或在配置中定义文本键但无法使用时添加“json_error”键。
+  # 【默认】
+  json.add_error_key: true
+  #================================ json 相关配置 =====================================
+
+  #================================ close_* 相关配置解释 =====================================
+  #================================ close_* 相关配置解释 =====================================
+
+
+  #================================ close_* 相关配置解释 =====================================
+  #================================ close_* 相关配置解释 =====================================
+
+
+  ### Multiline options
+
+  # Mutiline can be used for log messages spanning multiple lines. This is common
+  # for Java Stack Traces or C-Line Continuation
+
+  # The regexp Pattern that has to be matched. The example pattern matches all lines starting with [
+  #multiline.pattern: ^\[
+
+  # Defines if the pattern set under pattern should be negated or not. Default is false.
+  #multiline.negate: false
+
+  # Match can be set to "after" or "before". It is used to define if lines should be append to a pattern
+  # that was (not) matched before or after or as long as a pattern is not matched based on negate.
+  # Note: After is the equivalent to previous and before is the equivalent to to next in Logstash
+  #multiline.match: after
+
+
+#================================ General =====================================
+
+# The name of the shipper that publishes the network data. It can be used to group
+# all the transactions sent by a single shipper in the web interface.
+#name:
+
+# The tags of the shipper are included in their own field with each
+# transaction published.
+#tags: ["service-X", "web-tier"]
+
+# Optional fields that you can specify to add additional information to the
+# output.
+#fields:
+#  env: staging
+
+#================================ Outputs =====================================
+
+# Configure what outputs to use when sending the data collected by the beat.
+# Multiple outputs may be used.
+
+#-------------------------- Elasticsearch output ------------------------------
+#output.elasticsearch:
+  # Array of hosts to connect to.
+  #hosts: ["localhost:9200"]
+
+  # Optional protocol and basic auth credentials.
+  #protocol: "https"
+  #username: "elastic"
+  #password: "changeme"
+
+#----------------------------- Logstash output --------------------------------
+output.logstash:
+  # The Logstash hosts
+  hosts: ["localhost:5044"]
+
+  # Optional SSL. By default is off.
+  # List of root certificates for HTTPS server verifications
+  #ssl.certificate_authorities: ["/etc/pki/root/ca.pem"]
+
+  # Certificate for SSL client authentication
+  #ssl.certificate: "/etc/pki/client/cert.pem"
+
+  # Client Certificate Key
+  #ssl.key: "/etc/pki/client/cert.key"
+
+#================================ Logging =====================================
+
+# Sets log level. The default log level is info.
+# Available log levels are: critical, error, warning, info, debug
+#logging.level: debug
+
+# At debug level, you can selectively enable logging only for some components.
+# To enable all selectors use ["*"]. Examples of other selectors are "beat",
+# "publish", "service".
+#logging.selectors: ["*"]
