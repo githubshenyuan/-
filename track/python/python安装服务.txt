@@ -9,3 +9,7 @@
 3、将python脚本打包成win32程序：
 	命令：（路径不能有中文）
 		pyinstaller -F PythonService.py
+
+
+
+考勤项目注册服务

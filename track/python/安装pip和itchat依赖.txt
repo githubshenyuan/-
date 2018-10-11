@@ -7,4 +7,10 @@
 	C:\Python27\Scripts
 4、安装itchat
 	pip install itchat
-5.以上操作务必以管理员身份运行
+5、查询安装模块版本
+	pip freeze
+	pip list
+	
+5、升级itchat
+	pip install -U itchat
+6.以上操作务必以管理员身份运行

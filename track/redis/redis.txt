@@ -1,12 +1,15 @@
-1、下载及安装
+一、环境：
+	redis版本：	3.2.12
+	系统：	centos7 (3.10.0-514.el7.x86_64)
+二、下载及安装
 	下载：
 		redis-3.2.12.tar.gz 复制到 /usr/local/redis 目录下
 	安装：
-		cd /usr/local/redis
-		tar -zxvf redis-3.2.12.tar.gz
-		cd redis-3.2.12
-		yum install -y gcc-c++
-		mkdir -p /usr/local/redis-cluster
+		cd /usr/local/redis \
+		&& tar -zxvf redis-3.2.12.tar.gz \
+		&& cd redis-3.2.12 \
+		&& yum install -y gcc-c++ 
+		&& mkdir -p /usr/local/redis-cluster
 		make MALLOC=libc install PREFIX=/usr/local/redis-cluster
 
 2、创建集群节点
