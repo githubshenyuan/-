@@ -1,0 +1,31 @@
+1、安装 vsftpd
+    yum install -y vsftpd
+2、设置开机启动
+    systemctl enable vsftpd
+3、启动ftp服务
+    systemctl start vsftpd.service
+4、打开防火墙
+    firewall-cmd --zone=public --add-port=21/tcp --permanent    // 永久添加tcp 21端口
+    firewall-cmd --permanent --zone=public --add-service=ftp    // 添加ftp服务
+    firewall-cmd --reload                                       // 重启防火墙
+5、添加用户并设置密码：
+    useradd -g root -d /home/ftpadmin -s /sbin/nologin ftpadmin
+    passwd ftpadmin
+
+    新建用户：ftpadmin
+    -s /sbin/nologin    ： 禁止登录
+    -d /home/data       ： 默认路径
+6、设置权限（有问题）：
+    chown -R ftpadmin:root /home/ftpadmin
+    setsebool -P ftpd_full_access on            // 允许用户访问自己的根目录
+7、修改vsftp配置文件，禁止匿名登录
+    vi /etc/vsftpd/vsftpd.conf
+    参考：
+        anonymous_enable=YES 改为： anonymous_enable=NO
+
+问题汇总：
+1、root用户无法登陆ftp
+    删除 或 注释掉 ftpusers 和 user_list 文件中的 root
+2、xftp工具连接时，可以连接但是报  "无法显示远程文件夹" 的错误
+    文件 → 打开 → 右击 会话  → 属性 → 选项 → 取消 “使用被动模式” 
+    
