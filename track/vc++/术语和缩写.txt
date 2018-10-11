@@ -1,0 +1,4 @@
+IDC：ID of Control
+IDI：ID of Image
+IDB：ID of Bitmap
+IDD：ID of DialogBox
