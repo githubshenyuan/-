@@ -1,0 +1,8 @@
+1、下载与安装
+    下载 nexus-2.14.8-01-bundle.zip
+2、安装 与 注册服务
+    打开 ./bin
+    执行命令注册服务：（注意需要管理员权限）
+        nexus.bat install
+    启动服务：
+        net start nexus
