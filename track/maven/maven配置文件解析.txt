@@ -1,12 +1,30 @@
 1、localRepository
-	解释：本地仓库的路径。默认值为${user.home}/.m2/repository。
-	参考配置：
+	说明：	本地仓库的路径。默认值为${user.home}/.m2/repository。
+	参考：
 		<localRepository>usr/local/maven</localRepository>
-2、
-3、
-4、
-5、
-6、
+2、interactiveMode
+	说明：	表示是否使用交互模式，默认是true；如果设为false，那么当Maven需要用户进行输入的时候，它会使用一个默认值。
+	参考：
+		<interactiveMode>true</interactiveMode>
+3、offline
+	说明：	表示是否离线，默认是false。这个属性表示在Maven进行项目编译和部署等操作时是否允许Maven进行联网来下载所需要的信息。
+	参考：
+		<offline>false</offline>
+4、pluginGroups （非特殊 建议保持默认）
+	说明：	
+		在pluginGroups元素下面可以定义一系列的pluginGroup元素。表示当通过plugin的前缀来解析plugin的时候到哪里寻找。
+		pluginGroup元素指定的是plugin的groupId。
+		默认情况下，Maven会自动把org.apache.maven.plugins和org.codehaus.mojo添加到pluginGroups下。
+	参考：
+		<pluginGroups> 
+    		<pluginGroup> org.mortbay.jetty </ pluginGroup > 
+  		</pluginGroups> 
+5、servers
+	说明：
+
+6、proxies
+	说明:
+		
 7、
 8、
 9、

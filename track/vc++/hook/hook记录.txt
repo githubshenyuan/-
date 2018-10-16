@@ -1,0 +1,18 @@
+1、hook的分类：
+    hook
+        应用 hook（适用 x86 x64）
+            消息 hook:
+                原理：
+
+                win api:
+                    SetWindowsHookEx( 
+                        WH_KEYBOARD,        //键盘消息 
+                        KeyboardProc,       //钩子函数（处理键盘输入的函数） 
+                        hInstance,          //钩子函数所在DLL的Handle 
+                        0)                  //该参数用于设定要Hook的线程ID，为0时表示监视所有线程  
+            注入 hook:
+
+            调试 hook:
+
+        内核 hook (适用 x86):
+            SSDT hook:

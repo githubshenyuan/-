@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<!-- saved from url=(0037)http://maven.apache.org/settings.html -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN" class="translated-ltr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Date-Revision-yyyymmdd" content="20181016">
+    <meta http-equiv="Content-Language" content="en">
+    <title>Maven  - 设置参考</title>
+    <link rel="stylesheet" href="./Maven - 设置参考_files/apache-maven-fluido-1.7.min.css">
+    <link rel="stylesheet" href="./Maven - 设置参考_files/site.css">
+    <link rel="stylesheet" href="./Maven - 设置参考_files/print.css" media="print">
+    <script id="twitter-wjs" src="./Maven - 设置参考_files/widgets.js.下载"></script><script type="text/javascript" async="" src="./Maven - 设置参考_files/f.txt"></script><script type="text/javascript" async="" src="./Maven - 设置参考_files/ga.js.下载"></script><script type="text/javascript" src="./Maven - 设置参考_files/apache-maven-fluido-1.7.min.js.下载"></script>
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-140879-1']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  <link type="text/css" rel="stylesheet" charset="UTF-8" href="./Maven - 设置参考_files/translateelement.css"><script type="text/javascript" charset="utf-8" async="" src="./Maven - 设置参考_files/button.3ebb4253c7cb2cc3c9eaac42044fc82c.js.下载"></script></head>
+  <body class="topBarDisabled">
+    <div class="container-fluid">
+      <div id="banner">
+        <div class="pull-left"><a href="https://www.apache.org/" id="bannerLeft"><img src="./Maven - 设置参考_files/apache-maven-project.png" alt="Apache Maven站点"></a></div>
+        <div class="pull-right"><a href="http://maven.apache.org/" id="bannerRight"><img src="./Maven - 设置参考_files/maven-logo-black-on-white.png" alt=""></a></div>
+        <div class="clear"><hr></div>
+      </div>
+
+      <div id="breadcrumbs">
+        <ul class="breadcrumb">
+      <li class=""><a href="https://www.apache.org/" class="externalLink" title="阿帕奇"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">阿帕奇</font></font></a><span class="divider"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">/</font></font></span></li>
+      <li class=""><a href="http://maven.apache.org/index.html" title="Maven的"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Maven </font></font></a><span class="divider"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">/</font></font></span></li>
+    <li class="active "><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">设置参考 </font></font><a href="https://github.com/apache/maven-site/tree/master/content/markdown/settings.md"><img src="./Maven - 设置参考_files/accessories-text-editor.png" title="编辑"></a></li>
+        <li id="publishDate" class="pull-right"><span class="divider"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">| </font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">最后发布：2018-10-16</font></font></li>
+      <li class="pull-right"><span class="divider"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">| </font></font></span>
+<a href="http://maven.apache.org/scm.html" title="获取来源"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">获取来源</font></font></a></li>
+      <li class="pull-right"><a href="http://maven.apache.org/download.cgi" title="下载"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">下载</font></font></a></li>
+        </ul>
+      </div>
+      <div class="row-fluid">
+        <div id="leftColumn" class="span2">
+          <div class="well sidebar-nav">
+    <ul class="nav nav-list">
+    <li><a href="http://maven.apache.org/index.html" title="欢迎"><span class="none"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">欢迎</font></font></a></li>
+    <li><a href="https://www.apache.org/licenses/" class="externalLink" title="执照"><span class="none"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">执照</font></font></a></li>
+      <li class="nav-header"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">关于Maven</font></font></li>
+    <li><a href="http://maven.apache.org/what-is-maven.html" title="什么是Maven？"><span class="none"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">什么是Maven？</font></font></a></li>
+    <li><a href="http://maven.apache.org/maven-features.html" title="特征"><span class="none"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">特征</font></font></a></li>
+    <li><a href="http://maven.apache.org/download.html" title="下载"><span class="none"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">下载</font></font></a></li>
+    <li><a href="http://maven.apache.org/users/index.html" title="使用"><span class="icon-chevron-right"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">使用</font></font></a></li>
+    <li><a href="http://maven.apache.org/docs/history.html" title="发行说明"><span class="none"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">发行说明</font></font></a></li>
+      <li class="nav-header"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">文档</font></font></li>
+    <li><a href="http://maven.apache.org/plugins/index.html" title="Maven插件"><span class="none"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Maven插件</font></font></a></li>
+    <li><a href="http://maven.apache.org/guides/index.html" title="指数（类别）"><span class="none"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">指数（类别）</font></font></a></li>
+    <li><a href="http://maven.apache.org/users/index.html" title="用户中心"><span class="icon-chevron-down"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">用户中心</font></font></a>
+    <ul class="nav nav-list">
+    <li><a href="http://maven.apache.org/guides/getting-started/maven-in-five-minutes.html" title="Maven在5分钟内完成"><span class="none"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Maven在5分钟内完成</font></font></a></li>
+    <li><a href="http://maven.apache.org/guides/getting-started/index.html" title="入门指南"><span class="icon-chevron-right"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">入门指南</font></font></a></li>
+    <li><a href="http://maven.apache.org/users/getting-help.html" title="获得帮助"><span class="none"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">获得帮助</font></font></a></li>
+    <li><a href="http://maven.apache.org/run-maven/index.html" title="运行Maven"><span class="none"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">运行Maven</font></font></a></li>
+    <li><a href="http://maven.apache.org/guides/mini/guide-configuring-plugins.html" title="配置插件"><span class="icon-chevron-right"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">配置插件</font></font></a></li>
+    <li><a href="http://maven.apache.org/guides/mini/guide-site.html" title="创建一个站点"><span class="icon-chevron-right"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">创建一个站点</font></font></a></li>
+    <li><a href="http://maven.apache.org/guides/introduction/introduction-to-archetypes.html" title="原型"><span class="icon-chevron-right"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">原型</font></font></a></li>
+    <li><a href="http://maven.apache.org/guides/introduction/introduction-to-repositories.html" title="库"><span class="icon-chevron-right"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">库</font></font></a></li>
+    <li><a href="http://maven.apache.org/guides/mini/index.html" title="指南"><span class="icon-chevron-right"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">指南</font></font></a></li>
+    <li class="active"><a href="http://maven.apache.org/settings.html#"><span class="none"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">设置参考</font></font></a></li>
+    <li><a href="http://maven.apache.org/pom.html" title="POM参考"><span class="none"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">POM参考</font></font></a></li>
+    <li><a href="http://maven.apache.org/general.html" title="常问问题"><span class="none"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">常问问题</font></font></a></li>
+    </ul>
+</li>
+    <li><a href="http://maven.apache.org/plugin-developers/index.html" title="插件开发人员中心"><span class="icon-chevron-right"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">插件开发人员中心</font></font></a></li>
+    <li><a href="http://maven.apache.org/repository/index.html" title="Maven Central Repository"><span class="icon-chevron-right"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Maven Central Repository</font></font></a></li>
+    <li><a href="http://maven.apache.org/developers/index.html" title="Maven开发人员中心"><span class="icon-chevron-right"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Maven开发人员中心</font></font></a></li>
+    <li><a href="http://maven.apache.org/articles.html" title="书籍和资源"><span class="none"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">书籍和资源</font></font></a></li>
+    <li><a href="http://maven.apache.org/security.html" title="安全"><span class="none"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">安全</font></font></a></li>
+      <li class="nav-header"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">社区</font></font></li>
+    <li><a href="http://maven.apache.org/community.html" title="社区概况"><span class="none"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">社区概况</font></font></a></li>
+    <li><a href="http://maven.apache.org/project-roles.html" title="项目角色"><span class="none"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">项目角色</font></font></a></li>
+    <li><a href="http://maven.apache.org/guides/development/guide-helping.html" title="如何贡献"><span class="none"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如何贡献</font></font></a></li>
+    <li><a href="http://maven.apache.org/users/getting-help.html" title="获得帮助"><span class="none"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">获得帮助</font></font></a></li>
+    <li><a href="http://maven.apache.org/issue-management.html" title="问题管理"><span class="none"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">问题管理</font></font></a></li>
+    <li><a href="http://maven.apache.org/scm.html" title="获取Maven来源"><span class="none"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">获取Maven来源</font></font></a></li>
+    <li><a href="http://maven.apache.org/team.html" title="Maven团队"><span class="none"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Maven团队</font></font></a></li>
+      <li class="nav-header"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">项目文件</font></font></li>
+    <li><a href="http://maven.apache.org/project-info.html" title="项目信息"><span class="icon-chevron-right"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">项目信息</font></font></a></li>
+      <li class="nav-header"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Maven项目</font></font></li>
+    <li><a href="http://maven.apache.org/archetype/index.html" title="原型"><span class="none"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">原型</font></font></a></li>
+    <li><a href="http://maven.apache.org/resolver/index.html" title="神器解析器"><span class="none"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">神器解析器</font></font></a></li>
+    <li><a href="http://maven.apache.org/doxia/index.html" title="Doxia"><span class="none"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Doxia</font></font></a></li>
+    <li><a href="http://maven.apache.org/jxr/index.html" title="JXR"><span class="none"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">JXR</font></font></a></li>
+    <li><a href="http://maven.apache.org/ref/current" title="Maven的"><span class="none"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Maven的</font></font></a></li>
+    <li><a href="http://maven.apache.org/pom/index.html" title="父POM"><span class="none"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">父POM</font></font></a></li>
+    <li><a href="http://maven.apache.org/plugins/index.html" title="插件"><span class="none"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">插件</font></font></a></li>
+    <li><a href="http://maven.apache.org/plugin-testing/index.html" title="插件测试"><span class="none"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">插件测试</font></font></a></li>
+    <li><a href="http://maven.apache.org/plugin-tools/index.html" title="插件工具"><span class="none"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">插件工具</font></font></a></li>
+    <li><a href="http://maven.apache.org/apache-resource-bundles/index.html" title="资源包"><span class="none"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">资源包</font></font></a></li>
+    <li><a href="http://maven.apache.org/scm/index.html" title="SCM"><span class="none"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">SCM</font></font></a></li>
+    <li><a href="http://maven.apache.org/shared/index.html" title="共享组件"><span class="none"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">共享组件</font></font></a></li>
+    <li><a href="http://maven.apache.org/skins/index.html" title="皮肤"><span class="none"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">皮肤</font></font></a></li>
+    <li><a href="http://maven.apache.org/surefire/index.html" title="万全"><span class="none"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">万全</font></font></a></li>
+    <li><a href="http://maven.apache.org/wagon/index.html" title="车皮"><span class="none"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">车皮</font></font></a></li>
+      <li class="nav-header"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ASF</font></font></li>
+    <li><a href="https://www.apache.org/foundation/how-it-works.html" class="externalLink" title="Apache的工作原理"><span class="none"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Apache的工作原理</font></font></a></li>
+    <li><a href="https://www.apache.org/foundation/" class="externalLink" title="基础"><span class="none"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">基础</font></font></a></li>
+    <li><a href="https://www.apache.org/foundation/sponsorship.html" class="externalLink" title="赞助Apache"><span class="none"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">赞助Apache</font></font></a></li>
+    <li><a href="https://www.apache.org/foundation/thanks.html" class="externalLink" title="谢谢"><span class="none"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">谢谢</font></font></a></li>
+</ul>
+<form id="search-form" action="https://www.google.com/search" method="get">
+  <input value="https://maven.apache.org" name="sitesearch" type="hidden">
+  <input class="search-query" name="q" id="query" type="text" placeholder="Custom Search" style="border: 1px solid rgb(126, 157, 185); padding: 2px; background: url(&quot;https://www.google.com/cse/static/images/1x/googlelogo_lightgrey_46x16dp.png&quot;) left center no-repeat rgb(255, 255, 255); text-indent: 48px;">
+<input name="siteurl" type="hidden" value="maven.apache.org/settings.html"><input name="ref" type="hidden" value="maven.apache.org/configure.html"><input name="ss" type="hidden" value=""></form>
+<script type="text/javascript">asyncJs( 'https://cse.google.com/brand?form=search-form' )</script>
+          <hr>
+          <div id="poweredBy">
+            <div class="clear"></div>
+            <div class="clear"></div>
+    <div id="twitter">
+    <iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" class="twitter-follow-button twitter-follow-button-rendered" style="position: static; visibility: visible; width: 178px; height: 20px;" title="Twitter关注按钮" src="./Maven - 设置参考_files/follow_button.d547ddd75cc4ca7cc5a63b70da3da301.en.html" data-screen-name="ASFMavenProject"></iframe>
+    <script type="text/javascript">!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+    </div>
+            <div class="clear"></div>
+            <div class="clear"></div>
+<a href="http://maven.apache.org/" title="由Maven建造" class="poweredBy"><img class="builtBy" alt="由Maven建造" src="./Maven - 设置参考_files/maven-feather.png"></a>
+            </div>
+          </div>
+        </div>
+        <div id="bodyColumn" class="span10">
+<div class="section">
+<h2><a name="Settings_Reference"></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">设置参考</font></font></h2>
+<ol style="list-style-type: decimal">
+
+<li>
+
+<p><a href="http://maven.apache.org/settings.html#Introduction"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">介绍</font></font></a></p>
+<ol style="list-style-type: decimal">
+
+<li><a href="http://maven.apache.org/settings.html#Quick_Overview"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">快速概述</font></font></a></li>
+</ol>
+</li>
+<li>
+
+<p><a href="http://maven.apache.org/settings.html#Settings_Details"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">设置细节</font></font></a></p>
+<ol style="list-style-type: decimal">
+
+<li><a href="http://maven.apache.org/settings.html#Simple_Values"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">简单的价值观</font></font></a></li>
+<li><a href="http://maven.apache.org/settings.html#Plugin_Groups"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">插件组</font></font></a></li>
+<li><a href="http://maven.apache.org/settings.html#Servers"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">服务器</font></font></a>
+<ol style="list-style-type: decimal">
+
+<li><a href="http://maven.apache.org/settings.html#Password_Encryption"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">密码加密</font></font></a></li>
+</ol>
+</li>
+<li>
+
+<p><a href="http://maven.apache.org/settings.html#Mirrors"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">镜子</font></font></a></p>
+</li>
+<li><a href="http://maven.apache.org/settings.html#Proxies"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">代理</font></font></a></li>
+<li><a href="http://maven.apache.org/settings.html#Profiles"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">简介</font></font></a>
+<ol style="list-style-type: decimal">
+
+<li><a href="http://maven.apache.org/settings.html#Activation"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">激活</font></font></a></li>
+<li><a href="http://maven.apache.org/settings.html#Repositories"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">库</font></font></a></li>
+<li><a href="http://maven.apache.org/settings.html#Plugin_Repositories"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">插件存储库</font></font></a></li>
+</ol>
+</li>
+<li>
+
+<p><a href="http://maven.apache.org/settings.html#Active_Profiles"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">活动配置文件</font></font></a></p>
+</li>
+</ol>
+</li>
+</ol></div>
+<div class="section">
+<h2><a name="Introduction"></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">介绍</font></font></h2>
+<div class="section">
+<h3><a name="Quick_Overview"></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">快速概述</font></font></h3>
+<p><font style="vertical-align: inherit;"><tt><font style="vertical-align: inherit;">settings.xml</font></tt><font style="vertical-align: inherit;">文件中</font><font style="vertical-align: inherit;">的</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">settings</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">元素</font><font style="vertical-align: inherit;">包含用于定义以各种方式配置Maven执行的值的元素，如</font><tt><font style="vertical-align: inherit;">pom.xml</font></tt><font style="vertical-align: inherit;">，但不应捆绑到任何特定项目或分发给受众。</font><font style="vertical-align: inherit;">这些包括诸如本地存储库位置，备用远程存储库服务器和身份验证信息之类的值。</font></font><tt><font style="vertical-align: inherit;"></font></tt><font style="vertical-align: inherit;"></font><tt><font style="vertical-align: inherit;"></font></tt><font style="vertical-align: inherit;"></font></p>
+<p><font style="vertical-align: inherit;"></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">settings.xml</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">文件可能</font><font style="vertical-align: inherit;">存在两个位置</font><font style="vertical-align: inherit;">：</font></font></p>
+<ul>
+
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Maven安装：</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$ {maven.home} /conf/settings.xml</font></font></tt></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">用户的安装：</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$ {user.home} /.m2 / settings.xml</font></font></tt></li>
+</ul>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">以前的</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">settings.xml</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">也称为全局设置，后者的</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">settings.xml</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">称为用户设置。</font><font style="vertical-align: inherit;">如果两个文件都存在，则它们的内容将合并，用户特定的</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">settings.xml</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">占主导地位。</font></font></p>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">提示：如果您需要从头开始创建特定于用户的设置，最简单的方法是将全局设置从Maven安装复制到</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$ {user.home} /.m2</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">目录。</font><font style="vertical-align: inherit;">Maven的默认</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">settings.xml</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">是一个带有注释和示例的模板，因此您可以快速调整它以满足您的需求。</font></font></p>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">以下是</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">设置</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">下的顶部元素的概述</font><font style="vertical-align: inherit;">：</font></font></p>
+
+<div>
+<div>
+<pre class="source"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">    &lt;settings xmlns =“http://maven.apache.org/SETTINGS/1.0.0” </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+      xmlns：xsi =“http://www.w3.org/2001/XMLSchema-instance” </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+      xsi：schemaLocation =“http：/ /maven.apache.org/SETTINGS/1.0.0 </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                          https://maven.apache.org/xsd/settings-1.0.0.xsd“&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+      &lt;localRepository /&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+      &lt;interactiveMode /&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+      &lt;usePluginRegistry /&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+      &lt;offline /&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+      &lt; pluginGroups /&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+      &lt;servers /&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+      &lt;mirrors /&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+      &lt;proxies /&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+      &lt;profiles /&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+      &lt;activeProfiles /&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+    &lt;/ settings&gt;</font></font>
+</pre></div></div>
+
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">可以使用以下表达式插入</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">settings.xml</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">的内容</font><font style="vertical-align: inherit;">：</font></font></p>
+<ol style="list-style-type: decimal">
+
+<li><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$ {user.home}</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">和所有其他系统属性</font></font><i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">（自Maven 3.0起）</font></font></i></li>
+<li><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$ {env.HOME}</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">等用于环境变量</font></font></li>
+</ol>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">请注意，</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">settings.xml</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">中的配置文件中定义的属性</font><font style="vertical-align: inherit;">不能用于插值。</font></font></p></div></div>
+<div class="section">
+<h2><a name="Settings_Details"></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">设置细节</font></font></h2>
+<div class="section">
+<h3><a name="Simple_Values"></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">简单的价值观</font></font></h3>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">一半的顶级</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">设置</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">元素是简单值，表示一系列值，用于描述构建系统中全时活动的元素。</font></font></p>
+
+<div>
+<div>
+<pre class="source"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">&lt;settings xmlns =“http://maven.apache.org/SETTINGS/1.0.0” </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  xmlns：xsi =“http://www.w3.org/2001/XMLSchema-instance” </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  xsi：schemaLocation =“http：/ /maven.apache.org/SETTINGS/1.0.0 </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                      https://maven.apache.org/xsd/settings-1.0.0.xsd“&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  &lt;localRepository&gt; $ {user.home} /。m2 / repository &lt;/ localRepository &gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  &lt;interactiveMode&gt; true &lt;/ interactiveMode&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  &lt;usePluginRegistry&gt; false &lt;/ usePluginRegistry&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  &lt;offline&gt; false &lt;/ offline&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  ... </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+&lt;/ settings&gt;</font></font>
+</pre></div></div>
+
+<ul>
+
+<li><b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">localRepository</font></font></b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：此值是此构建系统的本地存储库的路径。</font><font style="vertical-align: inherit;">默认值为</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$ {user.home} /.m2 / repository</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">此元素对主构建服务器特别有用，允许所有登录用户从公共本地存储库构建。</font></font></li>
+<li><b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">interactiveMode</font></font></b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">真正的</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如果Maven的应该尝试与用户输入交互，</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">假</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如果不是。</font><font style="vertical-align: inherit;">默认为</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">true</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font></li>
+<li><b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">usePluginRegistry</font></font></b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：</font><font style="vertical-align: inherit;">如果Maven应使用</font><tt><font style="vertical-align: inherit;">$ {user.home} </font></tt><b><font style="vertical-align: inherit;">/.m2 </font></b><tt><font style="vertical-align: inherit;">/ plugin-registry.xml</font></tt><font style="vertical-align: inherit;">文件来管理插件版本，</font><b><font style="vertical-align: inherit;">则为</font></b></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">true</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，默认为</font><tt><font style="vertical-align: inherit;">false</font></tt><font style="vertical-align: inherit;">。</font><i><font style="vertical-align: inherit;">请注意，对于当前版本的Maven 2.0，不应依赖plugin-registry.xml文件。</font></i><i><font style="vertical-align: inherit;">现在考虑它处于休眠状态。</font></i></font><tt><font style="vertical-align: inherit;"></font></tt><font style="vertical-align: inherit;"></font><tt><font style="vertical-align: inherit;"></font></tt><font style="vertical-align: inherit;"></font><i><font style="vertical-align: inherit;"></font></i></li>
+<li><b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">offline</font></font></b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：</font><font style="vertical-align: inherit;">如果此构建系统应在脱机模式下运行，则为</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">true</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，默认为</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">false</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">由于网络设置或安全原因，此元素对于无法连接到远程存储库的构建服务器很有用。</font></font></li>
+</ul></div>
+<div class="section">
+<h3><a name="Plugin_Groups"></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">插件组</font></font></h3>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">该元素包含一个</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">pluginGroup</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">元素</font><font style="vertical-align: inherit;">列表</font><font style="vertical-align: inherit;">，每个元素都包含一个groupId。</font><font style="vertical-align: inherit;">使用插件时搜索列表，并且命令行中未提供groupId。</font><font style="vertical-align: inherit;">此列表自动包含</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">org.apache.maven.plugins</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">和</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">org.codehaus.mojo</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font></p>
+
+<div>
+<div>
+<pre class="source"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">&lt;settings xmlns =“http://maven.apache.org/SETTINGS/1.0.0” </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  xmlns：xsi =“http://www.w3.org/2001/XMLSchema-instance” </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  xsi：schemaLocation =“http：/ /maven.apache.org/SETTINGS/1.0.0 </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                      https://maven.apache.org/xsd/settings-1.0.0.xsd“&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  ... </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  &lt;pluginGroups&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+    &lt;pluginGroup&gt; org.mortbay.jetty &lt;/ pluginGroup &gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  &lt;/ pluginGroups&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  ... </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+&lt;/ settings&gt;</font></font>
+</pre></div></div>
+
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">例如，给定上述设置，Maven命令行可以执行</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">org.mortbay.jetty：jetty-maven-plugin：</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">使用截断命令</font><tt><font style="vertical-align: inherit;">运行</font></tt><font style="vertical-align: inherit;">：</font></font></p>
+
+<div>
+<div>
+<pre class="source"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">mvn码头：跑
+</font></font></pre></div></div>
+</div>
+<div class="section">
+<h3><a name="Servers"></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">服务器</font></font></h3>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">用于下载和部署的</font></font><a href="http://maven.apache.org/pom.html#Repositories"><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">存储库</font></font></tt></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">由POM </font><font style="vertical-align: inherit;">的</font><a href="http://maven.apache.org/pom.html#Repositories"><tt><font style="vertical-align: inherit;">存储库</font></tt></a><font style="vertical-align: inherit;">和</font></font><a href="http://maven.apache.org/pom.html#Distribution_Management"><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">distributionManagement</font></font></tt></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">元素</font><font style="vertical-align: inherit;">定义</font><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">但是，某些设置（如</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">用户名</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">和</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">密码）</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">不应与</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">pom.xml</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">一起分发</font><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">此类信息应存在于</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">settings.xml中</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">的构建服务器上</font><font style="vertical-align: inherit;">。</font></font></p>
+
+<div>
+<div>
+<pre class="source"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">&lt;settings xmlns =“http://maven.apache.org/SETTINGS/1.0.0” </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  xmlns：xsi =“http://www.w3.org/2001/XMLSchema-instance” </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  xsi：schemaLocation =“http：/ /maven.apache.org/SETTINGS/1.0.0 </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                      https://maven.apache.org/xsd/settings-1.0.0.xsd“&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  ... </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  &lt;servers&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+    &lt;server&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+      &lt;id&gt; server001 &lt;/ id&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+      &lt;username&gt; my_login &lt;/ username&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+      &lt;password&gt; my_password &lt;/ password&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+      &lt;privateKey&gt; $ {user.home} /.ssh / id_dsa &lt;/ privateKey&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+      &lt;passphrase&gt; some_passphrase &lt;/ passphrase&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+      &lt;filePermissions&gt; 664 &lt;/ filePermissions&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+      &lt;directoryPermissions&gt; 775 &lt;/ directoryPermissions&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+      &lt;configuration&gt; &lt;/ configuration&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+    &lt;/ server&gt;</font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  &lt;/ servers&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  ... </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+&lt;/ settings&gt;</font></font>
+</pre></div></div>
+
+<ul>
+
+<li><b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">id</font></font></b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：这是与</font><font style="vertical-align: inherit;">Maven尝试连接的存储库/镜像</font><font style="vertical-align: inherit;">的</font><tt><font style="vertical-align: inherit;">id</font></tt><font style="vertical-align: inherit;">元素</font><font style="vertical-align: inherit;">匹配</font><font style="vertical-align: inherit;">的服务器的ID </font></font><i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">（不是要登录的用户</font></font></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">的</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ID </font></font></tt><font style="vertical-align: inherit;"><i><font style="vertical-align: inherit;">）</font></i><font style="vertical-align: inherit;">。</font></font></li>
+<li><b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">username</font></font></b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，</font></font><b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">password</font></font></b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：这些元素显示为一对，表示对此服务器进行身份验证所需的登录名和密码。</font></font></li>
+<li><b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">privateKey</font></font></b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，</font></font><b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">passphrase</font></font></b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：与前两个元素一样</font><font style="vertical-align: inherit;">，如果需要</font><font style="vertical-align: inherit;">，该对指定私钥的路径（默认为</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$ {user.home} / .ssh / id_dsa</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）和</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">密码</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">该</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">密码</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">和</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">密码</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">的元素可能在将来被外部化，但现在他们必须设置在纯文本</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">的settings.xml</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">文件。</font></font></li>
+<li><b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">filePermissions</font></font></b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，</font></font><b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">directoryPermissions</font></font></b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：在部署时创建存储库文件或目录时，这些是要使用的权限。</font><font style="vertical-align: inherit;">每个的合法值是对应于* nix文件权限的三位数字，例如664或775。</font></font></li>
+</ul>
+<p><i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">注意：</font></font></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如果使用私钥登录服务器，请确保省略</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">&lt;password&gt;</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">元素。</font><font style="vertical-align: inherit;">否则，密钥将被忽略。</font></font></p>
+<div class="section">
+<h4><a name="Password_Encryption"></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">密码加密</font></font></h4>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">一个新功能 - 服务器密码和密码加密已添加到2.1.0+。</font><font style="vertical-align: inherit;">请参阅</font><a href="http://maven.apache.org/guides/mini/guide-encryption.html"><font style="vertical-align: inherit;">此页面的</font></a><font style="vertical-align: inherit;">详细信息</font></font><a href="http://maven.apache.org/guides/mini/guide-encryption.html"><font style="vertical-align: inherit;"></font></a></p></div></div>
+<div class="section">
+<h3><a name="Mirrors"></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">镜子</font></font></h3>
+
+<div>
+<div>
+<pre class="source"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">&lt;settings xmlns =“http://maven.apache.org/SETTINGS/1.0.0” </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  xmlns：xsi =“http://www.w3.org/2001/XMLSchema-instance” </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  xsi：schemaLocation =“http：/ /maven.apache.org/SETTINGS/1.0.0 </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                      https://maven.apache.org/xsd/settings-1.0.0.xsd“&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  ... </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  &lt;mirrors&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+    &lt;mirror&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+      &lt;id&gt; planetmirror.com &lt;/ id&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+      &lt;name&gt; PlanetMirror Australia &lt;/ name&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+      &lt;url&gt; http://downloads.planetmirror.com/pub/maven2 &lt;/ url&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+      &lt;mirrorOf&gt; central &lt;/ mirrorOf&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+    &lt;/ mirror&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  &lt;/ mirrors&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  ... </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+&lt;/设置&gt;</font></font>
+</pre></div></div>
+
+<ul>
+
+<li><b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">id</font></font></b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，</font></font><b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">name</font></font></b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：此镜像的唯一标识符和用户友好名称。</font><font style="vertical-align: inherit;">该</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ID</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">是用来区分</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">镜</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">元件，并从挑选相应的凭证</font></font><a href="http://maven.apache.org/settings.html#Servers"><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">&lt;服务器&gt;</font></font></tt></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">连接到反射镜时部。</font></font></li>
+<li><b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">url</font></font></b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：此镜像的基本URL。</font><font style="vertical-align: inherit;">构建系统将使用此URL连接到存储库而不是原始存储库URL。</font></font></li>
+<li><b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">mirrorOf</font></font></b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：</font><font style="vertical-align: inherit;">这是镜像的存储库</font><font style="vertical-align: inherit;">的</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">id</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">例如，要指向Maven </font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">中央</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">存储库（</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">https://repo.maven.apache.org/maven2/</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）</font><font style="vertical-align: inherit;">的镜像，</font><tt><font style="vertical-align: inherit;">请</font></tt><font style="vertical-align: inherit;">将此元素设置为</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">central</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">更高级的映射，如</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">repo1，repo2</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">或</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">*，！inhouse</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">也是可能的。</font><font style="vertical-align: inherit;">这必须与镜像</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ID</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">不匹配</font><font style="vertical-align: inherit;">。</font></font></li>
+</ul>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">有关镜像的更深入介绍，请阅读</font></font><a href="http://maven.apache.org/guides/mini/guide-mirror-settings.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">镜像设置指南</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font></p></div>
+<div class="section">
+<h3><a name="Proxies"></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">代理</font></font></h3>
+
+<div>
+<div>
+<pre class="source"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">&lt;settings xmlns =“http://maven.apache.org/SETTINGS/1.0.0” </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  xmlns：xsi =“http://www.w3.org/2001/XMLSchema-instance” </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  xsi：schemaLocation =“http：/ /maven.apache.org/SETTINGS/1.0.0 </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                      https://maven.apache.org/xsd/settings-1.0.0.xsd“&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  ... </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  &lt;proxies&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+    &lt;proxy&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+      &lt;id&gt; myproxy &lt;/ id&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+      &lt;active&gt; true &lt;/ active&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+      &lt;protocol&gt; http &lt;/ protocol&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+      &lt;host&gt; proxy.somewhere.com &lt;/ host&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+      &lt;port&gt; 8080 &lt;/ port&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+      &lt;username&gt; proxyuser &lt;/ username&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+      &lt;password&gt; somepassword &lt;/密码&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+      &lt;nonProxyHosts&gt; *。google.com | ibiblio.org &lt;/ nonProxyHosts&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+    &lt;/ proxy&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  &lt;/ proxies&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  ... </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+&lt;/ settings&gt;</font></font>
+</pre></div></div>
+
+<ul>
+
+<li><b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">id</font></font></b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：此代理的唯一标识符。</font><font style="vertical-align: inherit;">这用于区分</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">代理</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">元素。</font></font></li>
+<li><b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">active</font></font></b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：</font><font style="vertical-align: inherit;">如果此代理处于活动状态，则为</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">true</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">这对于声明一组代理很有用，但一次只能有一个代理。</font></font></li>
+<li><b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">protocol</font></font></b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，</font></font><b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">host</font></font></b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，</font></font><b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">port</font></font></b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">协议：// host：</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">代理的</font><tt><font style="vertical-align: inherit;">端口</font></tt><font style="vertical-align: inherit;">，分隔为离散元素。</font></font></li>
+<li><b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">用户名</font></font></b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，</font></font><b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">密码</font></font></b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：这些元素显示为一对，表示对此代理服务器进行身份验证所需的登录名和密码。</font></font></li>
+<li><b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">nonProxyHosts</font></font></b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：这是不应代理的主机列表。</font><font style="vertical-align: inherit;">列表的分隔符是代理服务器的预期类型; </font><font style="vertical-align: inherit;">上面的示例是管道分隔的 - 逗号分隔也很常见。</font></font></li>
+</ul></div>
+<div class="section">
+<h3><a name="Profiles"></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">简介</font></font></h3>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">该</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">配置文件</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">中的元素</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">的settings.xml</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">是截断版</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">pom.xml的</font></font></tt> <tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">轮廓</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">元素。</font><font style="vertical-align: inherit;">它由</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">激活</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">存储库</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">pluginRepositories</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">和</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">属性</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">元素组成。</font><font style="vertical-align: inherit;">该</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">曲线</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">元素仅包含这四个要素，因为它们涉及自己与构建系统作为一个整体（这是角色</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">的settings.xml</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">文件），不是单个项目的对象模型的设置。</font></font></p>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如果配置文件在</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">设置中</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">处于活动状态</font><font style="vertical-align: inherit;">，则其值将覆盖POM或</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">profiles.xml</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">文件中</font><font style="vertical-align: inherit;">任何等效的ID'd </font><tt><font style="vertical-align: inherit;">配置</font></tt><font style="vertical-align: inherit;">文件。</font></font></p>
+<div class="section">
+<h4><a name="Activation"></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">激活</font></font></h4>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">激活是配置文件的关键。</font><font style="vertical-align: inherit;">与POM的配置文件一样，配置文件的强大功能来自于它仅在某些情况下修改某些值的能力。</font><font style="vertical-align: inherit;">这些情况是通过</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">激活</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">元素</font><font style="vertical-align: inherit;">指定的</font><font style="vertical-align: inherit;">。</font></font></p>
+
+<div>
+<div>
+<pre class="source"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">&lt;settings xmlns =“http://maven.apache.org/SETTINGS/1.0.0” </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  xmlns：xsi =“http://www.w3.org/2001/XMLSchema-instance” </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  xsi：schemaLocation =“http：/ /maven.apache.org/SETTINGS/1.0.0 </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                      https://maven.apache.org/xsd/settings-1.0.0.xsd“&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  ... </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  &lt;profiles&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+    &lt;profile&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+      &lt;id&gt; test &lt;/ id&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+      &lt;activation&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+        &lt;activeByDefault&gt; false &lt;/ activeByDefault&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+        &lt;jdk&gt; 1.5 &lt;/ jdk&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+        &lt;os&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+          &lt;name&gt; Windows XP &lt;/ name&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+          &lt;family&gt; Windows &lt;/ family&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+          &lt;arch&gt; x86 &lt;/ arch&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+          &lt;version&gt; 5.1.2600 &lt;/版本&gt;</font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+        &lt;/ os&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+        &lt;property&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+          &lt;name&gt; mavenVersion &lt;/ name&gt;</font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+          &lt;value&gt; 2.0.3 &lt;/ value&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+        &lt;/ property&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+        &lt;file&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+          &lt;exists&gt; $ {basedir} /file2.properties &lt;/ exists&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+          &lt;missing&gt; $ {basedir} /file1.properties &lt;/ missing&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+        &lt;/ file &gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+      &lt;/ activation&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+      ... </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+    &lt;/ profile&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  &lt;/ profiles&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  ... </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+&lt;/ settings&gt;</font></font>
+</pre></div></div>
+
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">当满足所有指定条件时激活，但不是一次都需要。</font></font></p>
+<ul>
+
+<li><b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">jdk</font></font></b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">activation</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">jdk</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">元素中</font><font style="vertical-align: inherit;">有一个内置的，以Java为中心的检查</font><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">如果测试是在与给定前缀匹配的jdk版本号下运行，则会激活此选项。</font><font style="vertical-align: inherit;">在上面的例子中，</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">1.5.0_06</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">将匹配。</font><font style="vertical-align: inherit;">从Maven 2.1开始也支持范围。</font><font style="vertical-align: inherit;">有关支持的范围的更多详细信息，</font><font style="vertical-align: inherit;">请参阅</font></font><a class="externalLink" href="https://maven.apache.org/enforcer/enforcer-rules/versionRanges.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">maven-enforcer-plugin</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font></li>
+<li><b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">os</font></font></b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">os</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">元素可以定义上面显示的一些特定于操作系统的属性。</font><font style="vertical-align: inherit;">有关OS值的更多详细信息，</font><font style="vertical-align: inherit;">请参阅</font></font><a class="externalLink" href="https://maven.apache.org/plugins/maven-enforcer-plugin/rules/requireOS.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">maven-enforcer-plugin</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font></li>
+<li><b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">property</font></font></b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：</font><font style="vertical-align: inherit;">如果Maven检测到</font><font style="vertical-align: inherit;">相应</font><tt><font style="vertical-align: inherit;">name = value</font></tt><font style="vertical-align: inherit;">对</font><font style="vertical-align: inherit;">的属性（可以在POM中取消引用</font><tt><font style="vertical-align: inherit;">$ {name}</font></tt><font style="vertical-align: inherit;">的值），则将激活</font><font style="vertical-align: inherit;">该</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">配置文件</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font><tt><font style="vertical-align: inherit;"></font></tt><font style="vertical-align: inherit;"></font><tt><font style="vertical-align: inherit;"></font></tt><font style="vertical-align: inherit;"></font></li>
+<li><b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">file</font></font></b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：最后，给定的文件名可以</font><font style="vertical-align: inherit;">通过</font><tt><font style="vertical-align: inherit;">存在</font></tt><font style="vertical-align: inherit;">文件来激活</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">配置</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">文件，或者如果它</font><tt><font style="vertical-align: inherit;">丢失了</font></tt><font style="vertical-align: inherit;">。</font></font><tt><font style="vertical-align: inherit;"></font></tt><font style="vertical-align: inherit;"></font><tt><font style="vertical-align: inherit;"></font></tt><font style="vertical-align: inherit;"></font></li>
+</ul>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">该</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">活化</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">元素不是一个唯一的方式</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">配置文件</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">可以被激活。</font><font style="vertical-align: inherit;">该</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">settings.xml的</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">文件的</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">activeProfile</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">元素可以包含配置文件的</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ID</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">它们也可以通过命令行在</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">-P</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">标志</font><font style="vertical-align: inherit;">之后通过逗号分隔列表显式激活</font><font style="vertical-align: inherit;">（例如</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">-P test</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）。</font></font></p>
+<p><i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">要查看将在特定版本中激活的配置文件，请使用</font></font></i> <tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">maven-help-plugin</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font></p>
+
+<div>
+<div>
+<pre class="source"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">mvn help：active-profiles
+</font></font></pre></div></div>
+</div>
+<div class="section">
+<h4><a name="Properties"></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">属性</font></font></h4>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Maven属性是值占位符，就像Ant中的属性一样。</font><font style="vertical-align: inherit;">通过使用符号</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$ {X}</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，</font><font style="vertical-align: inherit;">可以在POM内的任何位置访问它们的值</font><font style="vertical-align: inherit;">，其中</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">X</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">是属性。</font><font style="vertical-align: inherit;">它们有五种不同的样式，都可以从</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">settings.xml</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">文件中</font><font style="vertical-align: inherit;">访问</font><font style="vertical-align: inherit;">：</font></font></p>
+<ol style="list-style-type: decimal">
+
+<li><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">env.X</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：使用“env。”前缀变量将返回shell的环境变量。</font><font style="vertical-align: inherit;">例如，</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$ {env.PATH}</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">包含$ path环境变量（</font><font style="vertical-align: inherit;">Windows中的</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">％PATH％</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）。</font></font></li>
+<li><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">project.x</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：POM中的点（。）标记路径将包含相应元素的值。</font><font style="vertical-align: inherit;">例如：</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">&lt;project&gt; &lt;version&gt; 1.0 &lt;/ version&gt; &lt;/ project&gt;</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">可通过</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$ {project.version}</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">访问</font><font style="vertical-align: inherit;">。</font></font></li>
+<li><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">settings.x</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：（）。A点在谱写路径</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">的settings.xml</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">将包含相应的元素的值。</font><font style="vertical-align: inherit;">例如：</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">&lt;settings&gt; &lt;offline&gt; false &lt;/ offline&gt; &lt;/ settings&gt;</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">可通过</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$ {settings.offline}</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">访问</font><font style="vertical-align: inherit;">。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Java系统属性：可通过</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">java.lang.System.getProperties（）</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">访问的所有属性</font><font style="vertical-align: inherit;">都可用作POM属性，例如</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$ {java.home}</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font></li>
+<li><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">x</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：在&lt;properties /&gt;元素或外部文件中设置，该值可以用作</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$ {someVar}</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font></li>
+</ol><!-- -->
+
+<div>
+<div>
+<pre class="source"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">&lt;settings xmlns =“http://maven.apache.org/SETTINGS/1.0.0” </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  xmlns：xsi =“http://www.w3.org/2001/XMLSchema-instance” </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  xsi：schemaLocation =“http：/ /maven.apache.org/SETTINGS/1.0.0 </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                      https://maven.apache.org/xsd/settings-1.0.0.xsd“&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  ... </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  &lt;profiles&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+    &lt;profile&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+      ... </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+      &lt;properties&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+        &lt;user .install&gt; $ {user.home} / our-project &lt;/user.install&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+      &lt;/ properties&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+      ... </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+    &lt;/ profile&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  &lt;/ profiles&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  ... </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+&lt;/ settings&gt;</font></font>
+</pre></div></div>
+
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如果此配置文件处于活动状态，则可以从POM访问</font><font style="vertical-align: inherit;">属性</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$ {user.install}</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font></p></div>
+<div class="section">
+<h4><a name="Repositories"></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">库</font></font></h4>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">存储库是项目的远程集合，Maven使用它来填充构建系统的本地存储库。</font><font style="vertical-align: inherit;">它来自这个本地存储库，Maven称之为插件和依赖项。</font><font style="vertical-align: inherit;">不同的远程存储库可能包含不同的项目，并且在活动的配置文件下，可以搜索匹配的版本或快照工件。</font></font></p>
+
+<div>
+<div>
+<pre class="source"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">&lt;settings xmlns =“http://maven.apache.org/SETTINGS/1.0.0” </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  xmlns：xsi =“http://www.w3.org/2001/XMLSchema-instance” </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  xsi：schemaLocation =“http：/ /maven.apache.org/SETTINGS/1.0.0 </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                      https://maven.apache.org/xsd/settings-1.0.0.xsd“&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  ... </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  &lt;profiles&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+    &lt;profile&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+      ... </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+      &lt;repositories&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+        &lt;repository &gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+          &lt;id&gt; codehausSnapshots &lt;/ id&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+          &lt;name&gt; Codehaus快照&lt;/ name&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+          &lt;releases&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+            &lt;enabled&gt; false &lt;/ enabled&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+            &lt;updatePolicy&gt;始终&lt;/ updatePolicy&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+            &lt;checksumPolicy&gt; warn &lt;/ checksumPolicy&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+          &lt;/ releases&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+          &lt;snapshots&gt;</font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+            &lt;enabled&gt; true &lt;/ enabled&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+            &lt;updatePolicy&gt; never &lt;/ updatePolicy&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+            &lt;checksumPolicy&gt; fail &lt;/ checksumPolicy&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+          &lt;/ snapshots&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+          &lt;url&gt; http://snapshots.maven.codehaus.org/maven2 &lt;/ url&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+          &lt;layout &gt; default &lt;/ layout&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+        &lt;/ repository&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+      &lt;/ repositories&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+      &lt;pluginRepositories&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+        ... </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+      &lt;/ pluginRepositories&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+      ... </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+    &lt;/ profile&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  &lt;/ profiles&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  ... </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+&lt;/ settings&gt;</font></font>
+</pre></div></div>
+
+<ul>
+
+<li><b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">版本</font></font></b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，</font></font><b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">快照</font></font></b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：这些是针对每种工件，版本或快照的策略。</font><font style="vertical-align: inherit;">通过这两个集合，POM可以在单个存储库中独立于另一个类型更改每种类型的策略。</font><font style="vertical-align: inherit;">例如，可以决定仅启用快照下载，可能用于开发目的。</font></font></li>
+<li><b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">enabled</font></font></b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：</font><font style="vertical-align: inherit;">对于是否为相应类型（</font><tt><font style="vertical-align: inherit;">版本</font></tt><font style="vertical-align: inherit;">或</font><tt><font style="vertical-align: inherit;">快照</font></tt><font style="vertical-align: inherit;">）</font><font style="vertical-align: inherit;">启用此存储库，为</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">true</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">或</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">false</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font><tt><font style="vertical-align: inherit;"></font></tt><font style="vertical-align: inherit;"></font><tt><font style="vertical-align: inherit;"></font></tt><font style="vertical-align: inherit;"></font></li>
+<li><b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">updatePolicy</font></font></b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：此元素指定更新应尝试发生的频率。</font><font style="vertical-align: inherit;">Maven会将本地POM的时间戳（存储在存储库的maven-metadata文件中）与远程数据进行比较。</font><font style="vertical-align: inherit;">选项包括：</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">always</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">daily</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">（默认值），</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">interval：X</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">（其中X是以分钟为单位的整数）或</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">从不</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font></li>
+<li><b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">checksumPolicy</font></font></b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：当Maven将文件部署到存储库时，它还会部署相应的校验和文件。</font><font style="vertical-align: inherit;">您的选项是</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">忽略</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">失败</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">或</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">警告</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">缺少或不正确的校验和。</font></font></li>
+<li><b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">layout</font></font></b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：在上面的存储库描述中，有人提到它们都遵循一个共同的布局。</font><font style="vertical-align: inherit;">这大多是正确的。</font><font style="vertical-align: inherit;">Maven 2具有其存储库的默认布局; </font><font style="vertical-align: inherit;">但是，Maven 1.x有不同的布局。</font><font style="vertical-align: inherit;">使用此元素指定</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">默认</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">或</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">遗留的</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">元素</font><font style="vertical-align: inherit;">。</font></font></li>
+</ul></div>
+<div class="section">
+<h4><a name="Plugin_Repositories"></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">插件存储库</font></font></h4>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">存储库是两种主要类型的工件的所在地。</font><font style="vertical-align: inherit;">第一个是用作其他工件的依赖项的工件。</font><font style="vertical-align: inherit;">这些是位于中央的大多数插件。</font><font style="vertical-align: inherit;">另一种类型的工件是插件。</font><font style="vertical-align: inherit;">Maven插件本身就是一种特殊的工件。</font><font style="vertical-align: inherit;">因此，插件存储库可能与其他存储库分离（尽管如此，我还没有听到令人信服的论据）。</font><font style="vertical-align: inherit;">在任何情况下，</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">pluginRepositories</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">元素块</font><font style="vertical-align: inherit;">的结构</font><font style="vertical-align: inherit;">类似于</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">repositories</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">元素。</font><font style="vertical-align: inherit;">该</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">pluginRepository</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">每个元素指定的地方Maven可以找到新的插件远程位置。</font></font></p></div></div>
+<div class="section">
+<h3><a name="Active_Profiles"></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">活动配置文件</font></font></h3>
+
+<div>
+<div>
+<pre class="source"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">&lt;settings xmlns =“http://maven.apache.org/SETTINGS/1.0.0” </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  xmlns：xsi =“http://www.w3.org/2001/XMLSchema-instance” </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  xsi：schemaLocation =“http：/ /maven.apache.org/SETTINGS/1.0.0 </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                      https://maven.apache.org/xsd/settings-1.0.0.xsd“&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  ... </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  &lt;activeProfiles&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+    &lt;activeProfile&gt; env-test &lt;/ activeProfile&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  &lt; / activeProfiles&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+&lt;/ settings&gt;</font></font>
+</pre></div></div>
+
+<p><font style="vertical-align: inherit;"></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">settings.xml</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">拼图</font><font style="vertical-align: inherit;">的最后一部分</font><font style="vertical-align: inherit;">是</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">activeProfiles</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">元素。</font><font style="vertical-align: inherit;">它包含一组</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">activeProfile</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">元素，每个元素都具有</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">配置文件</font></font></tt> <tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ID</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">的值</font><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">任何</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">轮廓</font></font></tt> <tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ID</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">定义为</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">activeProfile</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">将被激活，而不管任何环境设置。</font><font style="vertical-align: inherit;">如果没有找到匹配的配置文件，则不会发生任 </font><font style="vertical-align: inherit;">例如，如果</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">env-test</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">是</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">activeProfile</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，则</font></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">pom.xml中</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">的配置文件</font><font style="vertical-align: inherit;">（或</font><font style="vertical-align: inherit;">具有相应</font><tt><font style="vertical-align: inherit;">id的</font></tt></font><tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">profile.xml</font></font></tt><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">将处于活动状态。如果未找到此类配置文件，则执行将继续正常进行。</font></font><tt><font style="vertical-align: inherit;"></font></tt><font style="vertical-align: inherit;"></font></p></div></div>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <footer>
+      <div class="container-fluid">
+        <div class="row-fluid">
+            <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">版权所有©2002-2018
+ </font></font><a href="https://www.apache.org/"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Apache Software Foundation</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">版权所有。</font></font></p>
+        </div>
+      </div>
+    </footer>
+  
+<div id="goog-gt-tt" class="skiptranslate" dir="ltr"><div style="padding: 8px;"><div><div class="logo"><img src="./Maven - 设置参考_files/translate_24dp.png" width="20" height="20" alt="Google 翻译"></div></div></div><div class="top" style="padding: 8px; float: left; width: 100%;"><h1 class="title gray">原文</h1></div><div class="middle" style="padding: 8px;"><div class="original-text"></div></div><div class="bottom" style="padding: 8px;"><div class="activity-links"><span class="activity-link">提供更好的翻译建议</span><span class="activity-link"></span></div><div class="started-activity-container"><hr style="color: #CCC; background-color: #CCC; height: 1px; border: none;"><div class="activity-root"></div></div></div><div class="status-message" style="display: none;"></div></div><iframe scrolling="no" frameborder="0" allowtransparency="true" src="./Maven - 设置参考_files/widget_iframe.d547ddd75cc4ca7cc5a63b70da3da301.html" title="Twitter设置iframe" style="display: none;"></iframe><div class="goog-te-spinner-pos"><div class="goog-te-spinner-animation"><svg xmlns="http://www.w3.org/2000/svg" class="goog-te-spinner" width="96px" height="96px" viewBox="0 0 66 66"><circle class="goog-te-spinner-path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle></svg></div></div><iframe id="rufous-sandbox" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" style="position: absolute; visibility: hidden; display: none; width: 0px; height: 0px; padding: 0px; border: none;" title="Twitter分析iframe" src="./Maven - 设置参考_files/saved_resource.html"></iframe></body></html>
