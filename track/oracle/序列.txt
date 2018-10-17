@@ -1,0 +1,33 @@
+一、
+二、创建序列
+    1、语法：
+        创建语句：
+            create sequence 
+                my_seq              // 序列名
+                increment by 1      // 用于定义序列的步长，如果省略，则默认为1，如果出现负值，则代表Oracle序列的值是按照此步长递减的。
+                start with 1        // 定义序列的初始值(即产生的第一个值)，默认为1。
+                minValue            // 最小值
+                maxValue            // 最大值 (minValue /mzxValue  可用  noMaxValue 代替 标识默认值)
+                nocycle             // 表示当序列生成器的值达到限制值后是否循环 (CYCLE代表循环，NOCYCLE代表不循环)
+                cache 20;           // 定义存放序列的内存块的大小，默认为20。
+        查询语句：
+            select 序列名.currval,t1_seq.nextval from dual;             // 查询序列当前值 和 下一个值   
+                currval：           //序列当前值
+                nextval：           //序列下一个值  
+            select sequence_name,min_value,max_value,increment_by,last_number from user_sequences;      // 查询用户下所有序列
+
+
+        修改语句：
+            ALTER sequence 序列名 increment by 10 maxValue 10000 nocycle    // 更改序列为 步长 10 最大值 10000 不循环
+        删除序列：
+            drop sequence 序列名;
+三、示例
+    1、创建一个自增序列
+        create sequence 
+                my_seq              
+                increment by 1      
+                start with 1        
+                minValue 1          
+                maxValue 100000     
+                nocycle
+                cache 20;       

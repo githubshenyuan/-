@@ -1,0 +1,23 @@
+一、注解
+    @Entity
+        说明：  说明这个class是实体类，并且使用默认的orm规则，即class名即数据库表中表名，class字段名即表中的字段名
+        注意：  如果想改变 @Entity 规则，可以添加 @Table
+        参数：
+            name:      
+    @Table
+        说明：  用来指定 @Entity 所要映射数据库表名
+        注意：  
+        参数：
+            name：  映射数据库的名
+    @Column
+        说明：  类成员属性和数据库表中字段的对应关系
+        注意：
+        参数：  
+            name：              映射的列名。如：映射tbl_user表的name列，可以在name属性的上面或getName方法上面加入；
+            unique：            是否唯一；
+            nullable：          是否允许为空；
+            length：            对于字符型列，length属性指定列的最大字符长度；
+            insertable：        是否允许插入；
+            updatetable：       是否允许更新；
+            columnDefinition：  定义建表时创建此列的DDL；
+            secondaryTable：    从表名。如果此列不建在主表上（默认是主表），该属性定义该列所在从表的名字。

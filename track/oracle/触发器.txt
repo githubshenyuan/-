@@ -1,0 +1,56 @@
+一、触发器介绍：
+二、创建触发器：
+    1、语法：
+        语句：create or replace tigger 触发器名 触发时间 触发事件 on 表名  for each row
+            触发器名：
+                触发器的名称。由于触发器是数据库自动执行的，因此该名称只是一个名称，没有实质的用途（个人理解）。
+            触发时间：  指明触发器何时执行
+                可取如下值：
+                    before：    表示在数据库动作之前触发器执行;
+                    after：     表示在数据库动作之后触发器执行。
+            触发事件：  指明哪些数据库动作会触发此触发器
+                可取如下值：
+                    insert：数据库插入会触发此触发器;
+                    update：数据库修改会触发此触发器;
+                    delete：数据库删除会触发此触发器。
+            表名:   数据库触发器所在的表
+            for each row：  对表的每一行触发器执行一次。如果没有这一选项，则只对整个表执行一次。
+    2、查询触发器：
+        SELECT NAME  FROM USER_SOURCE WHERE TYPE='TRIGGER' GROUP BY NAME
+    3、删除触发器：
+        DROP trigger 触发器名
+
+
+三、示例：
+    1、创建自增触发器：
+        create or replace trigger 序列名
+            before insert on 表名
+            for each row                                            -- 对表的每一行触发器执行一次
+        declare 
+            next_id number;                                         -- 定义一个变量
+        begin
+            select my_seq.nextval into next_id from dual;           -- 查询序列
+            :new.id := next_id;                                     -- :new表示新插入的那条记录
+        end;
+    2、创建自增触发器（二）
+        CREATE or replace trigger 触发器名
+            before insert on table                                  -- table 是表名
+            for each row
+        DECLARE
+            nextid number;
+        BEGIN
+            IF :new.表主键名 IS NULL or :new.表主键名=0 
+            THEN
+                select 序列名.nextval
+                into nextid
+                from sys.dual;
+                :new.表主键名:=nextid;
+            END IF;
+        END;
+        
+四、错误:
+    1、创建触发器是报错
+        描述：[Err] ORA-24344: success with compilation error
+        原因：if 语法报错
+        解决：暂无（可以先去掉 if 判断，后续更新）
+        
