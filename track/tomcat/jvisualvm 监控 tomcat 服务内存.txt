@@ -1,0 +1,6 @@
+1、tomcat 添加参数：
+    -Dcom.sun.management.jmxremote.port=8990
+    -Dcom.sun.management.jmxremote.ssl=false
+    -Dcom.sun.management.jmxremote.authenticate=false
+2、jvisualvm 上添加 jmx连接
+    localhost:8990

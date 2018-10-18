@@ -21,3 +21,11 @@
             updatetable：       是否允许更新；
             columnDefinition：  定义建表时创建此列的DDL；
             secondaryTable：    从表名。如果此列不建在主表上（默认是主表），该属性定义该列所在从表的名字。
+    @Modifying
+        说明：  表示方法应视为修改查询
+        注意：  jpa底层使用了缓存技术，更新注意缓存
+        参数：
+            flushAutomatically
+                定义在执行修改查询之前，是否应该刷新底层持久化上下文。
+            clearAutomatically
+                定义在执行修改查询之后，是否应该清除底层持久化上下文。

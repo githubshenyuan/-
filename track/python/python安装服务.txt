@@ -13,3 +13,4 @@
 
 
 考勤项目注册服务
+	PythonService.py install

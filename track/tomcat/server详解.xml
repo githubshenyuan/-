@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!-- port:      指定一个端口，负责监听关闭tomcat的请求 -->
+<!-- shutdown:  指定向端口发送的命令字符串 -->
+<Server port="8111" shutdown="SHUTDOWN">
+    <!-- name:  指定service的名字 -->
+    <!-- 说明： 它包含一个<Engine>元素，以及一个或多个<Connector> 这些Connector元素共享用同一个Engine元素 -->
+    <!--    Service 是 Connectors(连接器)组合，连接一个或多个 “连接器” 到一个单独 Container(容器) -->
+    <!--    通常，这个容器是一个 Engine(引擎)，但这不是必须的 -->
+    <!--    Service是一组Connector的集合，它们共用一个Engine，来处理所有Connector收到的请求-->
+    <!-- 注意： 一个 Service 自身不是一个容器，因此，在这个级别上你不可定义，诸如 Valves 或 Loggers 子组件。 -->
+    <Service name="Catalina">
+        <!-- Connector:     表示客户端和service之间的连接 -->
+            <!-- port:                  指定服务器端口号，监听来自客户端的请求 -->
+            <!-- protocol:               -->
+            <!-- connectionTimeout:     指定超时的时间 (以毫秒为单位) -->
+            <!-- redirectPort:          指定SSL传输请求后重定向的端口号 -->
+        <Connector port="8081" protocol="HTTP/1.1"
+            connectionTimeout="20000"
+            redirectPort="8443" />
+        <!-- Engine:    指定service中的请求处理机，接收和处理来自Connector的请求 -->
+            <!-- defaultHost:   指定缺省的处理请求的主机名，它至少与其中的一个host元素的name属性值是一样的 -->
+        <Engine name="Catalina" defaultHost="localhost">
+            <!-- Host:   -->
+                <!-- appBase:        -->
+                <!-- unpackWARs:     -->
+                <!-- autoDeploy:     -->
+            <Host name="localhost" appBase="webapps" unpackWARs="true" autoDeploy="true">
+        </Engine>
+
+    </Service>
+
+    <Service name="app">
+    </Service>
+</Server>
