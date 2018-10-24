@@ -11,5 +11,5 @@ def aps_test():
 
 if __name__ == '__main__':
     scheduler = BlockingScheduler()
-    scheduler.add_job(func=aps_test, trigger='cron', day_of_week='0-6', hour='21', minute='23',  second='00')
+    scheduler.add_job(func=aps_test, trigger='cron', day_of_week='0-6', day='*', hour='*', minute='*',  second='10')
     scheduler.start()
