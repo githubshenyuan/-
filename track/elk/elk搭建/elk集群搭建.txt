@@ -1,0 +1,7 @@
+一、环境
+二、配置
+    1、配置 elasticsearch 
+        cluster.name: my-application
+        node.name: node-1
+        network.host: 192.168.1.135
+        discovery.zen.ping.unicast.hosts: ["192.168.1.135", "192.168.1.136"，"192.168.1.137"]
