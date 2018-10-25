@@ -5,3 +5,12 @@
         node.name: node-1
         network.host: 192.168.1.135
         discovery.zen.ping.unicast.hosts: ["192.168.1.135", "192.168.1.136"，"192.168.1.137"]
+    2、开启端口
+        firewall-cmd --zone=public --add-port=9200/tcp --permanent
+        firewall-cmd --zone=public --add-port=9300/tcp --permanent
+        firewall-cmd --reload 
+    3、查看集群状态：
+        curl -XGET 'http://192.168.1.135:9200/_cluster/health?pretty'
+        curl -XGET 'http://192.168.1.135:9200/_cat/nodes?pretty'
+        curl -XGET 'http://192.168.1.135:9200/_cat?pretty'
+        curl -XGET 'http://192.168.1.135:9200/_cluster/state/nodes?pretty' 
