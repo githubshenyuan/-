@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration PUBLIC "-//log4j/log4j Configuration//EN" "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+    <!--
+        Appender：日志输出器.
+            name：输出器名称，
+     -->
+    <appender name="CONSOLE_OUT" class="org.apache.log4j.ConsoleAppender">  
+        <!-- 日志输出的格式 -->
+        <layout class="org.apache.log4j.PatternLayout">  
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss.SSS\} %-5p [%X{TraceId}] --- [%15.15t] %40.40c{2\} [%X{ProcessName}] [%X{ProcessId}]: %m%n"/>
+        </layout>  
+    </appender> 
+
+    <!--
+        category：自定义日志配置
+            additivity：标识是不是附加的， true：其它输出器也会输出  false：仅自己输出，其他输出器不再输出
+
+            priority：
+            appender-ref：输出器
+    -->
+    <category name="com.portal.controller" additivity="false">
+        <priority value="INFO"/>
+        <appender-ref ref="CONSOLE_OUT"/>
+    </category>
+    <root>
+        <appender-ref ref="CONSOLE_OUT"/>
+    </root>
+
+</log4j:configuration>
+
+
+%n - 换行
+%m - 日志内容
+%p - 日志级别(FATAL， ERROR，WARN， INFO，DEBUG or custom)
+%r - 程序启动到现在的毫秒数
+%t - 当前线程名
+%d - 日期和时间, 一般使用格式 %d{yyyy-MM-dd HH:mm:ss， SSS}
+%l - 输出日志事件的发生位置， 同 %F%L%C%M
+%F - java 源文件名
+%L - java 源码行数
+%C - java 类名
+%C{1} 输出最后一个元素
+%M - java 方法名
+在%与格式字符之间加上修饰符来控制其最小长度、最大长度、和文本的对齐方式。如：
+    1) c：指定输出category的名称，最小的长度是20，如果category的名称长度小于20的话，默认的情况下右对齐。
+    2)%-20c："-"：号表示左对齐。 "20"：最大长度，不足则按对其方式补全空格
+    3)%.30c：最大的长度是30，就会将左边多出的字符截掉，但小于30的话也不会补空格。
+示例：
+    %20c	（若名字空间长度小于20，则左边用空格填充）
+    %-20c	（若名字空间长度小于20，则右边用空格填充）
+    %.30c	（若名字空间长度超过30，截去多余字符）
+    %20.30c	（若名字空间长度小于20，则左边用空格填充；若名字空间长度超过30，截去多余字符）
+    %-20.30c	（若名字空间长度小于20，则右边用空格填充；若名字空间长度超过30，截去多余字符）

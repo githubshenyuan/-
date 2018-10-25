@@ -13,4 +13,5 @@
 	
 5、升级itchat
 	pip install -U itchat
+	pip install -U APScheduler
 6.以上操作务必以管理员身份运行
