@@ -1,10 +1,10 @@
-@@ -1,79 +0,0 @@
+注意：请仔细看环境 和 "#" 后面的提示
 一、环境
     系统：  centos7-514  64位
     elk版本：  elk 6.4.0
     jdk版本:   jdk-8u162-linux-x64
-    系统用户：普通用户
-二、下载并解压以下文件到 /usr/local/elk
+    系统用户：普通用户 （系统参数修改需要root权限）
+二、下载并解压以下文件到 /home/user/elk
     文件：
         elasticsearch-6.4.0.tar.gz
         logstash-6.4.0.tar.gz
@@ -13,42 +13,49 @@
         tar -zxvf elasticsearch-6.2.4.tar.gz
         tar -zxvf logstash-6.2.4.tar.gz
         tar -zxvf kibana-6.2.4-linux-x86_64.tar.gz
-三、配置启动 elasticsearch-6.4.0.tar.gz
-    1、修改系统配置（需要root权限修改）
-        vi /etc/security/limits.conf
-        # 在最后添加/修改这4行，因为elasticsearch对系统最大连接数有要求
-        # 需重启生效
+三、配置启动 elasticsearch
+    1、修改系统配置（注意：这步需要root权限修改）
+        1) 打开配置文件
+            vi /etc/security/limits.conf
+        2) 提示：
+            # 在最后添加/修改参考配置里的内容，因为elasticsearch对系统最大连接数有要求, (注意：需重启生效)
+        3) 参考配置：
             * soft nofile 65536
             * hard nofile 65536
             * soft nproc  65536
             * hard nproc  65536
-
-
-        vi /etc/security/limits.d/20-nproc.conf
-        # 第一行最后一个数，修改为4096，如果是则不用修改
-        # limits.d下面的文件可能不是20-nproc.conf，可能是19-nproc.conf或者其他数字开头的文件。
-        # 修改内容是一样的，一般这个文件夹下就一个文件
-        # 需重启生效
+        1) 打开配置文件：
+            vi /etc/security/limits.d/20-nproc.conf
+        2) 提示：    
+            # 第一行最后一个数，修改为4096，如果是则不用修改
+            # limits.d下面的文件可能不是20-nproc.conf，可能是19-nproc.conf或者其他数字开头的文件。
+            # 修改内容是一样的，一般这个文件夹下就一个文件
+            # 需重启生效
+        3) 参考配置：
             *          soft    nproc     4096
             root       soft    nproc     unlimited
-        
-
-        vi /etc/sysctl.conf
-        # 添加如下参数
+        1) 打开配置文件：
+            vi /etc/sysctl.conf
+        2) 提示：
+            # 添加参考配置中的配置，保存后 需要执行  sysctl -p  生效修改的内容
+        3) 参考配置
             vm.max_map_count = 655360
             fs.file-max=655360
-        # 对修改内容生效
-            sysctl -p  
+            
 
-    2、配置：
-        配置文件： 
-            config/elasticsearch.yml
-            mkdir data
-        配置参考：
+    2、配置elasticsearch：
+        1) 新建存储数据的文件夹:
+            命令：
+                mkdir data
+        2) 打开配置文件：
+            命令： 
+                vi ./config/elasticsearch.yml
+        3) 参考配置：
+            # 添加如下参数
             path.data: /you_path/elasticsearch-6.3.0/data
             path.logs: /you_path/elasticsearch-6.3.0/logs
             network.host: 0.0.0.0
-            # 添加如下参数
+            
             http.cors.enabled: true    // 开启跨域访问支持，默认为false
             http.cors.allow-origin: "*"    // 跨域访问允许的域名地址，支持正则
     3、启动：
@@ -56,10 +63,12 @@
             ./bin/elasticsearch -d
     4.测试：
         访问：  http://192.168.1.112:9200/
-四、配置启动 logstash-6.4.0.tar.gz
+四、配置启动 logstash
     1、配置：
-        根据需求写配置（例：./conf）
-        参考：
+        新建配置文件：
+            ./config/test.conf
+        # 根据需求写配置（参看参考配置）
+        参考配置：
         	input { 
                 tcp { 
                     port => 4560 
@@ -76,22 +85,29 @@
                 stdout { codec => rubydebug  } 
             }
     2、启动：
+        # 普通启动
         nohup ./bin/logstash -f config/test.conf &> ./logs/run.log &
+        # 自动加载配置文件启动（但配置文件有改动是自动更新配置文件 ，默认 3 秒扫描一次） （推荐）
         nohup ./bin/logstash --config.reload.automatic -f config/test.conf >/dev/null 2>&1 &
-        自动加载配置文件(3秒)
-            --config.reload.automatic
-        设置自动加载间隔时长 second ： 秒
-            --config.reload.interval <second>
+
+        参数说明：
+            --config.reload.automatic     //自动加载配置文件(3秒)
+            --config.reload.interval <second>     //设置自动加载间隔时长 second ： 秒
     3、测试：
         
-五、配置启动 kibana-6.4.0-linux-x86_64.tar.gz
+五、配置启动 kibana
     1、配置：
-        vi ./config/kibana.yml
-        server.host: "0.0.0.0"
-        elasticsearch.url: "http://127.0.0.1:9200"
+        打开配置文件：
+            命令：
+                vi ./config/kibana.yml
+        参考配置：
+            elasticsearch.url: "http://127.0.0.1:9200"
     2、启动：
+        # 带自定义日志启动
         nohup ./bin/kibana -H 0.0.0.0 &> logs/run.log &
+        # 不带自定义日志启动（推荐）
         nohup ./bin/kibana -H 0.0.0.0 >/dev/null 2>&1 &
     3、测试：
         访问：http://192.168.1.112:5601
-六、
+
+

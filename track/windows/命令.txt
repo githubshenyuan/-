@@ -1,0 +1,2 @@
+1、产看进程的 父进程 ID
+    wmic process where ProcessId=PID get ParentProcessId

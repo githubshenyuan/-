@@ -1,4 +1,5 @@
 一、环境
+    参考 elk搭建，看明白再来搭建集群
 二、配置
     1、配置 elasticsearch 
         cluster.name: my-application
