@@ -1,0 +1,37 @@
+一、环境
+    系统：  Centos7 3.10.0-514.el7.x86_64
+    jdk:   jdk1.8
+    用户：  普通用户
+    zookeeper： zookeeper-3.4.13（解压版）
+二、安装与配置
+    1、解压 zookeeper 到指定目录下（五台虚拟机 都解压到相同路径下）
+        tar  -zxvf zookeeper-3.4.13.tar.gz -C /home/appadmin/zookeeper
+    2、创建文件
+        说明:   在 zookeeper-3.4.13 目录下 新建 data  logs 文件夹，在data目录下新建 myid 并写入集群编号
+        命令：
+            mkdir data
+            mkdir logs
+        注意：myid 文件中写入的编号是自定义的，必须第一台 就写入1 第二台就写入 2 
+            实例：
+                cd data
+                touch myid
+                echo 1 > myid 
+    2、配置 
+        修改./conf/zoo_sample.cfg   为 ./conf/zoo.cfg
+        参考配置：
+            tickTime=2000       # 发送心跳的间隔时间，单位：毫秒
+            dataDir=/home/appadmin/zookeeper/zookeeper-3.4.13/data      # zookeeper 保存数据的目录
+            dataLogDir=/home/appadmin/zookeeper/zookeeper-3.4.13/logs
+            clientPort=2181     // zookeeper 监听端口
+            initLimit=5     // 初始化 最多 多少个心跳 限制
+            syncLimit=2     // 同步时 最多 多少个心跳 限制
+            #  这里 server. 后面的数字 应用 写入 myid 中的数字一致
+            server.1=192.168.1.140:2881:3881
+            server.2=192.168.1.141:2881:3881
+            server.3=192.168.1.142:2881:3881
+            server.4=192.168.1.144:2881:3881
+            server.5=192.168.1.145:2881:3881
+    3、启动
+        ./bin/zkServer.sh start
+    4、查看状态：
+        ./bin/zkServer.sh status
