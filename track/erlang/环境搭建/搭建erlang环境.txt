@@ -1,0 +1,16 @@
+一、下载编译源码
+    下载：  erlang 源文件  otp_src_21.1.tar.gz
+    解压： 
+        tar -zxvf otp_src_21.1.tar.gz
+    安装编译工具：
+        yum -y install make gcc gcc-c++ kernel-devel m4 ncurses-devel openssl-devel
+        可能还需要以下：
+            yum -y install unixODBC unixODBC-devel
+    编译安装：
+        ./configure --prefix=/usr
+        make
+        make install
+二、配置环境变量
+    vi /etc/profile
+    export ERLANG_HOME=/usr/local/erlang
+    export PATH=$PATH:$ERLANG_HOME/bin

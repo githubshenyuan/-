@@ -1,0 +1,17 @@
+一、环境
+
+二、安装配置
+    1、
+
+
+常用命令：
+    rabbitmq-server -detached  启动RabbitMQ节点
+    rabbitmqctl start_app 启动RabbitMQ应用，而不是节点
+    rabbitmqctl stop_app  停止
+    rabbitmqctl status  查看状态
+    rabbitmqctl add_user mq 123456
+    rabbitmqctl set_user_tags mq administrator 新增账户
+    rabbitmq-plugins enable rabbitmq_management  启用RabbitMQ_Management
+    rabbitmqctl cluster_status 集群状态
+    rabbitmqctl forget_cluster_node rabbit@rabbit3 节点摘除 
+    rabbitmqctl reset application重置

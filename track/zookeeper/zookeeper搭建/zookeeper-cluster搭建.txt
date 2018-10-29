@@ -1,4 +1,4 @@
-一、环境
+一、集群环境
     系统：  Centos7 3.10.0-514.el7.x86_64
     jdk:   jdk1.8
     用户：  普通用户
@@ -9,3 +9,19 @@
         192.168.1.143
         192.168.1.144
         192.168.1.145
+二、安装与配置
+    1、解压 zookeeper 到指定目录下
+        tar  -zxvf zookeeper-3.4.13.tar.gz -C /usr/local/zookeeper
+    2、配置 ，
+        修改./conf/zoo_sample.cfg   为 ./conf/zoo.cfg
+        参考配置：
+            tickTime=2000       # 发送心跳的间隔时间，单位：毫秒
+            dataDir=/home/appadmin/zookeeper/zookeeper-3.4.13/data      # zookeeper 保存数据的目录
+            dataLogDir=/home/appadmin/zookeeper/zookeeper-3.4.13/logs
+            clientPort=2181     // zookeeper 监听端口
+            initLimit=5     // 初始化 最多 多少个心跳 限制
+            syncLimit=2     // 同步时 最多 多少个心跳 限制
+    3、启动
+        ./bin/zkServer.sh start
+    4、查看状态：
+        ./bin/zkServer.sh status
