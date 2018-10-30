@@ -1,0 +1,8 @@
+一、环境
+
+二、erlang环境安装
+    1、在线安装
+        yum install -y ruby 
+		yum install -y rubygems 
+		gem install redis -v 3.2.2
+    2、离线安装

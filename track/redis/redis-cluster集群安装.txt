@@ -1,71 +1,65 @@
 一、环境：
-	redis版本：	3.2.12
-	系统：	centos7 (3.10.0-514.el7.x86_64)
+    redis版本：	3.2.0
+    系统：	centos7 (3.10.0-514.el7.x86_64)
     网络：  外网连接
-二、下载及安装
-	1、下载：
-        mkdir -p /usr/local/redis
-		redis-3.2.12.tar.gz 复制到 /usr/local/redis 目录下
-	2、安装：
-		cd /usr/local/redis \
-		&& tar -zxvf redis-3.2.12.tar.gz \
-		&& cd redis-3.2.12 \
-		&& yum install -y gcc-c++ \
-		&& mkdir -p /usr/local/redis/redis-cluster \
-		&& make MALLOC=libc install PREFIX=/usr/local/redis/redis-cluster
-    3、创建节点路径：
-        cd /usr/local/redis/redis-cluster \
-        && mkdir -p 9001/data 9002/data 9003/data 9004/data 9005/data 9006/data
-    4、编辑配置文件：
-        vi /usr/local/redis/redis-3.2.12/redis.conf
-        参考：
+    用户：  普通用户，用户名：appadmin（部分需要root权限）
+    防火墙：开启
+    主机：（虚拟机）
+        192.168.1.101
+        192.168.1.102
+        192.168.1.103
+二、下载与编译源码
+    请参看同目录下 redis下载与编译
+三、集群搭建
+    1、新建节点存放路径
+        192.168.1.101 主机下：
+            mkdir -p /home/appadmin/redis/redis-cluster/7000/data
+            mkdir -p /home/appadmin/redis/redis-cluster/7001/data
+        192.168.1.102 主机下：
+            mkdir -p /home/appadmin/redis/redis-cluster/7000/data
+            mkdir -p /home/appadmin/redis/redis-cluster/7001/data
+        192.168.1.103 主机下：
+            mkdir -p /home/appadmin/redis/redis-cluster/7000/data
+            mkdir -p /home/appadmin/redis/redis-cluster/7001/data
+    2、分别复制 编译好的 redis 到 节点路径下
+        示例：
+            将 "下载与编译" 中编译好的 redis （/home/appadmin/redis/redis-3.2.0）
+            复制 redis-3.2.0 到 /home/appadmin/redis/redis-cluster/7000 下
+        注意： 6个节点路径下 ， 都需要复制
+    3、将源码文件下的 redis.conf 复制到 各个节点 下
+        示例：复制 redis.conf 到 /home/appadmin/redis/redis-cluster/7000
+    4、修改各个节点下的 redis.conf，
+        参考配置：
             # 每个节点的端口号
-            port 9001
+            port 7000
             # Redis作为守护程序运行（redis后台运行）
             daemonize yes
             # 绑定当前机器 IP
-            bind 192.168.119.131
+            bind 192.168.119.101
             # 数据文件存放位置
-            dir ./data
+            dir ../../data  # 前面新建的 data文件夹  可以填写绝对路径
             # 进程写入文件 （pid 9001和port要对应）
-            pidfile ./redis_9001.pid
+            pidfile ./redis_7000.pid
             # 启动集群模式
             cluster-enabled yes
             # 9001和port要对应
-            cluster-config-file nodes9001.conf
+            cluster-config-file nodes7000.conf
             # 超时时间
             cluster-node-timeout 15000
             # aof日志开启  有需要就开启，它会每次写操作都记录一条日志
-            appendonly yes
-    5、复制配置文件到节点目录下：
-        cd /usr/local/redis/redis-3.2.12 \
-        && cp -rf  redis.conf /usr/local/redis/redis-cluster/9001 \
-		&& cp -rf  redis.conf /usr/local/redis/redis-cluster/9002 \
-		&& cp -rf  redis.conf /usr/local/redis/redis-cluster/9003 \
-		&& cp -rf  redis.conf /usr/local/redis/redis-cluster/9004 \
-		&& cp -rf  redis.conf /usr/local/redis/redis-cluster/9005 \
-		&& cp -rf  redis.conf /usr/local/redis/redis-cluster/9006
-三、安装 ruby 相关：
-    yum install -y ruby \
-	&& yum install -y rubygems \
-	&& gem install redis -v 3.2.2
-四、启动服务：
-    ./redis-server ../9001/redis.conf \
-    && ./redis-server ../9002/redis.conf \
-    && ./redis-server ../9003/redis.conf \
-    && ./redis-server ../9004/redis.conf \
-    && ./redis-server ../9005/redis.conf \
-    && ./redis-server ../9006/redis.conf
-五、添加集群：
-    命令：（--replicas 1 标识一个从节点）
-        cd /usr/local/redis/redis-3.2.12/src 
-        ./redis-trib.rb create --replicas 1 192.168.137.103:9001 192.168.137.103:9002 192.168.137.103:9003 192.168.137.103:9004 192.168.137.103:9005 192.168.137.103:9006
-    添加节点到集群：
-        cluster meet 192.168.137.103:9007
-    移除节点：
-
-    
-六、查询：
+            appendonly yes 
+    5、启动服务
+        示例：
+            cd /home/appadmin/redis/redis-cluster/7000/redis-3.2.0/bin
+            ./redis-server ../../redis.conf 
+四、集群环境配置：
+    请参看  redis-cluster集群环境配置(erlang)
+五、添加集群
+    1、添加集群：
+        命令：（--replicas 1 标识一个从节点）
+        cd redis源码下 ./src 
+        ./redis-trib.rb create --replicas 1 192.168.1.101:7000 192.168.1.101:7001 192.168.1.102:7000 192.168.1.102:7001 192.168.1.103:7000 192.168.1.103:7001
+六、查询
     1、连接客户端：
         ./redis-cli -h 192.168.137.103 -p 9001
     2、查询集群信息：
@@ -79,7 +73,7 @@
         cluster set-config-epoch            // 强制设置configEpoch 
 
 
-    
+
 以下为日志输出记录：    
     （五）添加集群正常日志：
         >>> Creating cluster
@@ -131,5 +125,3 @@
         >>> Check for open slots...
         >>> Check slots coverage...
         [OK] All 16384 slots covered.
-
-
