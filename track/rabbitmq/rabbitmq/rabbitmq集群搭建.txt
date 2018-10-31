@@ -1,0 +1,58 @@
+一、环境
+    redis版本：	3.2.0
+    系统：	centos7 (3.10.0-514.el7.x86_64)
+    网络：  外网连接
+    用户：  普通用户，用户名：appadmin（部分需要root权限）
+    防火墙：开启
+    主机：（虚拟机）
+        192.168.1.101
+        192.168.1.102
+        192.168.1.103
+二、系统环境和依赖配置
+    参看 "rabbitmq系统环境和依赖配置(erlang)" 
+三、rabbitmq下载
+    参看 单机版下载
+四、rabbitmq 集群设置
+    1、设置 hosts
+        打开hosts
+            vi /etc/hosts
+        添加：
+            192.168.137.111 node1
+            192.168.137.112 node2
+            192.168.137.113 node3
+    2、设置 节点 NODENAME
+        打开 rabbitmq 配置
+            vi /etc/rabbitmq/rabbitmq-env.conf
+        添加：
+            NODENAME=rabbit@node1
+    3、设置 erlang.cookie 一致
+        scp /var/lib/rabbitmq/.erlang.cookie root@192.168.137.112:/var/lib/rabbitmq/
+        scp /var/lib/rabbitmq/.erlang.cookie root@192.168.137.113:/var/lib/rabbitmq/
+    4、加入集群
+        rabbitmqctl stop_app
+        rabbitmqctl join_cluster  rabbit@node1
+        rabbitmqctl start_app
+五、测试：
+    访问：
+        http://192.168.1.101:15672/#/
+    执行命令：
+        rabbitmqctl cluster_status
+
+
+
+常用命令：
+    rabbitmq-server -detached  启动RabbitMQ节点
+    rabbitmqctl start_app 启动RabbitMQ应用，而不是节点
+    rabbitmqctl stop_app  停止
+    rabbitmqctl status  查看状态
+    rabbitmqctl add_user mq 123456
+    rabbitmqctl set_user_tags mq administrator 新增账户
+    rabbitmq-plugins enable rabbitmq_management  启用RabbitMQ_Management
+    rabbitmqctl cluster_status 集群状态
+    rabbitmqctl forget_cluster_node rabbit@rabbit3 节点摘除 
+    rabbitmqctl reset application重置
+
+改变节点类型：
+    rabbitmqctl stop_app
+    rabbitmqctl change_cluster_node_type ram
+    rabbitmqctl start_app

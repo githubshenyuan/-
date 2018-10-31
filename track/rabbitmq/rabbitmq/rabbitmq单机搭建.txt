@@ -1,0 +1,47 @@
+一、环境：
+	rabbitmq版本：	3.6.9-1.el7.noarch
+    系统：	centos7 (3.10.0-514.el7.x86_64)
+    网络：	外网连接
+    用户：	需要root权限
+    防火墙：	开启
+    主机：（虚拟机）
+        192.168.1.101
+        192.168.1.102
+        192.168.1.103
+二、系统环境和依赖配置
+    参看 "rabbitmq系统环境和依赖配置(erlang)" 
+三、下载 rabbitmq 
+	地址：	
+		github地址：	https://github.com/rabbitmq/rabbitmq-server/releases
+		官网地址：		http://www.rabbitmq.com/releases/rabbitmq-server/
+四、安装 rabbitmq 
+		1、下载  rabbitmq 依赖环境
+			yum -y install socat
+		2、安装	
+			rpm -ivh  rabbitmq-server-3.6.9-1.el7.noarch.rpm
+		3、开放防火墙端口
+			firewall-cmd --zone=public --add-port=4369/tcp --permanent		// erlang发现口
+			firewall-cmd --zone=public --add-port=5672/tcp --permanent 		// client端通信口
+			firewall-cmd --zone=public --add-port=15672/tcp --permanent		// 管理界面ui端口
+			firewall-cmd --zone=public --add-port=25672/tcp --permanent		// server间内部通信口
+			firewall-cmd --reload
+五、rabbitmq 操作
+	1、服务操作
+		启动：	systemctl start rabbitmq-server
+		停止：	systemctl stop rabbitmq-server
+		重启：	systemctl restart rabbitmq-server
+		查看状态：	systemctl status rabbitmq-server
+	2、插件操作
+		启用页面插件：(开启这个，才能访问页面)
+			命令：	rabbitmq-plugins enable rabbitmq_management
+	5、添加用户：
+		# 添加 账号：admin 密码：admin 的用户，并赋予 administrator 的权限
+		rabbitmqctl add_user admin admin
+		rabbitmqctl set_user_tags admin administrator
+六、测试：
+	访问：
+		http://192.168.1.146:15672/#/
+
+
+记录：
+	

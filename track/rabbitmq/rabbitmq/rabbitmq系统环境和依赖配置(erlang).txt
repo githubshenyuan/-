@@ -1,0 +1,18 @@
+一、环境
+    
+一、erlang 配置
+    1、在线安装 erlang
+        暂无
+    2、rpm 安装
+        下载 rabbitmq 版本的 erlang
+            地址：  https://github.com/rabbitmq/erlang-rpm/releases
+        下载依赖环境
+            yum install openssl-1.0.2k-12.el7.x86_64
+        安装 erlang
+            rpm -ivh  erlang-19.3.6.12-1.el7.centos.x86_64.rpm
+    3、全离线安装
+        暂无
+    4、源码安装
+        暂无
+
+        
