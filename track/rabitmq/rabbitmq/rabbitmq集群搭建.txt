@@ -1,5 +1,13 @@
 一、环境
-
+    redis版本：	3.2.0
+    系统：	centos7 (3.10.0-514.el7.x86_64)
+    网络：  外网连接
+    用户：  普通用户，用户名：appadmin（部分需要root权限）
+    防火墙：开启
+    主机：（虚拟机）
+        192.168.1.101
+        192.168.1.102
+        192.168.1.103
 二、安装配置
     1、
 
@@ -15,3 +23,8 @@
     rabbitmqctl cluster_status 集群状态
     rabbitmqctl forget_cluster_node rabbit@rabbit3 节点摘除 
     rabbitmqctl reset application重置
+
+改变节点类型：
+    rabbitmqctl stop_app
+    rabbitmqctl change_cluster_node_type ram
+    rabbitmqctl start_app

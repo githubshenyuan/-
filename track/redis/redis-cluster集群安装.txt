@@ -54,6 +54,13 @@
             ./redis-server ../../redis.conf 
 四、集群环境配置：
     请参看  redis-cluster集群环境配置(erlang)
+五、系统配置
+    1、开启防火墙端口
+        firewall-cmd --zone=public --add-port=7000/tcp --permanent
+        firewall-cmd --zone=public --add-port=17000/tcp --permanent   // 集群通信端口
+        firewall-cmd --zone=public --add-port=7001/tcp --permanent
+        firewall-cmd --zone=public --add-port=17001/tcp --permanent
+        firewall-cmd --reload 
 五、添加集群
     1、添加集群：
         命令：（--replicas 1 标识一个从节点）
