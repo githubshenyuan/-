@@ -1,0 +1,59 @@
+一、环境
+二、下载与安装
+    1、下载：
+        地址：  https://www.mongodb.org/dl/linux/
+    2、安装：
+        将 mongodb-linux-x86_64-rhel70-3.2.1.tgz 解压到 /usr/local/mongodb
+    3、配置
+        在 ./bin 下新建 mongodb.conf 
+        添加以下配置：
+            # 数据存放目录
+            dbpath = /usr/local/mongodb/mongodb-linux-x86_64-rhel70-3.2.1/db
+            #日志文件存放目录
+            logpath = /usr/local/mongodb/mongodb-linux-x86_64-rhel70-3.2.1/logs/mongodb.log
+            #端口
+            port = 27017
+            #以守护线程的方式启用，即在后台运行
+            fork = true
+            #日志输出方式，使用追加的方式写日志
+            logappend = true
+            #PID File 的完整路径，如果没有设置，则没有PID文件
+            pidfilepath = /usr/local/mongodb/mongodb-linux-x86_64-rhel70-3.2.1/mongo.pid
+            #关闭http接口，默认关闭27018端口访问
+            nohttpinterface = false
+            #声明这是一个集群的分片，默认端口是27018
+            #shardsvr = true
+            #设置每个数据库将被保存在一个单独的目录
+            #directoryperdb = true
+            #开启认证
+            auth = true
+            #设开启简单的rest API，置后打开28017网页端口
+            rest = true
+
+        其他参数说明：
+            bind_ip = 127.0.0.1    
+                默认值是所有的IP地址都能访问，该参数指定MongoDB对外提供服务的绑定IP地址，用于监听客户端 Application的连接，客户端只能使用绑定的IP地址才能访问mongod，其他IP地址是无法访问的
+            auth = true
+                默认值是不需要验证，即 --noauth，该参数启用用户访问权限控制；当mongod 使用该参数启动时，MongoDB会验证客户端连接的账户和密码，以确定其是否有访问的权限。如果认证不通过，那么客户端不能访问MongoDB的数据库。
+        4、服务启动
+            ./bin/mongod -f mongodb.conf
+        5、停止服务
+            ./mongod --shutdown --dbpath=/usr/local/mongodb/mongodb-linux-x86_64-rhel70-3.2.1/db
+三、防火墙设置
+    firewall-cmd --zone=public --add-port=27017/tcp --permanent
+    firewall-cmd --zone=public --add-port=28017/tcp --permanent
+    firewall-cmd --reload
+四、用户操作
+    1、添加管理员：
+        # 连接数据库
+            ./mongo
+        # 连接到 admin 库
+            use admin
+        # 执行添加用户命令
+            db.createUser({user:"root",pwd:"root",roles:["root"]})
+            db.createUser({user: "admin", pwd: "admin", roles: [ { role: "userAdminAnyDatabase", db:"admin" } ]})
+        # 验证用户：
+            db.auth('admin','admin')
+
+
+        
