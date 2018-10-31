@@ -24,4 +24,4 @@
 		# 启动时需要执行的明林
 		CMD ["/usr/bin/svnserve", "-dr", "/usr/svn/svndir"]
 2、对当前目录下的 dokerfile 文件制作镜像
-	docker build -t centos:v1 
+	docker build -t centos:v1 .
