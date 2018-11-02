@@ -34,10 +34,35 @@
 	2、插件操作
 		启用页面插件：(开启这个，才能访问页面)
 			命令：	rabbitmq-plugins enable rabbitmq_management
-	5、添加用户：
-		# 添加 账号：admin 密码：admin 的用户，并赋予 administrator 的权限
-		rabbitmqctl add_user admin admin
-		rabbitmqctl set_user_tags admin administrator
+	3、添加管理员：
+		# 添加 账号：admin 密码：admin 的用户，并赋予 administrator 角色 和 读写  "/" 权限
+			rabbitmqctl add_user admin admin
+			rabbitmqctl set_user_tags admin administrator
+			rabbitmqctl  set_permissions -p /  admin '.*' '.*' '.*'
+	4、用户和权限相关
+		# 查看所有用户
+			rabbitmqctl list_users
+		# 添加用户
+			rabbitmqctl add_user ${username} ${password}
+		# 删除用户
+			rabbitmqctl delete_user ${username}
+		# 修改用户密码
+			rabbitmqctl change_password ${username}  ${new_password}
+	5、用户角色相关
+		# 设置用户角色
+			rabbitmqctl set_user_tags ${username} ${角色1} ${角色2}
+	6、用户权限相关
+		# 设置用户权限
+			rabbitmqctl  set_permissions  -p  ${vHostPath}  ${username}  ${Configure} ${Write} ${Read}
+
+		# 查看(指定hostpath)所有用户的权限信息
+			rabbitmqctl  list_permissions  -p  ${vHostPath}
+		# 查看指定用户的权限信息
+			rabbitmqctl  list_user_permissions  ${username}
+		# 清除用户的权限信息
+			rabbitmqctl  clear_permissions  [-p VHostPath]  User
+	
+
 六、测试：
 	访问：
 		http://192.168.1.146:15672/#/

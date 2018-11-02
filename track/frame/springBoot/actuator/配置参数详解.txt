@@ -1,0 +1,16 @@
+一、环境
+二、参数详解
+    1、是否开启参数
+        (1) # 端点开启总开关
+            endpoints.enabled=false         
+                \\ false 关闭所有端点（可以设置单独开启哪些端点） 
+                \\ true 启用所有端点(可以设置单独关闭哪些端点)
+            指定关闭或者开启某个端点：
+                endpoints.health.enabled=true
+                细粒度开启和关闭，某个端点的功能点
+                    management.health.db.enabled=false      // 关闭健康监测的 数据库 连接检测
+        (2) # 权限开启总开关
+            endpoints.sensitive=true
+                \\ false 关闭所有端点权限校验（可以设置单独开启哪些端点） 
+                \\ true 启用所有端点权限校验 (可以设置单独关闭哪些端点)
+        (3)
