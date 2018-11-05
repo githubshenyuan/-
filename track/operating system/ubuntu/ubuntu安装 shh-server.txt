@@ -1,0 +1,2 @@
+1、下载安装
+    sudo apt-get install openssh-server

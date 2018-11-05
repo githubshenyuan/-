@@ -1,0 +1,29 @@
+一、配置静态IP
+    1、（旧版本ubuntu）配置文件配置
+        # 打开配置文件
+            vi /etc/network/interfaces
+        # 设置静态ip
+            auto enp0s3
+            iface enp0s3 inet static
+            address 192.168.8.105
+            netmask 255.255.255.0
+            gateway 192.168.8.1
+            dns-nameserver 192.168.8.1
+        # 重启网络
+            sudo /etc/init.d/networking restart
+    2、（ubuntu 18.04）配置文件配置
+        # 打开配置文件：
+            vi /etc/netplan/50-cloud-init.yaml
+        # 参考配置：
+            network:
+                ethernets:
+                    enp0s3:
+                        addresses: [192.168.137.41/24]
+                        gateway4: 192.168.137.1
+                        dhcp4: no
+                        gateway4: 192.168.137.1：
+                version: 2
+        # 参考配置 dns 配置
+            sudo vi /etc/resolv.conf
+        # 重启网络
+            netplan apply
