@@ -1,0 +1,2 @@
+1、热部署不生效设置
+    file → setting → Build,Execution,Deployment → Compiler 勾选 Build project autoamatically
