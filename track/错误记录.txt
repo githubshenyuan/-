@@ -1,0 +1,7 @@
+一、远程 debug
+    1、远程无法执行 断点
+        错误信息：  Line numbers info is not available in class icardfront.usecase.C5009new
+        解决：  
+            普通编译打包：      javac -g        (添加 -g 参数)
+            ant 编译打包：      debug="true"    (添加此参数）
+            maven编译打包：     对于Maven，maven-compiler-plugin的默认配置添加了调试信息，因此显式设置不必撤消
