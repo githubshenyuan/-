@@ -1,0 +1,20 @@
+一、请求与返回
+    1、请求相关
+        @PathVariable
+            说明：
+                获得请求url中的动态参数，将其值绑定到方法的参数上
+            例子：
+                @RequestMapping("/get/{type}")
+                public String get( @PathVariable (value = "type") int type) 
+        @RequestParam
+            说明：
+                1) 通过Request.getParameter() 获取的String可直接转换为简单类型的情况
+                2) 用来处理Content-Type: 为 application/x-www-form-urlencoded编码的内容。提交方式为get或post
+        @RequestBody
+            说明：
+                1) 可以接收json格式的数据，并将其转换成对应的数据类型。
+                2) 一般用来处理 “非” Content-Type: application/x-www-form-urlencoded编码格式的数据
+
+        @ModelAttribute
+            说明：
+                暂无
