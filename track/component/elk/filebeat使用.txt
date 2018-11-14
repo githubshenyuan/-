@@ -13,6 +13,9 @@
         output.logstash:
             hosts: ["localhost:5044"]
 3、
+    multiline.pattern: '^\['
+    multiline.negate: true
+    multiline.match: after
 4、
 5、
 6、
