@@ -12,7 +12,9 @@
             json.add_error_key: true
         output.logstash:
             hosts: ["localhost:5044"]
-3、
+3、启动
+    ./filebeat -e -c filebeat.yml
+4、配置读取多行
     multiline.pattern: '^\['
     multiline.negate: true
     multiline.match: after
