@@ -86,7 +86,7 @@
             }
     2、启动：
         # 普通启动
-        nohup ./bin/logstash -f config/test.conf &> ./logs/run.log &
+        nohup ./bin/logstash --config.reload.automatic -f config/test.conf &> ./logs/run.log &
         # 自动加载配置文件启动（但配置文件有改动是自动更新配置文件 ，默认 3 秒扫描一次） （推荐）
         nohup ./bin/logstash --config.reload.automatic -f config/test.conf >/dev/null 2>&1 &
 
