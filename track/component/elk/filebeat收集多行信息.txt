@@ -1,0 +1,12 @@
+
+配置不以 [ 开头的行都合并到上一行的末尾
+
+multiline.pattern: ^\[ 
+multiline.negate: true
+multiline.match: after
+
+
+说明
+pattern：正则表达式
+negate：true 或 false；默认是false，匹配pattern的行合并到上一行；true，不匹配pattern的行合并到上一行
+match：after 或 before，合并到上一行的末尾或开头
