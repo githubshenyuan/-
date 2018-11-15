@@ -1,0 +1,16 @@
+1、配置注解事务
+    <!-- 配置 hibernate的事务管理-->
+    <bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <!-- 配置支持注解-->
+    <tx:annotation-driven transaction-manager="transactionManager" />
+
+
+
+
+
+问题：
+    1、配置注解事务无法启动
+        报错：通配符的匹配很全面, 但无法找到元素 'tx:annotation-driven' 的声明
+        解决：配置文件头，xsd 的版本不对，填写相应的 spring的版本
