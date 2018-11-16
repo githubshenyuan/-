@@ -84,6 +84,9 @@
                     } 
                 stdout { codec => rubydebug  } 
             }
+        备用参考：
+            # 以时间为索引
+            index => "system-%{+YYYY.MM.dd}"
     2、启动：
         # 普通启动
         nohup ./bin/logstash --config.reload.automatic -f config/test.conf &> ./logs/run.log &

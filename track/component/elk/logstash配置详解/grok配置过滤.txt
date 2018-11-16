@@ -1,0 +1,49 @@
+一、环境：
+二、
+    1、grok 自带过滤模式过滤
+        (1) 简单示例
+            输入：  55.3.244.1 GET /index.html 15824 0.043
+            pattern：   %{IP:client} %{WORD:method} %{URIPATHPARAM:request} %{NUMBER:bytes} %{NUMBER:duration}
+            过滤后：  
+                ● client: 55.3.244.1
+                ● method: GET
+                ● request: /index.html
+                ● bytes: 15824
+                ● duration: 0.043
+        (2) 自定义过滤
+            输入：  
+                2018-11-16 09:07:25.933 INFO [elk-test,,,] [,] 3616 --- [           main] c.e.s.SpringbootElkDemoApplication       : Started SpringbootElkDemoApplication in 5.283 seconds (JVM running for 5.952)
+            pattern(过滤规则)：   
+                %{TIMESTAMP_ISO8601:time}\s*%{LOGLEVEL:level} \[(?<appname>([0-9A-Za-z\-]{0,30}|)),(?<traceid>([0-9A-Fa-f]{16}|)),(?<spanid>([0-9A-Fa-f]{16}|)),(?<bool>(true|TRUE|false|FALSE|))\] \[(?<processname>([\S]{1,50}|)),(?<processid>([0-9A-Za-z\-\.\_]{1,50}|))\] %{POSINT:pid} --- \[%{GREEDYDATA:thread}\] (?<class>(([a-zA-Z0-9\_\.\-\[\]\/]+\.)+[A-Za-z0-9\[\]$]+))  \s*: %{GREEDYDATA:msg} 
+
+            配置到logstash
+                filter {
+                    grok {
+                        match => { "message" => "%{TIMESTAMP_ISO8601:time}\s*%{LOGLEVEL:level} \[(?<appname>([0-9A-Za-z\-]{0,30}|)),(?<traceid>([0-9A-Fa-f]{16}|)),(?<spanid>([0-9A-Fa-f]{16}|)),(?<bool>(true|TRUE|false|FALSE|))\] \[(?<processname>([\S]{1,50}|)),(?<processid>([0-9A-Za-z\-\.\_]{1,50}|))\] %{POSINT:pid} --- \[%{GREEDYDATA:thread}\] (?<class>(([a-zA-Z0-9\_\.\-\[\]\/]+\.)+[A-Za-z0-9\[\]$]+))  \s*: %{GREEDYDATA:msg}" }
+                        overwrite => ["message"]
+                    }
+                    }
+
+        (3) 自定义 正则规则 过滤
+            输入：  
+                2018-11-16 09:07:25.933 INFO [elk-test,,,] [,] 3616 --- [           main] c.e.s.SpringbootElkDemoApplication       : Started SpringbootElkDemoApplication in 5.283 seconds (JVM running for 5.952)
+            pattern：   
+                %{TIMESTAMP_ISO8601:client}\s*%{LOGLEVEL:level} %{ZIPKIN:zipkin} %{PROCESS:process} %{POSINT:pid} --- \[%{GREEDYDATA:thread}\] %{CLASS:class}  \s*: %{GREEDYDATA:msg}
+            自定义 pattern
+                TRACEID [0-9A-Fa-f]{16}|
+                SPANID [0-9A-Fa-f]{16}|
+                APPNAME [0-9A-Za-z\-]{0,30}|
+                BOOL true|TRUE|false|FALSE|
+                ZIPKIN (?:\[%{APPNAME},%{TRACEID},%{SPANID},%{BOOL}\])
+                PROCESSNAME [\S]{1,50}|
+                PROCESSID [0-9A-Za-z\-\.\_]{1,50}|
+                PROCESS (?:\[%{PROCESSNAME},%{PROCESSID}\])
+                CLASS ([a-zA-Z0-9\_\.\-\[\]\/]+\.)+[A-Za-z0-9\[\]$]+
+
+            配置正则文件到 logstash：
+                filter {
+                    grok {
+                        patterns_dir => ["./patterns"]
+                        match => { "message" => "%{SYSLOGBASE} %{POSTFIX_QUEUEID:queue_id}: %{GREEDYDATA:syslog_message}" }
+                    }
+                    }
