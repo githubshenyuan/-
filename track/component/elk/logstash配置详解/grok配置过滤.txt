@@ -14,7 +14,7 @@
             输入：  
                 2018-11-16 09:07:25.933 INFO [elk-test,,,] [,] 3616 --- [           main] c.e.s.SpringbootElkDemoApplication       : Started SpringbootElkDemoApplication in 5.283 seconds (JVM running for 5.952)
             pattern(过滤规则)：   
-                %{TIMESTAMP_ISO8601:time}\s*%{LOGLEVEL:level} \[(?<appname>([0-9A-Za-z\-]{0,30}|)),(?<traceid>([0-9A-Fa-f]{16}|)),(?<spanid>([0-9A-Fa-f]{16}|)),(?<bool>(true|TRUE|false|FALSE|))\] \[(?<processname>([\S]{1,50}|)),(?<processid>([0-9A-Za-z\-\.\_]{1,50}|))\] %{POSINT:pid} --- \[%{GREEDYDATA:thread}\] (?<class>(([a-zA-Z0-9\_\.\-\[\]\/]+\.)+[A-Za-z0-9\[\]$]+))  \s*: %{GREEDYDATA:msg} 
+                %{TIMESTAMP_ISO8601:time}\s*%{LOGLEVEL:level} \[(?<appname>([0-9A-Za-z\-]{0,30}|)),(?<traceid>([0-9A-Fa-f]{16}|)),(?<spanid>([0-9A-Fa-f]{16}|)),(?<bool>(true|TRUE|false|FALSE|))\] \[(?<processname>([\S]{1,50}|)),(?<processid>([0-9A-Za-z\-\.\_]{1,50}|))\] %{POSINT:pid} --- \[%{GREEDYDATA:thread}\] (?<class>(([a-zA-Z0-9\_\.\-\[\]\/]+\.)*[A-Za-z0-9\[\]$]+)) \s*: %{GREEDYDATA:message} 
 
             配置到logstash
                 filter {
@@ -28,7 +28,7 @@
             输入：  
                 2018-11-16 09:07:25.933 INFO [elk-test,,,] [,] 3616 --- [           main] c.e.s.SpringbootElkDemoApplication       : Started SpringbootElkDemoApplication in 5.283 seconds (JVM running for 5.952)
             pattern：   
-                %{TIMESTAMP_ISO8601:client}\s*%{LOGLEVEL:level} %{ZIPKIN:zipkin} %{PROCESS:process} %{POSINT:pid} --- \[%{GREEDYDATA:thread}\] %{CLASS:class}  \s*: %{GREEDYDATA:msg}
+                %{TIMESTAMP_ISO8601:client}\s*%{LOGLEVEL:level} %{ZIPKIN:zipkin} %{PROCESS:process} %{POSINT:pid} --- \[%{GREEDYDATA:thread}\] %{CLASS:class} \s*: %{GREEDYDATA:msg}
             自定义 pattern
                 TRACEID [0-9A-Fa-f]{16}|
                 SPANID [0-9A-Fa-f]{16}|
@@ -38,7 +38,7 @@
                 PROCESSNAME [\S]{1,50}|
                 PROCESSID [0-9A-Za-z\-\.\_]{1,50}|
                 PROCESS (?:\[%{PROCESSNAME},%{PROCESSID}\])
-                CLASS ([a-zA-Z0-9\_\.\-\[\]\/]+\.)+[A-Za-z0-9\[\]$]+
+                CLASS ([a-zA-Z0-9\_\.\-\[\]\/]+\.)*[A-Za-z0-9\[\]$]+
 
             配置正则文件到 logstash：
                 filter {
