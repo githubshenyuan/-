@@ -14,6 +14,3 @@
 	$upstream_addr				后台upstream的地址，即真正提供服务的主机地址			10.10.10.100:80
 	$request_time				整个请求的总时间										0.205
 	$upstream_response_time		请求过程中，upstream响应时间							0.002
-
-2、配置转发
-	
