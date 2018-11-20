@@ -1,11 +1,57 @@
-1、生成证书
-    keytool -genkey -alias "tomcat" -keyalg "RSA" -keystore "d:\mykeystore.keystore"  -dname "CN=localhost, OU=localhost, O=localhost, L=SH, ST=SH, C=CN" -keypass "123456" -storepass -validity 180
-    详解：
-        -genkey：  
-        -alias：
-        -keyalg：
-        -keystore：
-        -dname：
+一、环境
+二、基本操作
+    1、生成证书
+        keytool -genkey -alias "tomcat" -keyalg "RSA" -keystore "d:\mykeystore.keystore"  -dname "CN=localhost, OU=localhost, O=localhost, L=SH, ST=SH, C=CN" -keypass "123456" -storepass -validity 180
+        详解：
+            -genkey：   表示要创建一个新的密钥
+            -alias：    和keystore关联的别名，这个alias通常不区分大小写
+            -keyalg：   使用加密的算法，这里是RSA （默认 RSA）
+            -keystore： 密钥保存在D:盘目录下的mykeystore文件中
+            -keypass：  私有密钥的密码，这里设置为 123456
+            -storepass：存取密码，这里设置为changeit，这个密码提供系统从mykeystore文件中将信息取出
+            -validity： 该密钥的有效期为 180天 (默认为90天)
+            -dname： 
+                CN=commonName      注：生成证书时，CN要和服务器的域名相同，如果在本地测试，则使用localhost
+                OU=organizationUnit
+                O=organizationName
+                L=localityName
+                S=stateName
+                C=country
+            缺省选项：
+                -alias "mykey"
+                -keyalg "DSA"
+                -keysize 1024
+                -validity 90
+                -keystore 用户宿主目录中名为 .keystore 的文件
+                -file 读时为标准输入，写时为标准输出 
+
+    2、导出证书，由客户端安装
+        keytool -export -alias tomcat -keystore d:\mykeystore -file d:\mycerts.cer -storepass 123456
+
+    3、客户端配置：为客户端的JVM导入密钥(将服务器下发的证书导入到JVM中)
+        keytool -import -trustcacerts -alias tomcat -keystore "%JAVA_HOME%/jre/lib/security/cacerts " -file d:\mycerts.cer -storepass 123456
+    4、要删除证书库里面的某个证书，可以使用如下命令： 
+    keytool -delete -alias tomcat -keystore cacerts -storepass 666666 
+三、详细介绍
+    1、来查看证书是否真的导入到JVM中。
+        keytool -list -alias tomcat -keystore "$JAVA_HOME/jre/lib/security/cacerts" -storepass 123456
+    2、keytool 命令说明：
+        -alias          证书别名 
+        -keystore       指定密钥库的名称（cacerts是jre中默认的证书库名字，也可以使用其它名字 ）
+        -storepass      指定密钥库的密码 
+        -keypass        指定别名条目的密码 
+        -list           显示密钥库中的证书信息 
+        -v              显示密钥库中的证书详细信息 
+        -export         将别名指定的证书导出到文件 
+        -file           指定导出到文件的文件名 
+        -delete         删除密钥库中某条目 
+        -import         将已签名数字证书导入密钥库 
+        -keypasswd      修改密钥库中指定条目口令 
+        -dname          指定证书拥有者信息 
+        -keyalg         指定密钥的算法 
+        -validity       指定创建的证书有效期多少天 
+        -keysize        指定密钥长度 
+    3、其它操作
 
 
 
@@ -13,88 +59,6 @@
 
 
 
-
--genkey　　表示要创建一个新的密钥
-
--dname　　表示密钥的Distinguished Names，  表明了密钥的发行者身份
-
-　　CN=commonName      注：生成证书时，CN要和服务器的域名相同，如果在本地测试，则使用localhost
-
-　　OU=organizationUnit
-
-　　O=organizationName
-
-　　L=localityName
-
-　　S=stateName
-
-　　C=country
-
--keyalg　　　　使用加密的算法，这里是RSA
-
--alias　　　　　和keystore关联的别名，这个alias通常不区分大小写
-
--keypass　　    私有密钥的密码，这里设置为 123456
-
--keystore 　　  密钥保存在D:盘目录下的mykeystore文件中
-
--storepass 　　存取密码，这里设置为changeit，这个密码提供系统从mykeystore文件中将信息取出
-
--validity　　　　该密钥的有效期为 180天 (默认为90天)
-
-下面是各选项的缺省值。 
-
--alias "mykey"
--keyalg "DSA"
--keysize 1024
--validity 90
--keystore 用户宿主目录中名为 .keystore 的文件
--file 读时为标准输入，写时为标准输出 
-
-cacerts证书文件(The cacerts Certificates File)
-
-该证书文件存在于java.home\jre\lib\security目录下，是Java系统的CA证书仓库 
-
-
-2.导出证书，由客户端安装
-keytool -export -alias tomcat -keystore d:\mykeystore -file d:\mycerts.cer -storepass 123456
-
-3.客户端配置：为客户端的JVM导入密钥(将服务器下发的证书导入到JVM中)
-keytool -import -trustcacerts -alias tomcat -keystore "%JAVA_HOME%/jre/lib/security/cacerts " -file d:\mycerts.cer -storepass 123456
-
-生成的证书可以交付客户端用户使用，用以进行SSL通讯，或者伴随电子签名的jar包进行发布者的身份认证。
-
-常出现的异常：“未找到可信任的证书”--主要原因为在客户端未将服务器下发的证书导入到JVM中，可以用
-
-keytool -list -alias tomcat -keystore "$JAVA_HOME/jre/lib/security/cacerts" -storepass 123456
-
-来查看证书是否真的导入到JVM中。
-
-keytool生成根证书时出现如下错误：
-
-keytool错误:java.io.IOException:keystore was tampered with,or password was incorrect
-
-原因是在你的home目录下是否还有.keystore存在。如果存在那么把他删除掉，然后再执行或者删除"%JAVA_HOME%/jre/lib/security/cacerts 再执行
-
- 
-
-数字证书中keytool命令使用说明
--alias           证书别名 
--keystore     指定密钥库的名称（cacerts是jre中默认的证书库名字，也可以使用其它名字 ）
--storepass   指定密钥库的密码 
--keypass     指定别名条目的密码 
--list        　　显示密钥库中的证书信息 
--v           　　显示密钥库中的证书详细信息 
--export      　将别名指定的证书导出到文件 
--file        　　指定导出到文件的文件名 
--delete     　  删除密钥库中某条目 
--import      　 将已签名数字证书导入密钥库 
--keypasswd   修改密钥库中指定条目口令 
--dname          指定证书拥有者信息 
--keyalg           指定密钥的算法 
--validity          指定创建的证书有效期多少天 
--keysize         指定密钥长度 
- 
  
 示例说明： 
 浏览证书库里面的证书信息，可以使用如下命令： 
@@ -125,7 +89,7 @@ keytool -changealias -keystore mykeystore.keystore -alias 当前别名 -destalia
 
  
 
-主流数字证书都有哪些格式
+四、主流数字证书都有哪些格式
 一般来说，主流的Web服务软件，通常都基于OpenSSL和Java两种基础密码库。
 
 Tomcat、Weblogic、JBoss等Web服务软件，一般使用Java提供的密码库。通过Keytool工具，生成Java Keystore（JKS）格式的证书文件。
