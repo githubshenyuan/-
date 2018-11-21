@@ -1,11 +1,58 @@
 1、keytool 获取帮助
     keytool -command_name -help
+    如：
+        keytool -certreq -help
 2、参数详解
     -certreq            生成证书请求
+        -alias <alias>                  要处理的条目的别名
+        -sigalg <sigalg>                签名算法名称
+        -file <filename>                输出文件名
+        -keypass <arg>                  密钥口令
+        -keystore <keystore>            密钥库名称
+        -dname <dname>                  唯一判别名
+        -storepass <arg>                密钥库口令
+        -storetype <storetype>          密钥库类型
+        -providername <providername>    提供方名称
+        -providerclass <providerclass>  提供方类名
+        -providerarg <arg>              提供方参数
+        -providerpath <pathlist>        提供方类路径
+        -v                              详细输出
+        -protected                      通过受保护的机制的口令
     -changealias        更改条目的别名
+        -alias <alias>                  要处理的条目的别名
+        -destalias <destalias>          目标别名
+        -keypass <arg>                  密钥口令
+        -keystore <keystore>            密钥库名称
+        -storepass <arg>                密钥库口令
+        -storetype <storetype>          密钥库类型
+        -providername <providername>    提供方名称
+        -providerclass <providerclass>  提供方类名
+        -providerarg <arg>              提供方参数
+        -providerpath <pathlist>        提供方类路径
+        -v                              详细输出
+        -protected                      通过受保护的机制的口令
     -delete             删除条目
     -exportcert         导出证书
     -genkeypair         生成密钥对
+        -alias <alias>                  要处理的条目的别名
+        -keyalg <keyalg>                密钥算法名称
+        -keysize <keysize>              密钥位大小
+        -sigalg <sigalg>                签名算法名称
+        -destalias <destalias>          目标别名
+        -dname <dname>                  唯一判别名
+        -startdate <startdate>          证书有效期开始日期/时间
+        -ext <value>                    X.509 扩展
+        -validity <valDays>             有效天数
+        -keypass <arg>                  密钥口令
+        -keystore <keystore>            密钥库名称
+        -storepass <arg>                密钥库口令
+        -storetype <storetype>          密钥库类型
+        -providername <providername>    提供方名称
+        -providerclass <providerclass>  提供方类名
+        -providerarg <arg>              提供方参数
+        -providerpath <pathlist>        提供方类路径
+        -v                              详细输出
+        -protected                      通过受保护的机制的口令
     -genseckey          生成密钥
     -gencert            根据证书请求生成证书
     -importcert         导入证书或证书链

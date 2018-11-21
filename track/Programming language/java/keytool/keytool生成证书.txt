@@ -1,7 +1,7 @@
 一、环境
 二、基本操作
     1、生成证书
-        keytool -genkey -alias "tomcat" -keyalg "RSA" -keystore "d:\mykeystore.keystore"  -dname "CN=localhost, OU=localhost, O=localhost, L=SH, ST=SH, C=CN" -keypass "123456" -storepass -validity 180
+        keytool -genkey -alias "tomcat" -keyalg "RSA" -keystore "d:\mykeystore.keystore"  -dname "CN=localhost, OU=localhost, O=localhost, L=SH, ST=SH, C=CN" -keypass "123456" -storepass 123456 -validity 180
         详解：
             -genkey：   表示要创建一个新的密钥
             -alias：    和keystore关联的别名，这个alias通常不区分大小写
@@ -31,7 +31,7 @@
     3、客户端配置：为客户端的JVM导入密钥(将服务器下发的证书导入到JVM中)
         keytool -import -trustcacerts -alias tomcat -keystore "%JAVA_HOME%/jre/lib/security/cacerts " -file d:\mycerts.cer -storepass 123456
     4、要删除证书库里面的某个证书，可以使用如下命令： 
-    keytool -delete -alias tomcat -keystore cacerts -storepass 666666 
+        keytool -delete -alias tomcat -keystore cacerts -storepass 666666 
 三、详细介绍
     1、来查看证书是否真的导入到JVM中。
         keytool -list -alias tomcat -keystore "$JAVA_HOME/jre/lib/security/cacerts" -storepass 123456
@@ -52,10 +52,8 @@
         -validity       指定创建的证书有效期多少天 
         -keysize        指定密钥长度 
     3、其它操作
-
-
-
-
+四、提醒
+    1、keytool 不支持导出 私钥
 
 
 
