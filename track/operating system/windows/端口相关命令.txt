@@ -1,0 +1,15 @@
+1、查询端口占用
+    netstat –ano | findstr ${端口号}
+    返回：
+        协议    本地地址                外部地址                      状态
+        TCP     127.0.0.1:1080         DESKTOP-3F6N54V:49408        TIME_WAIT
+    返回详解：
+        状态：
+            LISTENING：     FTP服务启动后首先处于侦听（LISTENING）状态。
+            ESTABLISHED：   ESTABLISHED的意思是建立连接。表示两台机器正在通信
+            TIME_WAIT：     我方主动调用close()断开连接，收到对方确认后状态变为 TIME_WAIT
+            CLOSE_WAIT：    对方主动关闭连接或者网络异常导致连接中断，这时我方的状态会变成 CLOSE_WAIT 此时我方要调用close()来使得连接正确关闭
+
+
+2、查看系统端口信息
+    netsh interface ipv4 show dynamicportrange protocol=tcp
