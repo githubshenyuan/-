@@ -3,12 +3,82 @@
         外网下可以使用命令安装
             yum install -y openssl 
 二、生成证书
-    1、生成私钥
-        openssl genrsa -aes128 -out fd.key 2048
+    生成私钥
+        生成RSA私钥(无加密)
+            openssl genrsa -aes128 -out rsa_private.key 2048
+        生成RSA私钥(使用aes256加密)
+            openssl genrsa -aes256 -passout pass:123456 -out rsa_aes_private.key 2048
+    生成公钥
+        生成RSA公钥(无加密)
+            openssl rsa -in rsa_private.key -pubout -out rsa_public.key
+        生成RSA公钥(需要提供密码)
+            openssl rsa -in rsa_aes_private.key -passin pass:123456 -pubout -out rsa_ase_public.key
+
+    2、创建签名请求的证书（CSR）
+        openssl req -new -key server.key -out server.csr
+    3、标记证书使用上述私钥和CSR
+        openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.crt
+三、基本操作
+
             
+四、命令详解：
+    genrsa  ：生成RSA私钥
+        参数：
+            -des                                        在cbc模式下使用IDEA加密生成的密钥
+            -des3                                       在ede cbc模式下使用DES加密生成的密钥（168位密钥）
+            -idea                                       在cbc模式下使用IDEA加密生成的密钥
+            -seed                                       使用cbc种子加密PEM输出
+            -aes128, -aes192, -aes256                   使用cbc aes加密PEM输出
+            -camellia128, -camellia192, -camellia256        使用cbc camellia加密PEM输出
+            -out file                                   将密钥输出到'文件
+            -passout arg                                输出文件密码短语源
+            -f4                                         使用F4（0x10001）作为E值
+            -3                                          使用3作为E值
+            -engine e                                   使用引擎e，可能是硬件设备。
+    req ：rsa
+        参数：
+            -inform                     arg输入格式 - DER或PEM
+            -outform                    arg输出格式 - DER或PEM
+            -in                         arg输入文件
+            -out                        arg输出文件
+            -text                       文本形式的请求
+            -pubkey                     输出公钥
+            -noout                      不输出REQ
+            -REify                      验证REQ上的签名
+            -modulus                    RSA模量
+            -nodes                      不加密输出键
+            -engine                     e使用引擎e，可能是硬件设备
+            -subject                    输出请求的主题
+            -passin                     私钥密码源
+            -key                        文件使用文件中包含的私钥
+            -keyform                    arg密钥文件格式
+            -keyout                     arg文件发送密钥
+            -rand文件：file：...
+                            将文件（或目录中的文件）加载到
+                            随机数发生器
+            -newkey                     rsa：bits生成一个大小为'bits'的新RSA密钥
+            -newkey                     dsa：file生成一个新的DSA密钥，参数取自“文件”中的CA
+            -newkey                     ec：file生成一个新的EC密钥，参数取自“文件”中的CA
+            -[digest]                   摘要与签名（参见openssl dgst -h列表）
+            -config                     文件请求模板文件。
+            -subj                       arg设置或修改请求主题
+            -multivalue-rdn             启用对多值RDN的支持
+            -new                        新要求。
+            -batch                      在请求生成期间不会询问任何内容
+            -x509                       输出x509结构而不是cert。 REQ。
+            -x509                       生成的证书的有效天数。
+            -set_serial                 序列号，用于由-x509生成的证书。
+            -newhdr                     在标题行中输出“NEW”
+            -asn1-kludge                以错误但某些CA的格式输出'request'
+                           据报道有需要
+            -extensions                 ..指定证书扩展部分（覆盖配置文件中的值）
+            -reqexts                    ..指定请求扩展部分（在配置文件中覆盖值）
+            -utf8                       输入字符是UTF8（默认ASCII）
+            -nameopt                    arg - 各种证书名称选项
+        -reqopt                     arg - 各种请求文本选项
+    rsa ：生成RSA公钥
 
-
-Standard commands
+openssl 标准命令
 asn1parse         ca                ciphers           cms               
 crl               crl2pkcs7         dgst              dh                
 dhparam           dsa               dsaparam          ec                

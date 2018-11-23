@@ -1,0 +1,12 @@
+1、openssl 生成证书
+    1、生成RSA私钥(无加密)
+        openssl genrsa -out rsa_private.key 2048
+    2、生成RSA公钥
+        openssl rsa -in rsa_private.key -pubout -out rsa_public.key
+    3、生成RSA私钥(使用aes256加密)
+        openssl genrsa -aes256 -passout pass:123456 -out rsa_aes_private.key 2048
+    4、此时若生成公钥，需要提供密码
+        openssl rsa -in rsa_aes_private.key -passin pass:123456 -pubout -out rsa_public.key
+
+    5、生成私钥和自签名
+        openssl req -newkey rsa:2048 -nodes -keyout rsa_private.key -x509 -days 365 -out cert.crt
