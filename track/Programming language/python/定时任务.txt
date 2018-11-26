@@ -19,7 +19,7 @@ if __name__ == '__main__':
 
 import datetime, time
 
-record = {'local_date': 'yyyy-HH-dd', 'time_count': 'a', 'am_count': 'a', 'down_count': 'a', 'pm_count': 'a'}
+ record = {'local_date': 'yyyy-HH-dd', 'time_count': 'a', 'am_count': 'a', 'down_count': 'a', 'pm_count': 'a', 're_time': '00'}
     while True:
         local_time = time.localtime(time.time())
         local_date = time.strftime('%Y-%m-%d', local_time)
@@ -42,5 +42,7 @@ record = {'local_date': 'yyyy-HH-dd', 'time_count': 'a', 'am_count': 'a', 'down_
             if time.strftime('%H:%M', local_time) == "20:00" and record['pm_count'] == "0":
                 record['pm_count'] = "1"
                 print "------------------" + time.strftime('%H:%M:%S', local_time)
+            if not time.strftime('%H', local_time) == record['re_time']:
+                record['re_time'] = time.strftime('%H', local_time)
         time.sleep(1)
         print time.strftime('%H:%M:%S', local_time)
