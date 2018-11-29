@@ -1,0 +1,38 @@
+1、指标翻译
+    Access predicates   ：  访问谓词
+    CPU cost            ：  CPU 耗费/成本
+    Depth               ：
+    Distribution        ：
+    Filter predicates   :
+    Id                  :
+    IO cost             :   IO 消耗
+    Object alias        :   
+    Object instance     :
+    Object node         :
+    Object type         :
+    Operation           :
+    Optimizer           :
+    Options             :
+    Other               :
+    Other tag           :
+    Parent id           :
+2、指标详解
+    Distribution
+        表访问的几种方式：（非全部）
+            TABLE ACCESS BY …  即描述的是该动作执行时表访问（或者说Oracle访问数据）的方式；
+                TABLE ACCESS FULL（全表扫描）
+                    Oracle会读取表中所有的行，并检查每一行是否满足SQL语句中的 Where 限制条件；
+                TABLE ACCESS BY ROWID（通过ROWID的表存取）
+                    ROWID是由Oracle自动加在表中每行最后的一列伪列，既然是伪列，就说明表中并不会物理存储ROWID的值；
+                    一旦一行数据插入后，则其对应的ROWID在该行的生命周期内是唯一的，即使发生行迁移，该行的ROWID值也不变。
+                    行的ROWID指出了该行所在的数据文件、数据块以及行在该块中的位置，所以通过ROWID可以快速定位到目标数据上，这也是Oracle中存取单行数据最快的方法；
+                TABLE ACCESS BY INDEX SCAN（索引扫描）
+                    索引扫描其实分为两步：  
+                        Ⅰ：扫描索引得到对应的ROWID
+                        Ⅱ：通过ROWID定位到具体的行读取数据
+                    索引扫描又分五种：
+                        INDEX UNIQUE SCAN（索引唯一扫描）
+                        INDEX RANGE SCAN（索引范围扫描）
+                        INDEX FULL SCAN（索引全扫描）
+                        INDEX FAST FULL SCAN（索引快速扫描）
+                        INDEX SKIP SCAN（索引跳跃扫描）
