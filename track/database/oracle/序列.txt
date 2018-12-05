@@ -14,13 +14,23 @@
             select 序列名.currval,t1_seq.nextval from dual;             // 查询序列当前值 和 下一个值   
                 currval：           //序列当前值
                 nextval：           //序列下一个值  
-            select sequence_name,min_value,max_value,increment_by,last_number from user_sequences;      // 查询用户下所有序列
+            select sequence_name,min_value,max_value,increment_by,last_number,cache_size from user_sequences WHERE sequence_name='序列名';      // 查询用户下所有序列
 
 
         修改语句：
             ALTER sequence 序列名 increment by 10 maxValue 10000 nocycle    // 更改序列为 步长 10 最大值 10000 不循环
+        修改序列当前值
+            // 修改序列步长（假设需要增加100）
+            ALTER sequence MY_SEQ increment by 100;
+            // 获取序列下一个值
+            select MY_SEQ.currval,MY_SEQ.nextval from dual; 
+            // 修改序列步长为 原始值（这里为 1 ）
+            ALTER sequence MY_SEQ increment by 1;
         删除序列：
             drop sequence 序列名;
+        根据列数量动态更改序列值
+
+
 三、示例
     1、创建一个自增序列
         create sequence 

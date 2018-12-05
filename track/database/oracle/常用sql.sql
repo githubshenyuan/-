@@ -26,6 +26,12 @@
         ALTER TABLE EPOLICY_ITEMS ADD PRIMARY KEY (ID);
         -- 删除i段 并删除主键
         ALTER TABLE EPOLICY_ITEMS DROP COLUMN ID_TEMP  CASCADE  CONSTRAINTS
+    创建表
+        CREATE TABLE user_test (
+			user_id NUMBER NULL ,
+            pass VARCHAR2(255) NULL ,
+            user_name VARCHAR2(255) NULL 
+        )
 
 二、问题
     1、解决字段不能更改类型的问题
@@ -48,4 +54,12 @@
 
         -- 添加联合主键
         ALTER TABLE "表名" ADD CONSTRAINTS '填写约束名' PRIMARY KEY ("列名","列名",...);
+        ALTER TABLE 表名 ADD PRIMARY KEY ("列名", "列名")
         ALTER TABLE EPOLICY_ITEMS ADD CONSTRAINTS '约束名' PRIMARY KEY (ID,ID_TEMP);
+        
+        -- 删除主键
+        ALTER TABLE "DS_BASE"."USER_TEST" DROP PRIMARY KEY
+        -- 删除指定名称联合主键
+        ALTER TABLE USER_TEST DROP CONSTRAINT "SYS_C0090698" 
+        -- 设置指定名称联合主键
+        ALTER TABLE "DS_BASE"."USER_TEST" ADD CONSTRAINT "SYS_C0090698" PRIMARY KEY ("USER_ID")
