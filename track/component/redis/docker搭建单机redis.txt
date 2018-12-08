@@ -1,0 +1,4 @@
+1、下载redis 镜像
+    docker pull redis:4.0
+2、启动 redis docker 容器
+    docker run --name redis -d -p 6379:6379 redis:4.0
