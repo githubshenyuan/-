@@ -1,0 +1,16 @@
+2.  使用总结
+    总结说明针对不同场景的主要使用那些注解。
+    2.1.          字符类型
+        @AsserURL、@Email、@Length、@MaxLength、@MinLength
+        @NotNull、@NotBlank、@NotEmpty、
+        @Digits、@HasSubstring
+    2.2.          数值类型
+        @Range、@Max、@Min、@NotNegative
+
+    2.3.          布尔类型
+        @AssertFalse、@AssertTrue
+    2.4.          集合数组
+        @Size、@MaxSize、@MinSize、@MemberOf、@NotMemberOf
+    2.5.          表达式或自定义
+        @Assert、@CheckWith、@NotMatchPatternCheck，@MatchPatternCheck、
+        @ValidateWithMethod
