@@ -1,0 +1,16 @@
+1、单向映射
+    <mapping type="one-way">
+2、引用复制
+    <field copy-by-reference="true"> 
+    默认：  false
+3、排除空值映射
+    <mapping map-null="false">
+4、排除 空字符串 映射
+    <mapping map-empty-string="false">
+5、汇编模式
+
+6、日期格式化映射 
+    <field>
+        <a date-format="MM/dd/yyyy HH:mm:ss:SS">dateString</a>
+        <b>dateObject</b>
+    </field>
