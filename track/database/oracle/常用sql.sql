@@ -32,6 +32,12 @@
             pass VARCHAR2(255) NULL ,
             user_name VARCHAR2(255) NULL 
         )
+        CREATE TABLE user_test (
+            user_id VARCHAR2(12) not NULL, 
+            user_name VARCHAR2(255) not NULL,
+            constraint pk_Match_Ration primary key(user_id,user_name)
+        );
+        comment  on  column  表名.字段名   is  '注释内容';
 
 二、问题
     1、解决字段不能更改类型的问题

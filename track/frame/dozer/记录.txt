@@ -14,3 +14,5 @@
         <a date-format="MM/dd/yyyy HH:mm:ss:SS">dateString</a>
         <b>dateObject</b>
     </field>
+7、不映射未配置的字段
+    wildcard="false"  默认值：true
