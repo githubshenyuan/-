@@ -1,0 +1,23 @@
+1、环境
+2、下载：
+3、安装
+    修改 $SONARQUBE-HOME/conf/sonar.properties
+        oracle设置数据库驱动（其它数据库已提供支持不需要设置）
+            将oracle驱动放入  $SONARQUBE-HOME/extensions/jdbc-driver/oracle 中
+        设置数据库
+            sonar.jdbc.username=
+            sonar.jdbc.password=
+            sonar.jdbc.url=jdbc:oracle:thin:@localhost:1521/XE
+    修改 $SONARQUBE-HOME/conf/wrapper.conf
+        修改jdk 为指定jdk
+            wrapper.java.command=java
+4、加执行权限
+    cd $SONARQUBE-HOME/bin/linux-x86-64
+    chmod 755 sonar.sh
+    chmod 755 wrapper
+
+
+
+问题：
+    无法启动
+        sonarqube oracle 数据库驱动支持最低  12.1.0
