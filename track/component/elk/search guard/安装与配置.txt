@@ -1,0 +1,27 @@
+一、环境
+二、安装
+    1、elasticsearch 安装 search-guard
+        在线安装
+            bin/elasticsearch-plugin install -b com.floragunn:search-guard-6:6.5.4-24.0
+        离线安装
+            bin/elasticsearch-plugin install -b file:///path/to/search-guard-6-<version>.zip
+        执行
+            ${elasticsearch_home}/plugins/search-guard-6/tools/install_demo_configuration.sh
+        测试连通
+            启动 elasticsearch 
+            访问：  https://10.124.147.22:9200/_searchguard/authinfo    （注意这里是 https）
+    2、kibana 安装 search-guard
+        在线安装：
+            bin/kibana-plugin install https://search.maven.org/remotecontent?filepath=com/floragunn/search-guard-kibana-plugin/6.4.0-16/search-guard-kibana-plugin-6.4.0-16.zip
+        配置：
+            server.port: 5601
+            server.host: "0.0.0.0"
+            elasticsearch.url: "https://localhost:9200"
+            elasticsearch.username: "kibanaserver"
+            elasticsearch.password: "kibanaserver"
+            elasticsearch.ssl.verificationMode: none
+            elasticsearch.requestHeadersWhitelist: [ "Authorization", "sgtenant" ]
+            xpack.security.enabled: false
+
+    3、logstash 安装 search-guard
+        未开始

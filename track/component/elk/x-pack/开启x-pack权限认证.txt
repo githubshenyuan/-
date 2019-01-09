@@ -1,0 +1,35 @@
+一、环境
+二、安装配置
+    1、elasticsearch 安装与配置 x-pack
+        安装：
+            说明：6.3版本以上的 elk 默认安装了 x-pack 所以 无需再安装
+        配置：
+            开启 x-pack：
+                xpack.security.enabled: true
+            设置密码：
+                ./elasticsearch-setup-passwords interactive  （注意根据提示设置密码）
+    2、kibana 安装与设置  x-pack
+        安装：
+            说明：6.3版本以上的 elk 默认安装了 x-pack 所以 无需再安装
+        配置：
+            设置 elasticsearch 密码：
+                elasticsearch.username: "kibana"
+                elasticsearch.password: "123456"   （注意这里的账号和密码 是elasticsearch 步骤中设置的）
+    3、logstash 安装与设置  x-pack
+        安装：
+            说明：6.3版本以上的 elk 默认安装了 x-pack 所以 无需再安装
+        配置：
+            logstash.yml 中配置
+                xpack.management.elasticsearch.username: "logstash_system"
+                xpack.management.elasticsearch.password: "123456"
+            test.cong 中配置
+                output { 
+                    elasticsearch { 
+                        action => "index"  
+                        hosts =>  ["192.168.1.112:9200"] 
+                        index  => "%{[springAppName]}-%{+YYYY.MM.dd}"
+                        user  => "logstash_system"
+                        password   => "123456"
+                        } 
+                    stdout { codec => rubydebug  } 
+                }
