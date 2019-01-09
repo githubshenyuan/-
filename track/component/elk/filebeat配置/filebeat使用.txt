@@ -14,6 +14,8 @@
             hosts: ["localhost:5044"]
 3、启动
     ./filebeat -e -c filebeat.yml
+    # 会出现 /logs 日志目录
+    nohup ./filebeat  -c filebeat.yml >/dev/null 2>&1 &  
 4、配置读取多行
     multiline.pattern: '^\['
     multiline.negate: true

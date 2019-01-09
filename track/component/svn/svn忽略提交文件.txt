@@ -1,0 +1,2 @@
+1、setting → General → Global ignore pattern  中 追加
+    *.iml .idea target
